@@ -1,9 +1,9 @@
-import LandingPage from "./component/landingpage/LandingPage";
+import Wallet from "./component/wallet/Wallet";
 
 const App = () => {
   return (
     <div>
-      <LandingPage />
+      <Wallet />
     </div>
   );
 };
