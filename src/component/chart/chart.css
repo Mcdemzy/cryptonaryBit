@@ -1,0 +1,65 @@
+@media screen and (max-width: 600px) {
+  .chart__page {
+    background: rgba(105, 20, 105, 0.825);
+    min-height: 200vh;
+    padding-top: 14px;
+  }
+
+  .chart__bitcoin p {
+    margin: auto;
+    text-align: center;
+    font-weight: 300;
+    color: var(--text-gray);
+  }
+
+  .main__chart-container {
+    width: 96%;
+    min-height: 40vh;
+    background: #151f2b8d;
+    margin: auto;
+    margin-top: 40px;
+    padding-top: 16px;
+    border-radius: 10px;
+  }
+  .main__chart-container img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    position: relative;
+    top: -20px;
+  }
+
+  .main__chart-container h1 {
+    font-size: 2.5rem;
+    font-weight: 200;
+    color: var(--text-white);
+    text-align: center;
+    line-height: 40px;
+  }
+
+  .main__chart-container h1 span {
+    font-size: 2rem;
+  }
+
+  .main__chart-container h3 {
+    color: var(--text-gray);
+    text-align: center;
+  }
+
+  .main__chart-container h3 span {
+    color: green;
+  }
+
+  /* .chart__price {
+    background: var(--text-primary);
+    padding: 6px;
+    font-size: 1.1rem;
+  } */
+
+  .main__chart-display {
+    width: 100%;
+    min-height: 45vh;
+    /* background: black; */
+  }
+}

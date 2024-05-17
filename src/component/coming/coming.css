@@ -1,0 +1,30 @@
+@media screen and (max-width: 600px) {
+  .coming-soon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: #788895;
+    margin-top: 100px;
+    font-size: 1.5rem;
+  }
+  .rocket__container img {
+    padding: 10px;
+  }
+
+  .coming-home {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    height: 5vh;
+    background: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    font-size: 1.2rem;
+  }
+}

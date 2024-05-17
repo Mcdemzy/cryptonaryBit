@@ -1,0 +1,22 @@
+@media screen and (max-width: 600px) {
+  .navbar__container {
+    position: fixed;
+    background: var(--nav-bg);
+    color: var(--text-gray);
+    width: 100vw;
+    height: 12vh;
+    bottom: 0px;
+  }
+
+  .active__nav {
+    color: var(--text-primary);
+  }
+
+  .nav__icon {
+    font-size: 1.2rem;
+  }
+
+  .navbar__container span {
+    font-size: 0.9rem;
+  }
+}

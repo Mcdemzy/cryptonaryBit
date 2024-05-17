@@ -1,0 +1,113 @@
+@media screen and (max-width: 600px) {
+  .signin__container {
+    background: var(--color-bg-variant);
+    color: var(--color-bg-white);
+    min-height: 100vh;
+    padding: 20px;
+    padding-top: 100px;
+  }
+
+  .signin__welcome h1 {
+    font-family: "Sevillana", cursive;
+    font-size: 5rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--text-primary);
+    text-align: center;
+    line-height: 40px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  .signin__welcome p {
+    margin-bottom: 80px;
+    font-size: 1.8rem;
+    color: var(--text-gray);
+  }
+
+  .signin__container label {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+
+  .signin__container input {
+    width: 90vw;
+    height: 70px;
+    background: var(--color-variant);
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--text-white);
+    margin-bottom: 20px;
+    outline: var(--color-bg-white);
+    border: 1px solid var(--text-gray);
+  }
+
+  .signin__container-forgot {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: end;
+    color: var(--text-primary);
+  }
+
+  .signin__container button {
+    width: 90vw;
+    background: var(--text-primary);
+    color: var(--text-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    border-radius: 10px;
+    margin: auto;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .signin__container p {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .signin__container p a {
+    color: var(--text-primary);
+  }
+
+  .create__container h1 {
+    font-size: 2rem;
+  }
+
+  .create__container p {
+    text-align: left;
+    color: var(--text-gray-variant);
+    font-size: 0.9rem;
+    line-height: 20px;
+    margin-bottom: 40px;
+  }
+
+  .signup__container {
+    padding-top: 16px;
+  }
+
+  .signup__container h1 {
+    font-size: 2.2rem;
+  }
+  .signup__container p {
+    text-align: left;
+    font-size: 1rem;
+    color: var(--text-gray);
+    margin-bottom: 2rem;
+    line-height: 22px;
+  }
+
+  .signup__container label {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+
+  .create__container button {
+    margin-top: 50px;
+  }
+}

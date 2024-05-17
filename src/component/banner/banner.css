@@ -1,0 +1,45 @@
+@media screen and (max-width: 600px) {
+  /* ================== Banner Page ==================  */
+
+  .banner__container {
+    min-height: 100vh;
+    background: var(--text-black);
+    padding: 10px;
+    padding-top: 30px;
+  }
+
+  .banner__container h1 {
+    color: var(--text-white);
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 40px;
+    margin-bottom: 20px;
+  }
+
+  .banner__container p {
+    max-width: 96vw;
+    font-size: 0.8rem;
+    color: var(--text-gray);
+  }
+
+  .balance__signin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--text-primary);
+    color: var(--text-black);
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+  }
+  .balance__signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-primary);
+    padding: 16px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    border: 1px solid var(--text-primary);
+  }
+}

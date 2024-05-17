@@ -1,0 +1,120 @@
+@media screen and (max-width: 600px) {
+  .dashboard__feature {
+    padding: 10px;
+    color: var(--text-white);
+  }
+
+  .dashboard__banner {
+    /* background: var(--text-gray-variant); */
+    max-height: 254vh;
+    width: 90vw;
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  .dashboard__leader {
+    background: rgba(255, 204, 0, 0.9);
+    padding: 12px;
+    border-radius: 20px;
+    position: relative;
+  }
+
+  .dashboard__leader h3 {
+    font-weight: 800;
+  }
+
+  .dashboard__leader p {
+    /* font-size: 0.8rem; */
+  }
+
+  .dashboard__leader a {
+    font-weight: 600;
+  }
+
+  .dashboard__leader img {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    transform: rotate(-20deg);
+  }
+
+  .dashboard__kyc {
+    background: #0b121c;
+    color: var(--text-white);
+    padding: 12px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .crypto__assets-container {
+    width: 90vw;
+    margin: auto;
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .crypto__assets {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .crypto__assets h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+
+  .crypto__assets-icon {
+    font-size: 1.5rem;
+  }
+
+  .crypto__container {
+    background: #000;
+    display: flex;
+    justify-content: space-between;
+    /* height: 10vh; */
+    border-radius: 6px;
+    color: var(--text-white);
+    padding: 12px;
+  }
+
+  .left__crypto-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .right__crypto-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .right__crypto-container div {
+    width: 60px;
+    background: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 24px;
+  }
+
+  .left__crypto-container p {
+    /* font-size: 1.2rem; */
+    font-weight: 500;
+  }
+
+  .left__crypto-container span {
+    font-size: 0.9rem;
+    font-weight: 300;
+  }
+
+  .right__crypto-container .crypto__assets-icon {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+  }
+}
