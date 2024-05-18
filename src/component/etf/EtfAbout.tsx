@@ -42,7 +42,7 @@ const EtfAbout = () => {
         </p>
 
         <div className="about-etf__main-chart">
-          {/* <TradingViewWidget /> */}
+          <TradingViewWidget />
         </div>
         <div className="about-etf__purchase">
           <img src={Bitcoin} alt="" />
