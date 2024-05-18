@@ -1,5 +1,8 @@
 import EtfImg1 from "../../assets/etfImg2.png";
 import TradingViewWidget from "../chart/TradingViewWidget";
+import { IoIosInformationCircle } from "react-icons/io";
+import Bitcoin from "../../assets/bitcoin-wallet.png";
+
 import "./etf.css";
 
 const EtfAbout = () => {
@@ -32,14 +35,25 @@ const EtfAbout = () => {
 
       {/* About Etf Chart Section */}
       <section className="about-etf__chart">
-        <p className="">
+        <p>
           The Trust’s investment objective is to seek to provide exposure to the
           value of bitcoin held by the Trust, less the expenses of the Trust’s
           operations and other liabilities
         </p>
 
-        <div>
-          <TradingViewWidget />
+        <div className="about-etf__main-chart">
+          {/* <TradingViewWidget /> */}
+        </div>
+        <div className="about-etf__purchase">
+          <img src={Bitcoin} alt="" />
+          <div className="flex flex-col">
+            <h1>Set a Recurring Purchase</h1>
+            <h2>Automate your investing</h2>
+          </div>
+        </div>
+        <div className="about-etf__info">
+          <IoIosInformationCircle className="about-etf__info-icon" />
+          BITB shares are trading within their normal range today.
         </div>
       </section>
     </article>
