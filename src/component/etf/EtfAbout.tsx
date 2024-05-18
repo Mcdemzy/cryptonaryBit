@@ -1,10 +1,11 @@
 import EtfImg1 from "../../assets/etfImg2.png";
+import TradingViewWidget from "../chart/TradingViewWidget";
 import "./etf.css";
 
-const EtfFinancials = () => {
+const EtfAbout = () => {
   return (
     <article>
-      {/* Etf Financial Top Nav section */}
+      {/* About Etf Top Nav section */}
       <section className="about-etf__nav">
         <h1>Bitb</h1>
         <h2>Bitwise Bitcoin Etf</h2>
@@ -15,7 +16,7 @@ const EtfFinancials = () => {
         </div>
       </section>
 
-      {/* Etf Financial Main Container section */}
+      {/* About Etf Main Container section */}
       <section className="about-etf__container">
         <img src={EtfImg1} alt="" />
         <div className="about-etf__container-content">
@@ -29,10 +30,20 @@ const EtfFinancials = () => {
         </div>
       </section>
 
-      {/* Etf Financial Section */}
-      <section className="about-etf__chart"></section>
+      {/* About Etf Chart Section */}
+      <section className="about-etf__chart">
+        <p className="">
+          The Trust’s investment objective is to seek to provide exposure to the
+          value of bitcoin held by the Trust, less the expenses of the Trust’s
+          operations and other liabilities
+        </p>
+
+        <div>
+          <TradingViewWidget />
+        </div>
+      </section>
     </article>
   );
 };
 
-export default EtfFinancials;
+export default EtfAbout;

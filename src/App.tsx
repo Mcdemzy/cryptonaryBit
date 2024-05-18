@@ -1,9 +1,9 @@
-import LandingPage from "./component/landingpage/LandingPage";
+import EtfAbout from "./component/etf/EtfAbout";
 
 const App = () => {
   return (
     <div>
-      <LandingPage />
+      <EtfAbout />
     </div>
   );
 };

@@ -21,6 +21,7 @@
   .etf__page-content {
     display: flex;
     flex-direction: column;
+    padding: 10px;
   }
   .etf__main-display {
     display: flex;
@@ -37,5 +38,109 @@
 
   .etf__main-text span {
     font-weight: 400;
+  }
+
+  /* About Etf Page */
+
+  .about-etf__nav h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 10px;
+  }
+
+  .about-etf__nav h2 {
+    text-align: center;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+
+  .about-etf__nav div {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.8);
+    padding-bottom: 10px;
+  }
+  .about-etf__nav div p {
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+
+  .about-etf__container {
+    /* margin-top: 20px; */
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+  }
+
+  .about-etf__container img {
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+  }
+
+  .about-etf__container-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-etf__container-content h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .about-etf__container-content h2 {
+    color: var(--text-gray-variant);
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+
+  .about-etf__container-content div {
+    display: flex;
+    color: rgb(23, 195, 23);
+  }
+
+  .about-etf__up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    border-radius: 4px;
+    background: rgb(23, 195, 23);
+    color: var(--text-white);
+    text-transform: uppercase;
+    margin-right: 5px;
+    font-size: 0.875rem;
+  }
+
+  .about-etf__day {
+    color: var(--text-gray-variant);
+    margin-left: 5px;
+  }
+
+  .about-etf__market {
+    font-size: 0.75rem;
+    color: red;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .about-etf__chart p {
+    font-size: 0.75rem;
+    padding: 10px;
+    line-height: 1.25rem;
+    margin: auto;
+  }
+
+  .about-etf__chart div {
+    width: 96%;
+    margin: auto;
+    height: 40vh;
+    padding: 10px;
+    margin-bottom: 30px;
   }
 }
