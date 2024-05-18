@@ -137,10 +137,8 @@
   }
 
   .about-etf__chart div {
-    width: 96%;
     margin: auto;
     height: 40vh;
     padding: 10px;
-    margin-bottom: 30px;
   }
 }
