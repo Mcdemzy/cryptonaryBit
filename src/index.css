@@ -23,10 +23,10 @@
 html {
   scroll-behavior: smooth;
 }
-
+/* 
 ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 body {
   font-family: "Ubuntu", sans-serif;

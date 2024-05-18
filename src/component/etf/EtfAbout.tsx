@@ -44,6 +44,9 @@ const EtfAbout = () => {
         <div className="about-etf__main-chart">
           <TradingViewWidget />
         </div>
+      </section>
+
+      <section>
         <div className="about-etf__purchase">
           <img src={Bitcoin} alt="" />
           <div className="flex flex-col">

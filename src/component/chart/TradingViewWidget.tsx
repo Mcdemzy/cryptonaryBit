@@ -5,6 +5,9 @@ function TradingViewWidget() {
 
   useEffect(() => {
     if (container.current) {
+      // Remove any existing scripts to prevent duplication
+      container.current.innerHTML = "";
+
       const script = document.createElement("script");
       script.src =
         "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
@@ -13,8 +16,8 @@ function TradingViewWidget() {
       script.innerHTML = `
           {
             "width": "100%",
-            "height": "610",
-            "symbol": "NASDAQ:AAPL",
+            "height": "400",
+            "symbol": "AMEX:BITB",
             "interval": "D",
             "timezone": "Etc/UTC",
             "theme": "light",
