@@ -185,4 +185,35 @@
   .about-etf__info-icon {
     font-size: 1.5rem;
   }
+
+  .etf-financials__main {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .etf-financials__main h1 {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
+    padding-bottom: 10px;
+    /* margin-bottom: 20px; */
+  }
+
+  .etf-financials__main h1 span {
+    color: var(--text-primary);
+  }
+
+  .etf-financials__main-content {
+    display: grid;
+    grid-template-columns: 30% 25% 25% 20%;
+  }
+
+  .etf-financials__main-content p {
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+  }
 }

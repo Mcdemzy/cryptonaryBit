@@ -1,4 +1,5 @@
 import EtfImg1 from "../../assets/etfImg2.png";
+import { IoIosInformationCircle } from "react-icons/io";
 import "./etf.css";
 
 const EtfFinancials = () => {
@@ -30,7 +31,54 @@ const EtfFinancials = () => {
       </section>
 
       {/* Etf Financial Section */}
-      <section className="about-etf__chart"></section>
+      <section className="etf-financials__main">
+        <h1>
+          Stats
+          <span>
+            <IoIosInformationCircle />
+          </span>
+        </h1>
+        <div className="etf-financials__main-content">
+          <p>Open</p>
+          <p>$66.38</p>
+          <p>Volume</p>
+          <p>
+            1.10 <span>M</span>
+          </p>
+        </div>
+        <div className="etf-financials__main-content">
+          <p>High</p>
+          <p>$67.55</p>
+          <p>Avg Vol</p>
+          <p>
+            1.46 <span>M</span>
+          </p>
+        </div>
+        <div className="etf-financials__main-content">
+          <p>Low</p>
+          <p>$65.85</p>
+          <p>Mkt Cap</p>
+          <p>
+            $0.00<span>K</span>
+          </p>
+        </div>
+        <div className="etf-financials__main-content">
+          <p>52 Wk High</p>
+          <p>$73.62</p>
+          <p>P/E Ratio</p>
+          <p>
+            1.46 <span>M</span>
+          </p>
+        </div>
+        <div className="etf-financials__main-content">
+          <p>52 Wk Low</p>
+          <p>$38.62</p>
+          <p>Div/Yield</p>
+          <p>
+            0.00% <span></span>
+          </p>
+        </div>
+      </section>
     </article>
   );
 };

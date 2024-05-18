@@ -1,9 +1,9 @@
-import EtfAbout from "./component/etf/EtfAbout";
+import EtfFinancials from "./component/etf/EtfFinancials";
 
 const App = () => {
   return (
     <div>
-      <EtfAbout />
+      <EtfFinancials />
     </div>
   );
 };
