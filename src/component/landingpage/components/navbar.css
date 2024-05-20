@@ -167,3 +167,12 @@
 .body-no-scroll {
   overflow: hidden;
 }
+
+/* New CSS for content margin */
+.content {
+  transition: margin-top 0.3s;
+}
+
+.content-with-margin {
+  margin-top: 40px;
+}
