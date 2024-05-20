@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./navbar.css";
 import { FaChevronDown } from "react-icons/fa6";
 import { HiOutlineMenu } from "react-icons/hi";
