@@ -22,22 +22,26 @@ const Etf = () => {
         {/* Etf Page Content */}
         <section className="etf__page-content">
           <div className="mt-4 text-[1.1rem]">Featured Stocks</div>
-          <div className="etf__main-display">
-            <img src={EtfImg1} alt="" width={60} height={60} />
-            <p className="etf__main-text">
-              Valkyrie Bitcoin Fund <br />
-              <span>Brrr</span>
-            </p>
-            <p className="text-[1rem]">$62.50</p>
-          </div>
-          <div className="etf__main-display">
-            <img src={EtfImg2} alt="" width={60} height={60} />
-            <p className="etf__main-text">
-              Valkyrie Bitcoin Fund <br />
-              <span>Brrr</span>
-            </p>
-            <p className="text-[1rem]">$62.50</p>
-          </div>
+          <a href="">
+            <div className="etf__main-display">
+              <img src={EtfImg1} alt="" width={60} height={60} />
+              <p className="etf__main-text">
+                Valkyrie Bitcoin Fund <br />
+                <span>Brrr</span>
+              </p>
+              <p className="text-[1rem]">$62.50</p>
+            </div>
+          </a>
+          <a href="/etfabout">
+            <div className="etf__main-display">
+              <img src={EtfImg2} alt="" width={60} height={60} />
+              <p className="etf__main-text">
+                Valkyrie Bitcoin Fund <br />
+                <span>Brrr</span>
+              </p>
+              <p className="text-[1rem]">$62.50</p>
+            </div>
+          </a>
         </section>
       </section>
     </article>
