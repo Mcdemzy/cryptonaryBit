@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { HiOutlineMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 import "./navbar.css";
 
 const Navbar = () => {
+  // const [isMainDropdownOpen, setIsMainDropdownOpen] = useState(false);
   const [isSubDropdownOpen, setIsSubDropdownOpen] = useState(false);
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -17,22 +17,10 @@ const Navbar = () => {
       }
     };
 
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        event.target instanceof Node &&
-        !dropdownRef.current.contains(event.target)
-      ) {
-        setIsSubDropdownOpen(false);
-      }
-    };
-
     window.addEventListener("resize", handleResize);
-    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -43,6 +31,10 @@ const Navbar = () => {
       document.body.classList.remove("body-no-scroll");
     }
   }, [isMobileNavVisible]);
+
+  // const toggleMainDropdown = () => {
+  //   setIsMainDropdownOpen((prevState) => !prevState);
+  // };
 
   const toggleSubDropdown = () => {
     setIsSubDropdownOpen((prevState) => !prevState);
@@ -79,12 +71,9 @@ const Navbar = () => {
               Tools <FaChevronDown className="ml-1" />
             </button>
             {isSubDropdownOpen && (
-              <div
-                ref={dropdownRef}
-                className="absolute top-full mt-2 left-0 bg-black border-gray-700 text-white rounded-md shadow-lg w-48 z-50"
-              >
+              <div className="absolute top-full mt-2 left-0 bg-black border-gray-700 text-white rounded-md shadow-lg w-48 z-50">
                 <a
-                  href="/dashboard"
+                  href="#"
                   className="block px-4 py-2 hover:bg-gray-800"
                   onClick={() => setIsSubDropdownOpen(false)}
                 >
@@ -126,13 +115,13 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Link
               to="/signup"
-              className="bg-[#ffffff] p-[8px] rounded-lg text-[#060d17]"
+              className="bg-[#ffffff] p-[8px] rounded-lg text-[#060d17] hover:"
             >
               Subscribe
             </Link>
             <Link
               to="/signin"
-              className="bg-[#ffcc00] w-[80px] flex justify-center items-center p-2 rounded-lg text-white"
+              className="bg-[#ffcc00] w-[80px] flex  justify-center items-center p-2 rounded-lg text-white hover:"
             >
               Login
             </Link>
@@ -181,28 +170,28 @@ const Navbar = () => {
                 className="hover:text-blue-500"
                 onClick={() => setIsSubDropdownOpen(false)}
               >
-                Dashboard
+                Real-Time Charts
               </a>
               <a
                 href="#"
                 className="hover:text-blue-500"
                 onClick={() => setIsSubDropdownOpen(false)}
               >
-                Settings
+                CryptonaryBit Picks
+              </a>
+              <a
+                href="/etf"
+                className="hover:text-blue-500"
+                onClick={() => setIsSubDropdownOpen(false)}
+              >
+                ETF Tracker
               </a>
               <a
                 href="#"
                 className="hover:text-blue-500"
                 onClick={() => setIsSubDropdownOpen(false)}
               >
-                Earnings
-              </a>
-              <a
-                href="#"
-                className="hover:text-blue-500"
-                onClick={() => setIsSubDropdownOpen(false)}
-              >
-                Sign out
+                Airdrops
               </a>
             </div>
           )}
