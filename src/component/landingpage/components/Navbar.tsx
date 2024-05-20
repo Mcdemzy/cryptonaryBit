@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import "./navbar.css";
 
 const Navbar = () => {
-  const [isMainDropdownOpen, setIsMainDropdownOpen] = useState(false);
+  // const [isMainDropdownOpen, setIsMainDropdownOpen] = useState(false);
   const [isSubDropdownOpen, setIsSubDropdownOpen] = useState(false);
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
 
@@ -32,9 +32,9 @@ const Navbar = () => {
     }
   }, [isMobileNavVisible]);
 
-  const toggleMainDropdown = () => {
-    setIsMainDropdownOpen((prevState) => !prevState);
-  };
+  // const toggleMainDropdown = () => {
+  //   setIsMainDropdownOpen((prevState) => !prevState);
+  // };
 
   const toggleSubDropdown = () => {
     setIsSubDropdownOpen((prevState) => !prevState);
