@@ -4,6 +4,7 @@ import { IoIosInformationCircle } from "react-icons/io";
 import Bitcoin from "../../assets/bitcoin-wallet.png";
 
 import "./etf.css";
+import { Link } from "react-router-dom";
 
 const EtfAbout = () => {
   return (
@@ -14,7 +15,9 @@ const EtfAbout = () => {
         <h2>Bitwise Bitcoin Etf</h2>
         <div>
           <p>About</p>
-          <p>Financials</p>
+          <p>
+            <Link to="/etffinancials">Financials</Link>
+          </p>
           <p>News</p>
         </div>
       </section>

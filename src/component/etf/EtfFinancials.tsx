@@ -1,6 +1,7 @@
 import EtfImg1 from "../../assets/etfImg2.png";
 import { IoIosInformationCircle } from "react-icons/io";
 import "./etf.css";
+import { Link } from "react-router-dom";
 
 const EtfFinancials = () => {
   return (
@@ -10,7 +11,9 @@ const EtfFinancials = () => {
         <h1>Bitb</h1>
         <h2>Bitwise Bitcoin Etf</h2>
         <div>
-          <p>About</p>
+          <p>
+            <Link to="/etfabout">About</Link>
+          </p>
           <p>Financials</p>
           <p>News</p>
         </div>

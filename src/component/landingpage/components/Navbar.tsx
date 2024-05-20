@@ -179,13 +179,13 @@ const Navbar = () => {
               >
                 CryptonaryBit Picks
               </a>
-              <a
-                href="/etf"
+              <Link
+                to="/etf"
                 className="hover:text-blue-500"
                 onClick={() => setIsSubDropdownOpen(false)}
               >
                 ETF Tracker
-              </a>
+              </Link>
               <a
                 href="#"
                 className="hover:text-blue-500"

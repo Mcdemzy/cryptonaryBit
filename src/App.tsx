@@ -5,6 +5,7 @@ import Signin from "./component/signin/Signin";
 import Dashboard from "./component/dashboard/Dashboard";
 import Etf from "./component/etf/Etf";
 import EtfAbout from "./component/etf/EtfAbout";
+import EtfFinancials from "./component/etf/EtfFinancials";
 // import Navbar from "./component/landingpage/components/Navbar";
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/etf" element={<Etf />} />
         <Route path="/etfabout" element={<EtfAbout />} />
+        <Route path="/etffinancials" element={<EtfFinancials />} />
       </Routes>
       {/* <LandingPage /> */}
     </>

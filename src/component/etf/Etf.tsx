@@ -1,6 +1,7 @@
 import "./etf.css";
 import EtfImg1 from "../../assets/etfImg1.png";
 import EtfImg2 from "../../assets/etfImg2.png";
+import { Link } from "react-router-dom";
 
 const Etf = () => {
   return (
@@ -22,7 +23,7 @@ const Etf = () => {
         {/* Etf Page Content */}
         <section className="etf__page-content">
           <div className="mt-4 text-[1.1rem]">Featured Stocks</div>
-          <a href="">
+          <Link to="/">
             <div className="etf__main-display">
               <img src={EtfImg1} alt="" width={60} height={60} />
               <p className="etf__main-text">
@@ -31,8 +32,8 @@ const Etf = () => {
               </p>
               <p className="text-[1rem]">$62.50</p>
             </div>
-          </a>
-          <a href="/etfabout">
+          </Link>
+          <Link to="/etfabout">
             <div className="etf__main-display">
               <img src={EtfImg2} alt="" width={60} height={60} />
               <p className="etf__main-text">
@@ -41,7 +42,7 @@ const Etf = () => {
               </p>
               <p className="text-[1rem]">$62.50</p>
             </div>
-          </a>
+          </Link>
         </section>
       </section>
     </article>
