@@ -8,7 +8,7 @@ import "./navbar.css";
 const Navbar = () => {
   const [isSubDropdownOpen, setIsSubDropdownOpen] = useState(false);
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -17,8 +17,12 @@ const Navbar = () => {
       }
     };
 
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        event.target instanceof Node &&
+        !dropdownRef.current.contains(event.target)
+      ) {
         setIsSubDropdownOpen(false);
       }
     };
@@ -122,13 +126,13 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Link
               to="/signup"
-              className="bg-[#ffffff] p-[8px] rounded-lg text-[#060d17] hover:"
+              className="bg-[#ffffff] p-[8px] rounded-lg text-[#060d17]"
             >
               Subscribe
             </Link>
             <Link
               to="/signin"
-              className="bg-[#ffcc00] w-[80px] flex  justify-center items-center p-2 rounded-lg text-white hover:"
+              className="bg-[#ffcc00] w-[80px] flex justify-center items-center p-2 rounded-lg text-white"
             >
               Login
             </Link>
