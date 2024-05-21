@@ -32,8 +32,6 @@ import { UserButton } from "@clerk/clerk-react";
 const Dashboard = () => {
   const { user } = useClerk();
 
-  console.log(user);
-
   return (
     <>
       <section className="dashboard__container">

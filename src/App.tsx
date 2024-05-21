@@ -4,8 +4,6 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-
-// import { Routes, Route } from "react-router-dom";
 import LandingPage from "./component/landingpage/LandingPage";
 import Signup from "./component/signup/Signup";
 import Signin from "./component/signin/Signin";
@@ -15,12 +13,11 @@ import EtfAbout from "./component/etf/EtfAbout";
 import EtfFinancials from "./component/etf/EtfFinancials";
 import Wallet from "./component/wallet/Wallet";
 import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react";
-// import Navbar from "./component/landingpage/components/Navbar";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route index element={<LandingPage />} />{" "}
+      <Route index element={<LandingPage />} />
       <Route
         path="/dashboard"
         element={
@@ -28,7 +25,6 @@ const router = createBrowserRouter(
             <SignedIn>
               <Dashboard />
             </SignedIn>
-
             <SignedOut>
               <RedirectToSignIn />
             </SignedOut>
@@ -47,7 +43,6 @@ const router = createBrowserRouter(
             <SignedIn>
               <Wallet />
             </SignedIn>
-
             <SignedOut>
               <RedirectToSignIn />
             </SignedOut>
@@ -59,11 +54,7 @@ const router = createBrowserRouter(
 );
 
 const App = () => {
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
