@@ -4,6 +4,7 @@ import { HiOutlineMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import "./navbar.css";
+import { SignInButton } from "@clerk/clerk-react";
 
 const Navbar = () => {
   // const [isMainDropdownOpen, setIsMainDropdownOpen] = useState(false);
@@ -119,6 +120,7 @@ const Navbar = () => {
             >
               Subscribe
             </Link>
+            <SignInButton forceRedirectUrl="/dashboard" />
             <Link
               to="/signin"
               className="bg-[#ffcc00] w-[80px] flex  justify-center items-center p-2 rounded-lg text-white hover:"

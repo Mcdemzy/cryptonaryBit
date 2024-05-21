@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { BiBell } from "react-icons/bi";
 
 import Flag from "../../assets/flag.png";
 import "./wallet.css";
@@ -7,7 +6,6 @@ import { IoIosArrowDown } from "react-icons/io";
 import {
   // BsBoxArrowInDownLeft,
   BsBoxArrowUpRight,
-  BsThreeDotsVertical,
 } from "react-icons/bs";
 import { BiHide } from "react-icons/bi";
 import { IoMdStopwatch } from "react-icons/io";
@@ -20,6 +18,7 @@ import CryptoIcon1 from "../../assets/crypto1.png";
 // import CryptoIcon6 from "../../assets/crypto6.png";
 // import CryptoIcon7 from "../../assets/crypto7.png";
 import { AiOutlineClose } from "react-icons/ai";
+import { UserButton } from "@clerk/clerk-react";
 
 const Wallet = () => {
   const [modal, setModal] = useState(false);
@@ -41,12 +40,7 @@ const Wallet = () => {
           <h1 className="text-[1.7rem] font-[700] text-white">Wallet </h1>
 
           <div className="flex  mt-[10px] gap-2 justify-center">
-            <a href="">
-              <BiBell className="bg-[#222A37] p-[6px] text-[2.5rem] rounded-full text-white" />
-            </a>
-            <a href="">
-              <BsThreeDotsVertical className="text-[2rem] text-white" />
-            </a>
+            <UserButton />
           </div>
         </div>
 

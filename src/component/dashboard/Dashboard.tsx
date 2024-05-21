@@ -1,7 +1,7 @@
 import "./dashboard.css";
 
-import { BiBell } from "react-icons/bi";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import { useClerk } from "@clerk/clerk-react";
+
 import { AiOutlineSwap } from "react-icons/ai";
 import { BsBoxArrowInRight } from "react-icons/bs";
 import { BsBoxArrowInLeft } from "react-icons/bs";
@@ -27,23 +27,23 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Link } from "react-router-dom";
+import { UserButton } from "@clerk/clerk-react";
 
 const Dashboard = () => {
+  const { user } = useClerk();
+
+  console.log(user);
+
   return (
     <>
       <section className="dashboard__container">
         <div className="flex justify-between pt-[16px] p-[10px] bg-[#121A25]">
           <h1 className="text-[1.7rem] font-[700] text-white">
-            Hello, Mcdemzy
+            Hello, {user?.firstName}
           </h1>
 
-          <div className="flex  mt-[10px] gap-2 justify-center">
-            <a href="">
-              <BiBell className="bg-[#222A37] p-[6px] text-[2.5rem] rounded-full text-white" />
-            </a>
-            <a href="">
-              <BsThreeDotsVertical className="text-[2rem] text-white" />
-            </a>
+          <div className="flex gap-2 justify-center">
+            <UserButton />
           </div>
         </div>
 
