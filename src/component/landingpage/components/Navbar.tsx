@@ -114,19 +114,15 @@ const Navbar = () => {
             </a>
           </div>
           <div className="hidden md:flex items-center space-x-4">
-            <Link
+            {/* <Link
               to="/signup"
               className="bg-[#ffffff] p-[8px] rounded-lg text-[#060d17] hover:"
             >
               Subscribe
-            </Link>
-            <SignInButton forceRedirectUrl="/dashboard" />
-            <Link
-              to="/signin"
-              className="bg-[#ffcc00] w-[80px] flex  justify-center items-center p-2 rounded-lg text-white hover:"
-            >
-              Login
-            </Link>
+            </Link> */}
+            <div className="text-[#0d141c] text-[1.125rem] font-[500] rounded-xl flex justify-center items-center p-3 m-[auto] bg-[#ffcc00] hover:bg-[#ffdd00] transition duration-300 ease-in-out">
+              <SignInButton forceRedirectUrl="/dashboard" />
+            </div>
           </div>
           <button
             onClick={handleMenuClick}
@@ -206,13 +202,17 @@ const Navbar = () => {
           <a href="#" className="px-4 py-2 hover:text-blue-500">
             About Us
           </a>
-          <Link to="/signup" className="px-4 py-2 hover:text-blue-500">
+          {/* <Link to="/signup" className="px-4 py-2 hover:text-blue-500">
             Subscribe
           </Link>
           <Link to="/signin" className="px-4 py-2 hover:text-blue-500">
             Login
-          </Link>
+          </Link> */}
+          <div className="cursor-pointer w-[90%] text-[1.25rem] font-[500] rounded-xl flex  justify-center items-center p-3 m-[auto] bg-[#ffcc00] hover:bg-[#ffdd00] transition duration-300 ease-in-out">
+            <SignInButton forceRedirectUrl="/dashboard" />
+          </div>
         </div>
+        {/* <SignInButton forceRedirectUrl="/dashboard" /> */}
       </nav>
 
       {/* Content Margin Adjustment */}
