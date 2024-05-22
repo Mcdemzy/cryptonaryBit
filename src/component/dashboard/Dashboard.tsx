@@ -132,7 +132,7 @@ const Dashboard = () => {
         </div>
 
         {/*  */}
-        <Link to="/wallet">
+        <Link to="/bch">
           <div className="crypto__container">
             <div className="left__crypto-container">
               <div>

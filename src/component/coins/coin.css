@@ -1,0 +1,37 @@
+.coin-details__container {
+  color: var(--text-white);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.coin-details__container img {
+  width: 60px;
+  margin-bottom: 5px;
+}
+
+.coin-details__container h1 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text-gray);
+}
+
+.coin-details__container h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.coin-details__container p {
+  color: rgb(34, 216, 34);
+}
+
+.about-etf__main-chart {
+  margin: auto;
+  padding: 10px;
+  margin-bottom: 40px;
+}

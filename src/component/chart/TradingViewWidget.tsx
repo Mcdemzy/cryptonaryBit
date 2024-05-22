@@ -16,11 +16,11 @@ function TradingViewWidget() {
       script.innerHTML = `
           {
             "width": "100%",
-            "height": "400",
-            "symbol": "AMEX:BITB",
+            "height": "600",
+            "symbol": "CRYPTOCAP:BCH",
             "interval": "D",
             "timezone": "Etc/UTC",
-            "theme": "light",
+            "theme": "dark",
             "style": "1",
             "locale": "en",
             "allow_symbol_change": true,
