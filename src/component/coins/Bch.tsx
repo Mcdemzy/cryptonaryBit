@@ -1,4 +1,3 @@
-import React from "react";
 import "./coin.css";
 import CryptoIcon from "../../assets/crypto1.png";
 import TradingViewWidget from "../chart/TradingViewWidget";
