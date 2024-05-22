@@ -1,6 +1,6 @@
 import "./coin.css";
 import CryptoIcon from "../../assets/crypto1.png";
-import TradingViewWidget from "../chart/TradingViewWidget";
+import CoinChart from "../chart/CoinChart";
 
 const Bch = () => {
   return (
@@ -18,7 +18,7 @@ const Bch = () => {
       </section>
 
       <div className="about-etf__main-chart">
-        <TradingViewWidget />
+        <CoinChart />
       </div>
     </article>
   );
