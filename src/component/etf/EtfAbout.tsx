@@ -5,6 +5,7 @@ import Bitcoin from "../../assets/bitcoin-wallet.png";
 
 import "./etf.css";
 import { Link } from "react-router-dom";
+import Navbar from "../navbar/Navbar";
 
 const EtfAbout = () => {
   return (
@@ -49,7 +50,7 @@ const EtfAbout = () => {
         </div>
       </section>
 
-      <section>
+      <section className="pb-[140px]">
         <div className="about-etf__purchase">
           <img src={Bitcoin} alt="" />
           <div className="flex flex-col">
@@ -62,6 +63,7 @@ const EtfAbout = () => {
           BITB shares are trading within their normal range today.
         </div>
       </section>
+      <Navbar />
     </article>
   );
 };

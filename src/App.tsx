@@ -38,6 +38,7 @@ const router = createBrowserRouter(
       <Route path="/etf" element={<Etf />} />
       <Route path="/etfabout" element={<EtfAbout />} />
       <Route path="/swap" element={<Coming />} />
+      <Route path="/coming" element={<Coming />} />
       <Route path="/etffinancials" element={<EtfFinancials />} />
       <Route path="/bch" element={<Bch />} />
       <Route

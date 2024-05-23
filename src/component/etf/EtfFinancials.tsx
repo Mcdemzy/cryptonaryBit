@@ -2,6 +2,7 @@ import EtfImg1 from "../../assets/etfImg2.png";
 import { IoIosInformationCircle } from "react-icons/io";
 import "./etf.css";
 import { Link } from "react-router-dom";
+import Navbar from "../navbar/Navbar";
 
 const EtfFinancials = () => {
   return (
@@ -34,7 +35,7 @@ const EtfFinancials = () => {
       </section>
 
       {/* Etf Financial Section */}
-      <section className="etf-financials__main">
+      <section className="etf-financials__main pb-[140px]">
         <h1>
           Stats
           <span>
@@ -82,6 +83,7 @@ const EtfFinancials = () => {
           </p>
         </div>
       </section>
+      <Navbar />
     </article>
   );
 };

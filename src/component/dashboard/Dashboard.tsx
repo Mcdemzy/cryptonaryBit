@@ -125,7 +125,7 @@ const Dashboard = () => {
           </SwiperSlide>
         </div>
       </Swiper>
-      <section className="crypto__assets-container h-[100vh]">
+      <section className="crypto__assets-container pb-[140px]">
         <div className="crypto__assets mt-4">
           <h3>All Crypto Assets</h3>
           <div className="flex justify-center items-center gap-2">
