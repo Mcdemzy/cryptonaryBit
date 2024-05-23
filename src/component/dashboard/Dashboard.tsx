@@ -29,6 +29,7 @@ import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 import { UserButton } from "@clerk/clerk-react";
 import MarketChart from "../chart/MarketChart";
+import Navbar from "../navbar/Navbar";
 
 const Dashboard = () => {
   const { user } = useClerk();
@@ -97,7 +98,6 @@ const Dashboard = () => {
           </Link>
         </div>
       </section>
-
       <Swiper
         spaceBetween={40}
         slidesPerView={1}
@@ -125,7 +125,6 @@ const Dashboard = () => {
           </SwiperSlide>
         </div>
       </Swiper>
-
       <section className="crypto__assets-container h-[100vh]">
         <div className="crypto__assets mt-4">
           <h3>All Crypto Assets</h3>
@@ -139,6 +138,7 @@ const Dashboard = () => {
           <MarketChart />
         </div>
       </section>
+      <Navbar />
     </>
   );
 };

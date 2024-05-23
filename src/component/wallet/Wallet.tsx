@@ -19,6 +19,7 @@ import CryptoIcon6 from "../../assets/crypto6.png";
 import CryptoIcon7 from "../../assets/crypto7.png";
 import { AiOutlineClose } from "react-icons/ai";
 import { UserButton } from "@clerk/clerk-react";
+import Navbar from "../navbar/Navbar";
 
 const Wallet = () => {
   const [modal, setModal] = useState(false);
@@ -240,7 +241,6 @@ const Wallet = () => {
           </div>
         </>
       </section>
-
       {modal && (
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
@@ -266,6 +266,7 @@ const Wallet = () => {
           </div>
         </div>
       )}
+      <Navbar />
     </>
   );
 };
