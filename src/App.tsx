@@ -14,6 +14,7 @@ import EtfFinancials from "./component/etf/EtfFinancials";
 import Wallet from "./component/wallet/Wallet";
 import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react";
 import Bch from "./component/coins/Bch";
+import Coming from "./component/coming/Coming";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,6 +37,7 @@ const router = createBrowserRouter(
       <Route path="/signin" element={<Signin />} />
       <Route path="/etf" element={<Etf />} />
       <Route path="/etfabout" element={<EtfAbout />} />
+      <Route path="/swap" element={<Coming />} />
       <Route path="/etffinancials" element={<EtfFinancials />} />
       <Route path="/bch" element={<Bch />} />
       <Route

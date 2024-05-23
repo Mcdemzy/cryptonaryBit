@@ -12,13 +12,13 @@ import { MdArrowDropUp } from "react-icons/md";
 // import { MdArrowDropDown } from "react-icons/md";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 
-import CryptoIcon1 from "../../assets/crypto1.png";
-import CryptoIcon2 from "../../assets/crypto2.png";
-import CryptoIcon3 from "../../assets/crypto3.png";
-import CryptoIcon4 from "../../assets/crypto4.png";
-import CryptoIcon5 from "../../assets/crypto5.png";
-import CryptoIcon6 from "../../assets/crypto6.png";
-import CryptoIcon7 from "../../assets/crypto7.png";
+// import CryptoIcon1 from "../../assets/crypto1.png";
+// import CryptoIcon2 from "../../assets/crypto2.png";
+// import CryptoIcon3 from "../../assets/crypto3.png";
+// import CryptoIcon4 from "../../assets/crypto4.png";
+// import CryptoIcon5 from "../../assets/crypto5.png";
+// import CryptoIcon6 from "../../assets/crypto6.png";
+// import CryptoIcon7 from "../../assets/crypto7.png";
 import Cup from "../../assets/cup.png";
 
 import { Pagination } from "swiper/modules";
@@ -28,6 +28,7 @@ import "swiper/css/pagination";
 
 import { Link } from "react-router-dom";
 import { UserButton } from "@clerk/clerk-react";
+import MarketChart from "../chart/MarketChart";
 
 const Dashboard = () => {
   const { user } = useClerk();
@@ -51,46 +52,49 @@ const Dashboard = () => {
         </div>
 
         <div className="mt-6 dashboard__feature flex justify-around items-center w-[90vw] h-[16vh] m-auto bg-[#060d17] p-[10px] rounded-xl">
-          <a href="">
+          <Link to="/wallet">
             <div className="flex flex-col items-center">
               <div className="bg-[#151F2B] h-8 w-12 flex justify-center items-center text-[1.2rem] rounded-xl">
                 <BsBoxArrowInRight className="bg-[#151f2b] text-[#ffcc00] dashboard__icon" />
               </div>
               <span className="font-[400] text-[0.7rem]">Buy Crypto</span>
             </div>
-          </a>
-          <a href="">
+          </Link>
+
+          <Link to="/">
             <div className="flex flex-col items-center">
               <div className="bg-[#151F2B] h-8 w-12 flex justify-center items-center text-[1.2rem] rounded-xl">
                 <BsBoxArrowInLeft className="bg-[#151f2b] text-[#ffcc00] dashboard__icon" />
               </div>
               <span className="font-[400] text-[0.7rem]">Sell Crypto</span>
             </div>
-          </a>
-          <a href="">
+          </Link>
+
+          <Link to="/">
             <div className="flex flex-col items-center">
               <div className="bg-[#151F2B] h-8 w-12 flex justify-center items-center text-[1.2rem] rounded-xl">
                 <AiOutlineSwap className="bg-[#151f2b] text-[#ffcc00] dashboard__icon" />
               </div>
               <span className="font-[400] text-[0.7rem]">Swap</span>
             </div>
-          </a>
-          <a href="">
+          </Link>
+
+          <Link to="/wallet">
             <div className="flex flex-col items-center">
               <div className="bg-[#151F2B] h-8 w-12 flex justify-center items-center text-[1.2rem] rounded-xl">
                 <BsBoxArrowInDownLeft className="bg-[#151f2b] text-[#ffcc00] dashboard__icon" />
               </div>
               <span className="font-[400] text-[0.7rem]">Deposit</span>
             </div>
-          </a>
-          <a href="">
+          </Link>
+          <Link to="/">
             <div className="flex flex-col items-center">
               <div className="bg-[#151F2B] h-8 w-12 flex justify-center items-center text-[1.2rem] rounded-xl">
                 <BsBoxArrowUpRight className="bg-[#151f2b] text-[#ffcc00] dashboard__icon" />
               </div>
               <span className="font-[400] text-[0.7rem]">Withdraw</span>
             </div>
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -123,7 +127,7 @@ const Dashboard = () => {
       </Swiper>
 
       <section className="crypto__assets-container h-[100vh]">
-        <div className="crypto__assets">
+        <div className="crypto__assets mt-4">
           <h3>All Crypto Assets</h3>
           <div className="flex justify-center items-center gap-2">
             <span>Show</span>
@@ -131,200 +135,9 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/*  */}
-        <Link to="/bch">
-          <div className="crypto__container">
-            <div className="left__crypto-container">
-              <div>
-                <img src={CryptoIcon1} alt="" width={48} />
-              </div>
-              <div>
-                <p>
-                  0.00 BCH <br />
-                  <span>USD 0.00</span>
-                </p>
-              </div>
-            </div>
-            <div className="right__crypto-container">
-              <div className="">
-                <MdArrowDropUp />
-                <span>+0%</span>
-              </div>
-              <MdOutlineArrowForwardIos className="crypto__assets-icon" />
-            </div>
-          </div>
-        </Link>
-        {/*  */}
-
-        {/*  */}
-        <a href="">
-          <div className="crypto__container">
-            <div className="left__crypto-container">
-              <div>
-                <img src={CryptoIcon2} alt="" width={48} />
-              </div>
-              <div>
-                <p>
-                  0.00 BNB <br />
-                  <span>USD 0.00</span>
-                </p>
-              </div>
-            </div>
-            <div className="right__crypto-container">
-              <div className="">
-                <MdArrowDropUp />
-                <span>+0%</span>
-              </div>
-              <MdOutlineArrowForwardIos className="crypto__assets-icon" />
-            </div>
-          </div>
-        </a>
-        {/*  */}
-
-        {/*  */}
-        <a href="">
-          <div className="crypto__container">
-            <div className="left__crypto-container">
-              <div>
-                <img src={CryptoIcon3} alt="" width={48} />
-              </div>
-              <div>
-                <p>
-                  0.00 BTC <br />
-                  <span>USD 0.00</span>
-                </p>
-              </div>
-            </div>
-            <div className="right__crypto-container">
-              <div className="">
-                <MdArrowDropUp />
-                <span>+0%</span>
-              </div>
-              <MdOutlineArrowForwardIos className="crypto__assets-icon" />
-            </div>
-          </div>
-        </a>
-        {/*  */}
-
-        {/*  */}
-        <a href="">
-          <div className="crypto__container">
-            <div className="left__crypto-container">
-              <div>
-                <img
-                  src={CryptoIcon4}
-                  alt=""
-                  width={48}
-                  className="bg-white rounded-full"
-                />
-              </div>
-              <div>
-                <p>
-                  0.00 ETH <br />
-                  <span>USD 0.00</span>
-                </p>
-              </div>
-            </div>
-            <div className="right__crypto-container">
-              <div className="">
-                <MdArrowDropUp />
-                <span>+0%</span>
-              </div>
-              <MdOutlineArrowForwardIos className="crypto__assets-icon" />
-            </div>
-          </div>
-        </a>
-        {/*  */}
-
-        {/*  */}
-        <a href="">
-          <div className="crypto__container">
-            <div className="left__crypto-container">
-              <div>
-                <img
-                  src={CryptoIcon5}
-                  alt=""
-                  width={48}
-                  className="bg-white rounded-full"
-                />
-              </div>
-              <div>
-                <p>
-                  0.00 SOL <br />
-                  <span>USD 0.00</span>
-                </p>
-              </div>
-            </div>
-            <div className="right__crypto-container">
-              <div className="">
-                <MdArrowDropUp />
-                <span>+0%</span>
-              </div>
-              <MdOutlineArrowForwardIos className="crypto__assets-icon" />
-            </div>
-          </div>
-        </a>
-        {/*  */}
-
-        {/*  */}
-        <a href="">
-          <div className="crypto__container">
-            <div className="left__crypto-container">
-              <div>
-                <img
-                  src={CryptoIcon6}
-                  alt=""
-                  width={48}
-                  className="bg-white rounded-full"
-                />
-              </div>
-              <div>
-                <p>
-                  0.00 TRX <br />
-                  <span>USD 0.00</span>
-                </p>
-              </div>
-            </div>
-            <div className="right__crypto-container">
-              <div className="">
-                <MdArrowDropUp />
-                <span>+0%</span>
-              </div>
-              <MdOutlineArrowForwardIos className="crypto__assets-icon" />
-            </div>
-          </div>
-        </a>
-        {/*  */}
-
-        {/*  */}
-        <a href="">
-          <div className="crypto__container mb-[100px]">
-            <div className="left__crypto-container">
-              <div>
-                <img
-                  src={CryptoIcon7}
-                  alt=""
-                  width={48}
-                  className="bg-white rounded-full"
-                />
-              </div>
-              <div>
-                <p>
-                  0.00 USDT <br />
-                  <span>USD 0.00</span>
-                </p>
-              </div>
-            </div>
-            <div className="right__crypto-container">
-              <div className="">
-                <MdArrowDropUp />
-                <span>+0%</span>
-              </div>
-              <MdOutlineArrowForwardIos className="crypto__assets-icon" />
-            </div>
-          </div>
-        </a>
-        {/*  */}
+        <div>
+          <MarketChart />
+        </div>
       </section>
     </>
   );
