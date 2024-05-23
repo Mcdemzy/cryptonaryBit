@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import "./landingpage.css";
-import Timer from "./components/Timer";
 import { SignInButton } from "@clerk/clerk-react";
 import Ticker from "../chart/Ticker";
 
@@ -22,7 +21,6 @@ const LandingPage = () => {
             is now.
           </h1>
           <p>Seize the moment before the giants do</p>
-          {/* Timer*/}
           <div className="w-[80%] m-auto">
             <Ticker />
           </div>
