@@ -3,7 +3,10 @@ import { useState } from "react";
 import Flag from "../../assets/flag.png";
 import "./wallet.css";
 import { IoIosArrowDown } from "react-icons/io";
-import { BsBoxArrowInDownLeft, BsBoxArrowUpRight } from "react-icons/bs";
+import {
+  //  BsBoxArrowInDownLeft,
+  BsBoxArrowUpRight,
+} from "react-icons/bs";
 import { BiHide } from "react-icons/bi";
 import { IoMdStopwatch } from "react-icons/io";
 

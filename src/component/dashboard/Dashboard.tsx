@@ -8,9 +8,9 @@ import { BsBoxArrowInLeft } from "react-icons/bs";
 import { BsBoxArrowInDownLeft } from "react-icons/bs";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { BiShow } from "react-icons/bi";
-import { MdArrowDropUp } from "react-icons/md";
+// import { MdArrowDropUp } from "react-icons/md";
 // import { MdArrowDropDown } from "react-icons/md";
-import { MdOutlineArrowForwardIos } from "react-icons/md";
+// import { MdOutlineArrowForwardIos } from "react-icons/md";
 
 // import CryptoIcon1 from "../../assets/crypto1.png";
 // import CryptoIcon2 from "../../assets/crypto2.png";
