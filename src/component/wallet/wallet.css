@@ -156,7 +156,7 @@ body.active-modal {
   color: var(--text-gray);
   padding: 14px 28px;
   border-radius: 20px;
-  width: 50%;
+  width: 60%;
   height: 55vh;
 }
 
@@ -201,6 +201,6 @@ body.active-modal {
 @media screen and (max-width: 450px) {
   .modal-content {
     width: 85%;
-    height: 70vh;
+    height: 40vh;
   }
 }
