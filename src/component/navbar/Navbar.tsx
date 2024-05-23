@@ -2,10 +2,10 @@ import { LuHome } from "react-icons/lu";
 import { BiWallet } from "react-icons/bi";
 import { FaRegChartBar } from "react-icons/fa";
 import { SiBetterstack } from "react-icons/si";
-import { PiPaperPlaneTilt } from "react-icons/pi";
 
 import "./navbar.css";
 import { NavLink } from "react-router-dom";
+import { MdDashboard } from "react-icons/md";
 
 const Navbar = () => {
   return (
@@ -17,6 +17,15 @@ const Navbar = () => {
         <div className="flex flex-col justify-center items-center">
           <LuHome className="nav__icon" />
           <span>Home</span>
+        </div>
+      </NavLink>
+      <NavLink
+        to="/dashboard"
+        className={({ isActive }) => (isActive ? "active__nav" : "")}
+      >
+        <div className="flex flex-col justify-center items-center">
+          <MdDashboard className="nav__icon" />
+          <span>Dashboard</span>
         </div>
       </NavLink>
       <NavLink
@@ -37,15 +46,7 @@ const Navbar = () => {
           <span>ETF</span>
         </div>
       </NavLink>
-      <NavLink
-        to="/coming"
-        className={({ isActive }) => (isActive ? "active__nav" : "")}
-      >
-        <div className="flex flex-col justify-center items-center">
-          <PiPaperPlaneTilt className="nav__icon" />
-          <span>Payments</span>
-        </div>
-      </NavLink>
+
       <NavLink
         to="/coming"
         className={({ isActive }) => (isActive ? "active__nav" : "")}
