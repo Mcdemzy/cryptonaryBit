@@ -79,7 +79,7 @@ const Wallet = () => {
               <IoMdStopwatch />
             </div>
             <div onClick={toggleModal} className="wallet__links">
-              <div className="flex flex-col justify-center items-center">
+              <div className="flex flex-col justify-center items-center cursor-pointer">
                 <BsBoxArrowUpRight className="wallet__links-icon" />
                 <span>Deposit</span>
               </div>

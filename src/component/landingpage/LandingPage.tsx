@@ -3,6 +3,8 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import "./landingpage.css";
 import Timer from "./components/Timer";
+import { SignInButton } from "@clerk/clerk-react";
+import Ticker from "../chart/Ticker";
 
 const LandingPage = () => {
   const [activeTab, setActiveTab] = useState("monthly");
@@ -21,8 +23,12 @@ const LandingPage = () => {
           </h1>
           <p>Seize the moment before the giants do</p>
           {/* Timer*/}
-          <Timer />
-          <a href="">Become a Winner</a>
+          <div className="w-[80%] m-auto">
+            <Ticker />
+          </div>
+          <SignInButton forceRedirectUrl="/dashboard">
+            Become a Winner
+          </SignInButton>
 
           {/* Video Div */}
           <div className="w-[95%] border-2 mt-10 m-auto h-[400px] md:h-[700px] flex justify-center items-center rounded-md">
@@ -116,7 +122,9 @@ const LandingPage = () => {
                         winning crypto opportunities and optimise your portfolio
                         the simple way.
                         <button className="mt-2 bg-yellow-200 hover:bg-primary py-2 rounded-md w-52 text-black">
-                          Learn More
+                          <SignInButton forceRedirectUrl="/dashboard">
+                            Learn More
+                          </SignInButton>
                         </button>
                       </div>
                     </div>
@@ -176,7 +184,9 @@ const LandingPage = () => {
                         Access potential altcoin trading setups, analysis, entry
                         zones, accumulation levels and risk information.
                         <button className="mt-2 bg-yellow-200 hover:bg-primary py-2 rounded-md w-52 text-black">
-                          Learn More
+                          <SignInButton forceRedirectUrl="/dashboard">
+                            Learn More
+                          </SignInButton>
                         </button>
                       </div>
                     </div>
@@ -236,7 +246,9 @@ const LandingPage = () => {
                         Uncover the secrets of crypto’s most successful
                         investors. Capitalise on opportunities early.
                         <button className="mt-2 bg-yellow-200 hover:bg-primary py-2 rounded-md w-52 text-black">
-                          Learn More
+                          <SignInButton forceRedirectUrl="/dashboard">
+                            Learn More
+                          </SignInButton>
                         </button>
                       </div>
                     </div>
@@ -296,7 +308,9 @@ const LandingPage = () => {
                         Access potential altcoin trading setups, analysis, entry
                         zones, accumulation levels and risk information.
                         <button className="mt-2 bg-yellow-200 hover:bg-primary py-2 rounded-md w-52 text-black">
-                          Learn More
+                          <SignInButton forceRedirectUrl="/dashboard">
+                            Learn More
+                          </SignInButton>
                         </button>
                       </div>
                     </div>
@@ -356,7 +370,9 @@ const LandingPage = () => {
                         Access potential altcoin trading setups, analysis, entry
                         zones, accumulation levels and risk information.
                         <button className="mt-2 bg-yellow-200 hover:bg-primary py-2 rounded-md w-52 text-black">
-                          Learn More
+                          <SignInButton forceRedirectUrl="/dashboard">
+                            Learn More
+                          </SignInButton>
                         </button>
                       </div>
                     </div>
@@ -416,7 +432,9 @@ const LandingPage = () => {
                         Access potential altcoin trading setups, analysis, entry
                         zones, accumulation levels and risk information.
                         <button className="mt-2 bg-yellow-200 hover:bg-primary py-2 rounded-md w-52 text-black">
-                          Learn More
+                          <SignInButton forceRedirectUrl="/dashboard">
+                            Learn More
+                          </SignInButton>
                         </button>
                       </div>
                     </div>
@@ -477,7 +495,9 @@ const LandingPage = () => {
                         winning crypto opportunities and optimise your portfolio
                         the simple way.
                         <button className="mt-2 bg-yellow-200 hover:bg-primary py-2 rounded-md w-52 text-black">
-                          Learn More
+                          <SignInButton forceRedirectUrl="/dashboard">
+                            Learn More
+                          </SignInButton>
                         </button>
                       </div>
                     </div>
@@ -537,7 +557,9 @@ const LandingPage = () => {
                         Access potential altcoin trading setups, analysis, entry
                         zones, accumulation levels and risk information.
                         <button className="mt-2 bg-yellow-200 hover:bg-primary py-2 rounded-md w-52 text-black">
-                          Learn More
+                          <SignInButton forceRedirectUrl="/dashboard">
+                            Learn More
+                          </SignInButton>
                         </button>
                       </div>
                     </div>
@@ -598,7 +620,9 @@ const LandingPage = () => {
                         winning crypto opportunities and optimise your portfolio
                         the simple way.
                         <button className="mt-2 bg-yellow-200 hover:bg-primary py-2 rounded-md w-52 text-black">
-                          Learn More
+                          <SignInButton forceRedirectUrl="/dashboard">
+                            Learn More
+                          </SignInButton>
                         </button>
                       </div>
                     </div>
@@ -658,7 +682,9 @@ const LandingPage = () => {
                         Access potential altcoin trading setups, analysis, entry
                         zones, accumulation levels and risk information.
                         <button className="mt-2 bg-yellow-200 hover:bg-primary py-2 rounded-md w-52 text-black">
-                          Learn More
+                          <SignInButton forceRedirectUrl="/dashboard">
+                            Learn More
+                          </SignInButton>
                         </button>
                       </div>
                     </div>
@@ -720,7 +746,9 @@ const LandingPage = () => {
                         winning crypto opportunities and optimise your portfolio
                         the simple way.
                         <button className="mt-2 bg-yellow-200 hover:bg-primary py-2 rounded-md w-52 text-black">
-                          Learn More
+                          <SignInButton forceRedirectUrl="/dashboard">
+                            Learn More
+                          </SignInButton>
                         </button>
                       </div>
                     </div>
@@ -780,7 +808,9 @@ const LandingPage = () => {
                         Access potential altcoin trading setups, analysis, entry
                         zones, accumulation levels and risk information.
                         <button className="mt-2 bg-yellow-200 hover:bg-primary py-2 rounded-md w-52 text-black">
-                          Learn More
+                          <SignInButton forceRedirectUrl="/dashboard">
+                            Learn More
+                          </SignInButton>
                         </button>
                       </div>
                     </div>
@@ -870,7 +900,9 @@ const LandingPage = () => {
                       Access potential altcoin trading setups, analysis, entry
                       zones, accumulation levels and risk information.
                       <button className="mt-2 bg-yellow-200 hover:bg-primary py-2 rounded-md w-52 text-black">
-                        Learn More
+                        <SignInButton forceRedirectUrl="/dashboard">
+                          Learn More
+                        </SignInButton>
                       </button>
                     </div>
                   </div>
@@ -931,7 +963,9 @@ const LandingPage = () => {
                       Access potential altcoin trading setups, analysis, entry
                       zones, accumulation levels and risk information.
                       <button className="mt-2 bg-yellow-200 hover:bg-primary py-2 rounded-md w-52 text-black">
-                        Learn More
+                        <SignInButton forceRedirectUrl="/dashboard">
+                          Learn More
+                        </SignInButton>
                       </button>
                     </div>
                   </div>
@@ -991,7 +1025,9 @@ const LandingPage = () => {
                       Access potential altcoin trading setups, analysis, entry
                       zones, accumulation levels and risk information.
                       <button className="mt-2 bg-yellow-200 hover:bg-primary py-2 rounded-md w-52 text-black">
-                        Learn More
+                        <SignInButton forceRedirectUrl="/dashboard">
+                          Learn More
+                        </SignInButton>
                       </button>
                     </div>
                   </div>
@@ -1051,7 +1087,9 @@ const LandingPage = () => {
                       Access potential altcoin trading setups, analysis, entry
                       zones, accumulation levels and risk information.
                       <button className="mt-2 bg-yellow-200 hover:bg-primary py-2 rounded-md w-52 text-black">
-                        Learn More
+                        <SignInButton forceRedirectUrl="/dashboard">
+                          Learn More
+                        </SignInButton>
                       </button>
                     </div>
                   </div>

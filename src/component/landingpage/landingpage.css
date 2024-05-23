@@ -36,7 +36,7 @@
   margin: 30px auto;
 }
 
-.banner__section a {
+.banner__section button {
   display: flex;
   max-width: 22.5rem;
   width: 100%;
