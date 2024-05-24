@@ -1,6 +1,8 @@
 import "./etf.css";
 import EtfImg1 from "../../assets/etfImg1.png";
 import EtfImg2 from "../../assets/etfImg2.png";
+import EtfImg3 from "../../assets/etfImg3.jpg";
+import EtfImg4 from "../../assets/etfimg4.jpeg";
 import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 
@@ -12,18 +14,38 @@ const Etf = () => {
         <div className="etf__top-nav">
           <h1>Invest</h1>
           <div className="etf__nav-links">
-            <a href="">
+            <Link to="#">
               <p>Us Stocks</p>
-            </a>
-            <a href="">
+            </Link>
+            <Link to="/coming">
               <p>Fixed Returns</p>
-            </a>
+            </Link>
           </div>
         </div>
 
         {/* Etf Page Content */}
         <section className="etf__page-content">
-          <div className="mt-4 text-[1.1rem]">Featured Stocks</div>
+          <div className="mt-4 text-[1.1rem]">Featured Stocks</div>{" "}
+          <Link to="/etfabout">
+            <div className="etf__main-display">
+              <img src={EtfImg3} alt="" width={60} height={60} />
+              <p className="etf__main-text">
+                Ark 21Shares Bitcoin Etf <br />
+                <span>Arkb</span>
+              </p>
+              <p className="text-[1rem]">$67.13</p>
+            </div>
+          </Link>
+          <Link to="/etfabout">
+            <div className="etf__main-display">
+              <img src={EtfImg2} alt="" width={60} height={60} />
+              <p className="etf__main-text">
+                Bitwise Bitcoin Etf <br />
+                <span>Bitb</span>
+              </p>
+              <p className="text-[1rem]">$36.63</p>
+            </div>
+          </Link>
           <Link to="/">
             <div className="etf__main-display">
               <img src={EtfImg1} alt="" width={60} height={60} />
@@ -31,17 +53,17 @@ const Etf = () => {
                 Valkyrie Bitcoin Fund <br />
                 <span>Brrr</span>
               </p>
-              <p className="text-[1rem]">$62.50</p>
+              <p className="text-[1rem]">$19.04</p>
             </div>
           </Link>
           <Link to="/etfabout">
             <div className="etf__main-display">
-              <img src={EtfImg2} alt="" width={60} height={60} />
+              <img src={EtfImg4} alt="" width={60} height={60} />
               <p className="etf__main-text">
-                Valkyrie Bitcoin Fund <br />
-                <span>Brrr</span>
+                Invesco galaxy bitcoin Etf <br />
+                <span>Btco</span>
               </p>
-              <p className="text-[1rem]">$62.50</p>
+              <p className="text-[1rem]">$67.20</p>
             </div>
           </Link>
         </section>
