@@ -1,7 +1,4 @@
-import EtfImg1 from "../../assets/etfImg2.png";
 import NewsWidget from "../chart/NewsWidget";
-// import { IoIosInformationCircle } from "react-icons/io";
-// import Bitcoin from "../../assets/bitcoin-wallet.png";
 
 import "./etf.css";
 import { Link } from "react-router-dom";
