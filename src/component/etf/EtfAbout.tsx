@@ -15,11 +15,15 @@ const EtfAbout = () => {
         <h1>Bitb</h1>
         <h2>Bitwise Bitcoin Etf</h2>
         <div>
-          <p>About</p>
-          <p>
-            <Link to="/etffinancials">Financials</Link>
-          </p>
-          <p>News</p>
+          <Link to="#">
+            <p>About</p>
+          </Link>
+          <Link to="/etffinancials">
+            <p>Financials</p>
+          </Link>
+          <Link to="/news">
+            <p>News</p>
+          </Link>
         </div>
       </section>
 

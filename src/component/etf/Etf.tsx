@@ -66,6 +66,46 @@ const Etf = () => {
               <p className="text-[1rem]">$67.20</p>
             </div>
           </Link>
+          <Link to="/etfabout">
+            <div className="etf__main-display">
+              <img src={EtfImg3} alt="" width={60} height={60} />
+              <p className="etf__main-text">
+                Ark 21Shares Bitcoin Etf <br />
+                <span>Arkb</span>
+              </p>
+              <p className="text-[1rem]">$67.13</p>
+            </div>
+          </Link>
+          <Link to="/etfabout">
+            <div className="etf__main-display">
+              <img src={EtfImg2} alt="" width={60} height={60} />
+              <p className="etf__main-text">
+                Bitwise Bitcoin Etf <br />
+                <span>Bitb</span>
+              </p>
+              <p className="text-[1rem]">$36.63</p>
+            </div>
+          </Link>
+          <Link to="/">
+            <div className="etf__main-display">
+              <img src={EtfImg1} alt="" width={60} height={60} />
+              <p className="etf__main-text">
+                Valkyrie Bitcoin Fund <br />
+                <span>Brrr</span>
+              </p>
+              <p className="text-[1rem]">$19.04</p>
+            </div>
+          </Link>
+          <Link to="/etfabout">
+            <div className="etf__main-display">
+              <img src={EtfImg4} alt="" width={60} height={60} />
+              <p className="etf__main-text">
+                Invesco galaxy bitcoin Etf <br />
+                <span>Btco</span>
+              </p>
+              <p className="text-[1rem]">$67.20</p>
+            </div>
+          </Link>
         </section>
       </section>
       <Navbar />
