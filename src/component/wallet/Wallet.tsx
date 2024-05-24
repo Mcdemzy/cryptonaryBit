@@ -1,15 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserButton } from "@clerk/clerk-react";
+import { IoIosArrowDown, IoMdStopwatch } from "react-icons/io";
+import { BsBoxArrowUpRight } from "react-icons/bs";
+import { BiHide } from "react-icons/bi";
+import { SiBetterstack } from "react-icons/si";
+import { AiOutlineClose } from "react-icons/ai";
+
+import Navbar from "../navbar/Navbar";
 
 import Flag from "../../assets/flag.png";
-import "./wallet.css";
-import { IoIosArrowDown } from "react-icons/io";
-import {
-  //  BsBoxArrowInDownLeft,
-  BsBoxArrowUpRight,
-} from "react-icons/bs";
-import { BiHide } from "react-icons/bi";
-import { IoMdStopwatch } from "react-icons/io";
-
 import CryptoIcon1 from "../../assets/crypto1.png";
 import CryptoIcon2 from "../../assets/crypto2.png";
 import CryptoIcon3 from "../../assets/crypto3.png";
@@ -17,30 +17,90 @@ import CryptoIcon4 from "../../assets/crypto4.png";
 import CryptoIcon5 from "../../assets/crypto5.png";
 import CryptoIcon6 from "../../assets/crypto6.png";
 import CryptoIcon7 from "../../assets/crypto7.png";
-import { AiOutlineClose } from "react-icons/ai";
-import { UserButton } from "@clerk/clerk-react";
-import Navbar from "../navbar/Navbar";
+import "./wallet.css";
+
+// Define the Wallet type
+type Wallet = {
+  icon: string;
+  name: string;
+  symbol: string;
+  approxValue: string;
+  canStake?: boolean;
+};
+
+// Wallets array with the type Wallet
+const wallets: Wallet[] = [
+  {
+    icon: CryptoIcon1,
+    name: "Bitcoin Cash Wallet",
+    symbol: "BCH",
+    approxValue: "~ ₦ 0.00 ~ $ 0.00",
+    canStake: true,
+  },
+  {
+    icon: CryptoIcon2,
+    name: "BNB Wallet",
+    symbol: "BNB",
+    approxValue: "~ ₦ 0.00 ~ $ 0.00",
+    canStake: true,
+  },
+  {
+    icon: CryptoIcon3,
+    name: "Bitcoin Wallet",
+    symbol: "BTC",
+    approxValue: "~ ₦ 0.00 ~ $ 0.00",
+    canStake: true,
+  },
+  {
+    icon: CryptoIcon4,
+    name: "Ethereum Wallet",
+    symbol: "ETH",
+    approxValue: "~ ₦ 0.00 ~ $ 0.00",
+    canStake: true,
+  },
+  {
+    icon: CryptoIcon5,
+    name: "Solana Wallet",
+    symbol: "SOL",
+    approxValue: "~ ₦ 0.00 ~ $ 0.00",
+    canStake: true,
+  },
+  {
+    icon: CryptoIcon6,
+    name: "Tron Wallet",
+    symbol: "TRX",
+    approxValue: "~ ₦ 0.00 ~ $ 0.00",
+    canStake: true,
+  },
+  {
+    icon: CryptoIcon7,
+    name: "USD Coin Wallet",
+    symbol: "USDC",
+    approxValue: "~ ₦ 0.00 ~ $ 0.00",
+    canStake: true,
+  },
+];
 
 const Wallet = () => {
   const [modal, setModal] = useState(false);
+  const [selectedWallet, setSelectedWallet] = useState<Wallet | null>(null);
+  const navigate = useNavigate();
 
-  const toggleModal = () => {
+  const toggleModal = (wallet: Wallet | null) => {
+    setSelectedWallet(wallet);
     setModal(!modal);
   };
 
-  if (modal) {
-    document.body.classList.add("active-modal");
-  } else {
-    document.body.classList.remove("active-modal");
-  }
+  const handleStakeClick = (wallet: Wallet) => {
+    navigate("/stake", { state: { wallet } });
+  };
 
   return (
     <>
       <section className="wallet__component">
         <div className="flex justify-between pt-[16px] p-[10px] bg-[#121A25]">
-          <h1 className="text-[1.7rem] font-[700] text-white">Wallet </h1>
-
-          <div className="flex  mt-[10px] gap-2 justify-center">
+          <h1 className="text-[1.7rem] font-[700] text-white">Wallet</h1>
+          <div className="flex mt-[10px] gap-2 justify-center">
             <UserButton />
           </div>
         </div>
@@ -56,211 +116,63 @@ const Wallet = () => {
             <p>Fiat</p>
           </div>
         </div>
-        <>
-          {" "}
-          <div className="wallet__details-container">
+        {wallets.map((wallet) => (
+          <div key={wallet.symbol} className="wallet__details-container">
             <div className="wallet__details">
-              <img src={CryptoIcon1} alt="" />
+              <img src={wallet.icon} alt={wallet.name} />
               <div>
-                <p className="text-[#707579] text-[1rem]">
-                  Bitcoin Cash Wallet
-                </p>
-                <p className="flex items-center gap-4 text-[1.3rem] ">
-                  BCH *.** <BiHide />
+                <p className="text-[#707579] text-[1rem]">{wallet.name}</p>
+                <p className="flex items-center gap-4 text-[1.3rem]">
+                  {wallet.symbol} *.** <BiHide />
                 </p>
                 <p className="text-[#707579] text-[14px] mt-3">
-                  ~ ₦ 0.00 ~ $ 0.00
+                  {wallet.approxValue}
                 </p>
               </div>
             </div>
             <div className="flex justify-center items-center text-[1.5rem]">
               <IoMdStopwatch />
             </div>
-            <div onClick={toggleModal} className="wallet__links">
-              <div className="flex flex-col justify-center items-center cursor-pointer">
+            <div className="wallet__links">
+              {wallet.canStake && (
+                <div
+                  onClick={() => handleStakeClick(wallet)}
+                  className="flex flex-col justify-center items-center cursor-pointer"
+                >
+                  <SiBetterstack className="wallet__links-icon" />
+                  <span>Stake</span>
+                </div>
+              )}
+              <div
+                onClick={() => toggleModal(wallet)}
+                className="flex flex-col justify-center items-center cursor-pointer"
+              >
                 <BsBoxArrowUpRight className="wallet__links-icon" />
                 <span>Deposit</span>
               </div>
             </div>
           </div>
-        </>{" "}
-        <>
-          {" "}
-          <div className="wallet__details-container">
-            <div className="wallet__details">
-              <img src={CryptoIcon2} alt="" />
-              <div>
-                <p className="text-[#707579] text-[1rem]">BNB Wallet</p>
-                <p className="flex items-center gap-4 text-[1.3rem] ">
-                  BNB *.** <BiHide />
-                </p>
-                <p className="text-[#707579] text-[14px] mt-3">
-                  ~ ₦ 0.00 ~ $ 0.00
-                </p>
-              </div>
-            </div>
-            <div className="flex justify-center items-center text-[1.5rem]">
-              <IoMdStopwatch />
-            </div>
-            <div onClick={toggleModal} className="wallet__links">
-              <div className="flex flex-col justify-center items-center cursor-pointer">
-                <BsBoxArrowUpRight className="wallet__links-icon" />
-                <span>Deposit</span>
-              </div>
-            </div>
-          </div>
-        </>
-        <>
-          {" "}
-          <div className="wallet__details-container">
-            <div className="wallet__details">
-              <img src={CryptoIcon3} alt="" />
-              <div>
-                <p className="text-[#707579] text-[1rem]">Bitcoin Wallet</p>
-                <p className="flex items-center gap-4 text-[1.3rem] ">
-                  BTC *.** <BiHide />
-                </p>
-                <p className="text-[#707579] text-[14px] mt-3">
-                  ~ ₦ 0.00 ~ $ 0.00
-                </p>
-              </div>
-            </div>
-            <div className="flex justify-center items-center text-[1.5rem]">
-              <IoMdStopwatch />
-            </div>
-            <div onClick={toggleModal} className="wallet__links">
-              <div className="flex flex-col justify-center items-center cursor-pointer">
-                <BsBoxArrowUpRight className="wallet__links-icon" />
-                <span>Deposit</span>
-              </div>
-            </div>
-          </div>
-        </>
-        <>
-          {" "}
-          <div className="wallet__details-container">
-            <div className="wallet__details">
-              <img src={CryptoIcon4} alt="" />
-              <div>
-                <p className="text-[#707579] text-[1rem]">Ethereum Wallet</p>
-                <p className="flex items-center gap-4 text-[1.3rem] ">
-                  ETH *.** <BiHide />
-                </p>
-                <p className="text-[#707579] text-[14px] mt-3">
-                  ~ ₦ 0.00 ~ $ 0.00
-                </p>
-              </div>
-            </div>
-            <div className="flex justify-center items-center text-[1.5rem]">
-              <IoMdStopwatch />
-            </div>
-            <div onClick={toggleModal} className="wallet__links">
-              <div className="flex flex-col justify-center items-center cursor-pointer">
-                <BsBoxArrowUpRight className="wallet__links-icon" />
-                <span>Deposit</span>
-              </div>
-            </div>
-          </div>
-        </>
-        <>
-          {" "}
-          <div className="wallet__details-container">
-            <div className="wallet__details">
-              <img src={CryptoIcon5} alt="" />
-              <div>
-                <p className="text-[#707579] text-[1rem]">Solana Wallet</p>
-                <p className="flex items-center gap-4 text-[1.3rem] ">
-                  SOL *.** <BiHide />
-                </p>
-                <p className="text-[#707579] text-[14px] mt-3">
-                  ~ ₦ 0.00 ~ $ 0.00
-                </p>
-              </div>
-            </div>
-            <div className="flex justify-center items-center text-[1.5rem]">
-              <IoMdStopwatch />
-            </div>
-            <div onClick={toggleModal} className="wallet__links">
-              <div className="flex flex-col justify-center items-center cursor-pointer">
-                <BsBoxArrowUpRight className="wallet__links-icon" />
-                <span>Deposit</span>
-              </div>
-            </div>
-          </div>
-        </>
-        <>
-          {" "}
-          <div className="wallet__details-container">
-            <div className="wallet__details">
-              <img src={CryptoIcon6} alt="" />
-              <div>
-                <p className="text-[#707579] text-[1rem]">Tron Wallet</p>
-                <p className="flex items-center gap-4 text-[1.3rem] ">
-                  TRX *.** <BiHide />
-                </p>
-                <p className="text-[#707579] text-[14px] mt-3">
-                  ~ ₦ 0.00 ~ $ 0.00
-                </p>
-              </div>
-            </div>
-            <div className="flex justify-center items-center text-[1.5rem]">
-              <IoMdStopwatch />
-            </div>
-            <div onClick={toggleModal} className="wallet__links">
-              <div className="flex flex-col justify-center items-center cursor-pointer">
-                <BsBoxArrowUpRight className="wallet__links-icon" />
-                <span>Deposit</span>
-              </div>
-            </div>
-          </div>
-        </>
-        <>
-          {" "}
-          <div className="wallet__details-container">
-            <div className="wallet__details">
-              <img src={CryptoIcon7} alt="" />
-              <div>
-                <p className="text-[#707579] text-[1rem]">USD Coin Wallet</p>
-                <p className="flex items-center gap-4 text-[1.3rem] ">
-                  USDC *.** <BiHide />
-                </p>
-                <p className="text-[#707579] text-[14px] mt-3">
-                  ~ ₦ 0.00 ~ $ 0.00
-                </p>
-              </div>
-            </div>
-            <div className="flex justify-center items-center text-[1.5rem]">
-              <IoMdStopwatch />
-            </div>
-            <div onClick={toggleModal} className="wallet__links">
-              <div className="flex flex-col justify-center items-center cursor-pointer">
-                <BsBoxArrowUpRight className="wallet__links-icon" />
-                <span>Deposit</span>
-              </div>
-            </div>
-          </div>
-        </>
+        ))}
       </section>
-      {modal && (
+      {modal && selectedWallet && (
         <div className="modal">
-          <div onClick={toggleModal} className="overlay"></div>
+          <div onClick={() => toggleModal(null)} className="overlay"></div>
           <div className="modal-content">
-            <h2>Send Bitcoin</h2>
+            <h2>Send {selectedWallet.symbol}</h2>
             <div className="modal-container">
-              <img src={CryptoIcon1} width={48} alt="" />
-
+              <img
+                src={selectedWallet.icon}
+                width={48}
+                alt={selectedWallet.name}
+              />
               <div className="bitcoin__address-container">
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                   Animi, labore.
                 </p>
               </div>
-
-              {/* <div>
-                <a href="">Click here</a>
-              </div> */}
             </div>
-            <button className="close-modal" onClick={toggleModal}>
+            <button className="close-modal" onClick={() => toggleModal(null)}>
               <AiOutlineClose />
             </button>
           </div>

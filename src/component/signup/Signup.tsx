@@ -1,46 +1,94 @@
-// import React from "react";
+// /src/components/signup/Signup.js
+import { useSignUp } from "@clerk/clerk-react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./signup.css";
 
 const Signup = () => {
+  const { signUp } = useSignUp();
+  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (signUp) {
+      try {
+        await signUp.create({
+          emailAddress: email,
+          password,
+          firstName,
+          lastName,
+        });
+        navigate("/dashboard");
+      } catch (err) {
+        setError("Could not sign up");
+      }
+    }
+  };
+
   return (
-    <>
-      <section className="signin__container signup__container">
-        <h1>Sign Up</h1>
+    <section className="signin__container signup__container">
+      <h1>Sign Up</h1>
+      <p>
+        A few minutes is all it takes. Join the fastest and safest Bitcoin app
+        that guarantees the best rates in the market
+      </p>
+      {/* Form */}
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            placeholder="name@gmail.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="firstName">First Name</label>
+          <input
+            type="text"
+            placeholder="John"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            type="text"
+            placeholder="Doe"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            placeholder="Your mobile number"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <a href="" className="signin__container-forgot">
+          Forgot Password?
+        </a>
+        <button type="submit">Next</button>
+        {error && <p>{error}</p>}
         <p>
-          A few minutes is all it takes. Join the fastest and safest Bitcoin app
-          that guarantees the best rates in the market
+          Already a member? <a href="/signin">Sign in</a>
         </p>
-
-        {/* Form */}
-        <form action="">
-          <div>
-            <label htmlFor="">Email</label>
-            <input type="email" placeholder="name@gmail.com " required />
-          </div>
-          <div>
-            <label htmlFor="">First Name</label>
-            <input type="text" placeholder="John" required />
-          </div>
-          <div>
-            <label htmlFor="">Last Name</label>
-            <input type="text" placeholder="Doe" required />
-          </div>
-
-          <div>
-            <label htmlFor="">Phone Number</label>
-            <input type="number" placeholder="Your mobile number" required />
-          </div>
-          <a href="" className="signin__container-forgot">
-            Forgot Password?
-          </a>
-
-          <button>Next</button>
-          <p>
-            Not a member yet? <a href="">Sign up</a>
-          </p>
-        </form>
-      </section>
-    </>
+      </form>
+    </section>
   );
 };
 

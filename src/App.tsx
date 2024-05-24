@@ -16,11 +16,12 @@ import Wallet from "./component/wallet/Wallet";
 import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react";
 import Bch from "./component/coins/Bch";
 import Coming from "./component/coming/Coming";
+import Stake from "./component/stake/Stake";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route index element={<LandingPage />} />
+      <Route path="/" element={<LandingPage />} />
       <Route
         path="/dashboard"
         element={
@@ -34,14 +35,75 @@ const router = createBrowserRouter(
           </>
         }
       />
+      <Route
+        path="/etf"
+        element={
+          <>
+            <SignedIn>
+              <Etf />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/etfabout"
+        element={
+          <>
+            <SignedIn>
+              <EtfAbout />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/etffinancials"
+        element={
+          <>
+            <SignedIn>
+              <EtfFinancials />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/news"
+        element={
+          <>
+            <SignedIn>
+              <EtfNews />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/stake"
+        element={
+          <>
+            <SignedIn>
+              <Stake />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
       <Route path="/signup" element={<Signup />} />
       <Route path="/signin" element={<Signin />} />
-      <Route path="/etf" element={<Etf />} />
-      <Route path="/etfabout" element={<EtfAbout />} />
       <Route path="/swap" element={<Coming />} />
       <Route path="/coming" element={<Coming />} />
-      <Route path="/etffinancials" element={<EtfFinancials />} />
-      <Route path="/news" element={<EtfNews />} />
       <Route path="/bch" element={<Bch />} />
       <Route
         path="/wallet"

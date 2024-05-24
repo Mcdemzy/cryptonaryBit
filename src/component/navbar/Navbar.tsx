@@ -48,7 +48,7 @@ const Navbar = () => {
       </NavLink>
 
       <NavLink
-        to="/coming"
+        to="/stake"
         className={({ isActive }) => (isActive ? "active__nav" : "")}
       >
         <div className="flex flex-col justify-center items-center">
