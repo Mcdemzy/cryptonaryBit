@@ -20,7 +20,7 @@ const Stake = () => {
         <p className="text-lg font-bold mb-4">
           No wallet selected for staking.
         </p>
-        <p className="text-gray-400 mb-4">
+        <p className="text-gray-400 mb-4 text-center">
           Go to the wallet page and select a wallet to stake.
         </p>
         <Link
@@ -33,7 +33,7 @@ const Stake = () => {
     );
   }
 
-  const handleStake = (e) => {
+  const handleStake = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!amount) {
