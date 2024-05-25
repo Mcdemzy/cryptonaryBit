@@ -1,4 +1,3 @@
-import { LuHome } from "react-icons/lu";
 import { BiWallet } from "react-icons/bi";
 import { FaRegChartBar } from "react-icons/fa";
 import { SiBetterstack } from "react-icons/si";
