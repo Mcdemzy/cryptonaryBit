@@ -10,7 +10,7 @@ import { MdDashboard } from "react-icons/md";
 const Navbar = () => {
   return (
     <section className="navbar__container flex justify-et items-center">
-      <NavLink
+      {/* <NavLink
         to="/"
         className={({ isActive }) => (isActive ? "active__nav" : "")}
       >
@@ -18,7 +18,7 @@ const Navbar = () => {
           <LuHome className="nav__icon" />
           <span>Home</span>
         </div>
-      </NavLink>
+      </NavLink> */}
       <NavLink
         to="/dashboard"
         className={({ isActive }) => (isActive ? "active__nav" : "")}

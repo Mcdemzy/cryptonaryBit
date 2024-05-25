@@ -24,14 +24,6 @@ const Navbar = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (isMobileNavVisible) {
-      document.body.classList.add("body-no-scroll");
-    } else {
-      document.body.classList.remove("body-no-scroll");
-    }
-  }, [isMobileNavVisible]);
-
   const toggleSubDropdown = () => {
     setIsSubDropdownOpen((prevState) => !prevState);
   };

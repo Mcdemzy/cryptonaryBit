@@ -7,6 +7,39 @@ import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 
 const Etf = () => {
+  const etfs = [
+    {
+      img: EtfImg3,
+      name: "Tidal Commodities Trust i-hashdex",
+      symbol: "Defi",
+      price: "$79.05",
+      link: "/etfabout",
+    },
+
+    {
+      img: EtfImg2,
+      name: "Bitwise Bitcoin Etf",
+      symbol: "Bitb",
+      price: "$36.63",
+      link: "/etfabout",
+    },
+    {
+      img: EtfImg1,
+      name: "Valkyrie Bitcoin Fund",
+      symbol: "Brrr",
+      price: "$19.04",
+      link: "/etfabout",
+    },
+    {
+      img: EtfImg4,
+      name: "Invesco Galaxy Bitcoin Etf",
+      symbol: "Btco",
+      price: "$67.20",
+      link: "/etfabout",
+    },
+    // Add more ETF objects as needed
+  ];
+
   return (
     <article>
       <section className="etf__page">
@@ -25,87 +58,19 @@ const Etf = () => {
 
         {/* Etf Page Content */}
         <section className="etf__page-content">
-          <div className="mt-4 text-[1.1rem]">Featured Stocks</div>{" "}
-          <Link to="/etfabout">
-            <div className="etf__main-display">
-              <img src={EtfImg3} alt="" width={60} height={60} />
-              <p className="etf__main-text">
-                Ark 21Shares Bitcoin Etf <br />
-                <span>Arkb</span>
-              </p>
-              <p className="text-[1rem]">$67.13</p>
-            </div>
-          </Link>
-          <Link to="/etfabout">
-            <div className="etf__main-display">
-              <img src={EtfImg2} alt="" width={60} height={60} />
-              <p className="etf__main-text">
-                Bitwise Bitcoin Etf <br />
-                <span>Bitb</span>
-              </p>
-              <p className="text-[1rem]">$36.63</p>
-            </div>
-          </Link>
-          <Link to="/">
-            <div className="etf__main-display">
-              <img src={EtfImg1} alt="" width={60} height={60} />
-              <p className="etf__main-text">
-                Valkyrie Bitcoin Fund <br />
-                <span>Brrr</span>
-              </p>
-              <p className="text-[1rem]">$19.04</p>
-            </div>
-          </Link>
-          <Link to="/etfabout">
-            <div className="etf__main-display">
-              <img src={EtfImg4} alt="" width={60} height={60} />
-              <p className="etf__main-text">
-                Invesco galaxy bitcoin Etf <br />
-                <span>Btco</span>
-              </p>
-              <p className="text-[1rem]">$67.20</p>
-            </div>
-          </Link>
-          <Link to="/etfabout">
-            <div className="etf__main-display">
-              <img src={EtfImg3} alt="" width={60} height={60} />
-              <p className="etf__main-text">
-                Ark 21Shares Bitcoin Etf <br />
-                <span>Arkb</span>
-              </p>
-              <p className="text-[1rem]">$67.13</p>
-            </div>
-          </Link>
-          <Link to="/etfabout">
-            <div className="etf__main-display">
-              <img src={EtfImg2} alt="" width={60} height={60} />
-              <p className="etf__main-text">
-                Bitwise Bitcoin Etf <br />
-                <span>Bitb</span>
-              </p>
-              <p className="text-[1rem]">$36.63</p>
-            </div>
-          </Link>
-          <Link to="/">
-            <div className="etf__main-display">
-              <img src={EtfImg1} alt="" width={60} height={60} />
-              <p className="etf__main-text">
-                Valkyrie Bitcoin Fund <br />
-                <span>Brrr</span>
-              </p>
-              <p className="text-[1rem]">$19.04</p>
-            </div>
-          </Link>
-          <Link to="/etfabout">
-            <div className="etf__main-display">
-              <img src={EtfImg4} alt="" width={60} height={60} />
-              <p className="etf__main-text">
-                Invesco galaxy bitcoin Etf <br />
-                <span>Btco</span>
-              </p>
-              <p className="text-[1rem]">$67.20</p>
-            </div>
-          </Link>
+          <div className="mt-4 text-[1.1rem]">Featured Stocks</div>
+          {etfs.map((etf, index) => (
+            <Link key={index} to={etf.link}>
+              <div className="etf__main-display">
+                <img src={etf.img} alt={etf.name} width={60} height={60} />
+                <p className="etf__main-text">
+                  {etf.name} <br />
+                  <span>{etf.symbol}</span>
+                </p>
+                <p className="text-[1rem]">{etf.price}</p>
+              </div>
+            </Link>
+          ))}
         </section>
       </section>
       <Navbar />

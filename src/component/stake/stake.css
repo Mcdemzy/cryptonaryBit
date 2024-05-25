@@ -1,0 +1,112 @@
+.staking-page {
+  background-color: var(--color-bg);
+  color: var(--text-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.stake-container {
+  max-width: 600px;
+  width: 100%;
+  background-color: var(--color-bg-variant);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin-bottom: 100px;
+}
+
+.stats-container {
+  background-color: var(--color-variant);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.stats-container h2 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.stats div {
+  width: 48%;
+  margin-bottom: 1rem;
+}
+
+.stats div p:first-child {
+  color: var(--text-gray);
+}
+
+.stake-details {
+  background-color: var(--color-variant);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.stake-details h2 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.stake-details img {
+  margin-bottom: 1rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.input-group label {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: var(--text-gray);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid var(--text-gray-variant);
+  border-radius: 4px;
+  background-color: var(--color-bg);
+  color: var(--text-white);
+}
+
+.info-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.info-group p {
+  font-size: 1rem;
+}
+
+.stake-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  color: var(--text-white);
+  background-color: var(--text-primary-variant);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.stake-button:hover {
+  background-color: var(--text-primary);
+}
