@@ -5,7 +5,6 @@ function TradingViewTickerTape() {
 
   useEffect(() => {
     if (containerRef.current) {
-      // Clear the container to prevent duplication
       containerRef.current.innerHTML = "";
 
       const script = document.createElement("script");

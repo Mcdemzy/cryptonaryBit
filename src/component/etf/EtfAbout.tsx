@@ -1,56 +1,50 @@
-import EtfImg1 from "../../assets/etfImg2.png";
-import TradingViewWidget from "../chart/TradingViewWidget";
+import React, { Suspense, lazy } from "react";
+import { useLocation } from "react-router-dom";
 import { IoIosInformationCircle } from "react-icons/io";
 import Bitcoin from "../../assets/bitcoin-wallet.png";
-
-import "./etf.css";
-import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
+import "./etf.css";
 
 const EtfAbout = () => {
+  const location = useLocation();
+  const { etf } = location.state || {};
+
+  // Dynamically import the chart component based on the symbol
+  const ChartComponent = lazy(
+    () => import(`../chart/etfcharts/${etf.symbol}.tsx`)
+  );
+
   return (
-    <article>
-      {/* About Etf Top Nav section */}
-      <section className="about-etf__nav">
-        <h1>Bitb</h1>
-        <h2>Bitwise Bitcoin Etf</h2>
+    <article className="">
+      <section className="about-etf__nav ">
+        <h1>{etf.symbol}</h1>
+        <h2>{etf.name}</h2>
         <div>
-          <Link to="#">
-            <p>About</p>
-          </Link>
-          <Link to="/etffinancials">
-            <p>Financials</p>
-          </Link>
-          <Link to="/news">
-            <p>News</p>
-          </Link>
+          <p>About</p>
+          <p>Financials</p>
+          <p>News</p>
         </div>
       </section>
 
-      {/* About Etf Main Container section */}
       <section className="about-etf__container">
-        <img src={EtfImg1} alt="" />
+        <img src={etf.img} alt={etf.name} />
         <div className="about-etf__container-content">
-          <h1>$36.62</h1>
-          <h2>~₦55,479.30</h2>
-          <div>
-            <span className="about-etf__up">up</span> 3.07% ($1.09)
-            <span className="about-etf__day">Today</span>
-          </div>
+          <h1>{etf.price}</h1>
+          {/* Add equivalent price and market status as needed */}
           <p className="about-etf__market">Market Closed</p>
         </div>
       </section>
 
-      {/* About Etf Chart Section */}
       <section className="about-etf__chart">
         <p>
           The Trust’s investment objective is to seek to provide exposure to the
           value of bitcoin held by the Trust, less the expenses of the Trust’s
           operations and other liabilities
         </p>
-
         <div className="about-etf__main-chart">
-          <TradingViewWidget />
+          <Suspense fallback={<div>Loading chart...</div>}>
+            <ChartComponent />
+          </Suspense>
         </div>
       </section>
 
@@ -64,7 +58,7 @@ const EtfAbout = () => {
         </div>
         <div className="about-etf__info">
           <IoIosInformationCircle className="about-etf__info-icon" />
-          BITB shares are trading within their normal range today.
+          {etf.symbol} shares are trading within their normal range today.
         </div>
       </section>
       <Navbar />

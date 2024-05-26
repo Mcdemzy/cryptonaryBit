@@ -16,7 +16,7 @@ function TradingViewWidget() {
           {
             "width": "100%",
             "height": "400",
-            "symbol": "AMEX:DEFI",
+            "symbol": "NASDAQ:BRRR",
             "interval": "D",
             "timezone": "Etc/UTC",
             "theme": "light",

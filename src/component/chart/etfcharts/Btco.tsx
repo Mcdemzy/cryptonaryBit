@@ -16,13 +16,13 @@ function TradingViewWidget() {
           {
             "width": "100%",
             "height": "400",
-            "symbol": "AMEX:DEFI",
+            "symbol": "AMEX:BTCO",
             "interval": "D",
             "timezone": "Etc/UTC",
             "theme": "light",
             "style": "1",
             "locale": "en",
-            "allow_symbol_change": false,
+            "allow_symbol_change": true,
             "calendar": false,
             "support_host": "https://www.tradingview.com"
           }`;

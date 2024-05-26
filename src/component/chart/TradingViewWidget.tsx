@@ -5,7 +5,6 @@ function TradingViewWidget() {
 
   useEffect(() => {
     if (container.current) {
-      // Remove any existing scripts to prevent duplication
       container.current.innerHTML = "";
 
       const script = document.createElement("script");
