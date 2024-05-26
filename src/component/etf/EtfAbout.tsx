@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import { Suspense, lazy } from "react";
 import { useLocation } from "react-router-dom";
 import { IoIosInformationCircle } from "react-icons/io";
 import Bitcoin from "../../assets/bitcoin-wallet.png";
