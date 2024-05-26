@@ -6,10 +6,11 @@ import { BsBoxArrowUpRight } from "react-icons/bs";
 import { BiHide } from "react-icons/bi";
 import { SiBetterstack } from "react-icons/si";
 import { AiOutlineClose } from "react-icons/ai";
-
 import Navbar from "../navbar/Navbar";
-
-import Flag from "../../assets/flag.png";
+import Flag1 from "../../assets/flag.png";
+import Flag2 from "../../assets/flag2.png";
+import Flag3 from "../../assets/flag3.png";
+import Flag4 from "../../assets/flag4.png";
 import CryptoIcon1 from "../../assets/crypto1.png";
 import CryptoIcon2 from "../../assets/crypto2.png";
 import CryptoIcon3 from "../../assets/crypto3.png";
@@ -18,6 +19,8 @@ import CryptoIcon5 from "../../assets/crypto5.png";
 import CryptoIcon6 from "../../assets/crypto6.png";
 import CryptoIcon7 from "../../assets/crypto7.png";
 import "./wallet.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Define the Wallet type
 type Wallet = {
@@ -26,6 +29,13 @@ type Wallet = {
   symbol: string;
   approxValue: string;
   canStake?: boolean;
+};
+
+type Currency = {
+  name: string;
+  code: string;
+  symbol: string;
+  flag: string;
 };
 
 // Wallets array with the type Wallet
@@ -81,9 +91,27 @@ const wallets: Wallet[] = [
   },
 ];
 
+// Currency options
+const currencies: Currency[] = [
+  // { name: "Nigerian Naira", code: "NGN", symbol: "₦", flag: Flag1 },
+  { name: "US Dollar", code: "USD", symbol: "$", flag: Flag2 },
+  { name: "Euro", code: "EUR", symbol: "€", flag: Flag3 },
+  {
+    name: "British Pound",
+    code: "GBP",
+    symbol: "£",
+    flag: Flag4,
+  },
+];
+
 const Wallet = () => {
   const [modal, setModal] = useState(false);
   const [selectedWallet, setSelectedWallet] = useState<Wallet | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [selectedCurrency, setSelectedCurrency] = useState<Currency>(
+    currencies[0]
+  );
   const navigate = useNavigate();
 
   const toggleModal = (wallet: Wallet | null) => {
@@ -92,7 +120,24 @@ const Wallet = () => {
   };
 
   const handleStakeClick = (wallet: Wallet) => {
-    navigate("/stake", { state: { wallet } });
+    if (!wallet) {
+      toast.error("No wallet selected!");
+      return;
+    }
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      navigate("/stake", { state: { wallet } });
+    }, 1000);
+  };
+
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible);
+  };
+
+  const selectCurrency = (currency: Currency) => {
+    setSelectedCurrency(currency);
+    setDropdownVisible(false);
   };
 
   return (
@@ -104,10 +149,28 @@ const Wallet = () => {
             <UserButton />
           </div>
         </div>
-        <div className="wallet__flag">
-          <img src={Flag} alt="" width={48} />
-          <span>NGN</span>
+        <div className="wallet__flag" onClick={toggleDropdown}>
+          <img
+            src={selectedCurrency.flag}
+            alt={selectedCurrency.name}
+            width={48}
+          />
+          <span>{selectedCurrency.code}</span>
           <IoIosArrowDown className="wallet__icon" />
+          {dropdownVisible && (
+            <div className="dropdown">
+              {currencies.map((currency) => (
+                <div
+                  key={currency.code}
+                  className="dropdown-item"
+                  onClick={() => selectCurrency(currency)}
+                >
+                  <img src={currency.flag} alt={currency.name} width={24} />
+                  <span>{currency.name}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         <div className="">
           <h3 className="choose__wallet">Choose Wallet</h3>
@@ -137,7 +200,9 @@ const Wallet = () => {
               {wallet.canStake && (
                 <div
                   onClick={() => handleStakeClick(wallet)}
-                  className="flex flex-col justify-center items-center cursor-pointer"
+                  className={`flex flex-col justify-center items-center cursor-pointer ${
+                    loading ? "disabled" : ""
+                  }`}
                 >
                   <SiBetterstack className="wallet__links-icon" />
                   <span>Stake</span>

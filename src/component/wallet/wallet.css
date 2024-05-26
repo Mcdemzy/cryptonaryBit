@@ -200,3 +200,70 @@ body.active-modal {
     height: 40vh;
   }
 }
+
+.wallet__links .disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.wallet__flag {
+  width: fit-content;
+  background: #151f2b;
+  margin-top: 30px;
+  margin-left: 10px;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.wallet__flag span {
+  font-size: 1.5rem;
+  color: var(--text-white);
+}
+
+.wallet__icon {
+  font-size: 2rem;
+  color: var(--text-white);
+}
+
+.dropdown {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background: #151f2b;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-item img {
+  width: 24px;
+  height: 24px;
+}
+
+.dropdown-item span {
+  font-size: 1rem;
+  color: var(--text-white);
+}
+
+.dropdown-item:hover {
+  background: #222a37;
+}
+
+.wallet__links .disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
