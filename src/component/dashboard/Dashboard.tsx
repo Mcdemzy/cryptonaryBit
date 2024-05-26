@@ -32,15 +32,17 @@ import MarketChart from "../chart/MarketChart";
 import Navbar from "../navbar/Navbar";
 
 const Dashboard = () => {
-  const { user } = useClerk();
+  // const { user } = useClerk();
 
   return (
     <>
       <section className="dashboard__container">
         <div className="flex justify-between pt-[16px] p-[10px] bg-[#121A25]">
-          <h1 className="text-[1.7rem] font-[700] text-white">
-            Hello, {user?.firstName}
-          </h1>
+          <Link to="/">
+            <h1 className="text-[1.7rem] font-[700] text-white">
+              CryptonaryBit
+            </h1>
+          </Link>
 
           <div className="flex gap-2 justify-center">
             <UserButton />
