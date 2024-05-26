@@ -7,7 +7,6 @@ import { BiHide } from "react-icons/bi";
 import { SiBetterstack } from "react-icons/si";
 import { AiOutlineClose } from "react-icons/ai";
 import Navbar from "../navbar/Navbar";
-import Flag1 from "../../assets/flag.png";
 import Flag2 from "../../assets/flag2.png";
 import Flag3 from "../../assets/flag3.png";
 import Flag4 from "../../assets/flag4.png";
@@ -93,7 +92,6 @@ const wallets: Wallet[] = [
 
 // Currency options
 const currencies: Currency[] = [
-  // { name: "Nigerian Naira", code: "NGN", symbol: "₦", flag: Flag1 },
   { name: "US Dollar", code: "USD", symbol: "$", flag: Flag2 },
   { name: "Euro", code: "EUR", symbol: "€", flag: Flag3 },
   {
