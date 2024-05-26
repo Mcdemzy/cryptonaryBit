@@ -5,8 +5,9 @@
   align-items: center;
   gap: 5px;
   color: #788895;
-  margin-top: 50px;
-  font-size: 1.5rem;
+  padding-top: 50px;
+  /* font-size: 1.5rem; */
+  /* background: var(--color-bg-variant); */
 }
 .rocket__container img {
   padding: 10px;
@@ -19,8 +20,9 @@
   left: 50%;
   transform: translateX(-50%);
   width: 90vw;
-  height: 10vh;
+  height: 9vh;
   background: var(--text-primary);
+  color: var(--text-white);
   display: flex;
   justify-content: center;
   align-items: center;

@@ -21,7 +21,6 @@ import "./wallet.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// Define the Wallet type
 type Wallet = {
   icon: string;
   name: string;
