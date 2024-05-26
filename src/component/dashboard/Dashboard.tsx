@@ -1,6 +1,6 @@
 import "./dashboard.css";
 
-import { useClerk } from "@clerk/clerk-react";
+// import { useClerk } from "@clerk/clerk-react";
 
 import { AiOutlineSwap } from "react-icons/ai";
 import { BsBoxArrowInRight } from "react-icons/bs";
