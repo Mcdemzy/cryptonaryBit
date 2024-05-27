@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import "./landingpage.css";
 import { SignInButton } from "@clerk/clerk-react";
 import Ticker from "../chart/Ticker";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   const [activeTab, setActiveTab] = useState("monthly");
@@ -1547,9 +1548,9 @@ const LandingPage = () => {
                   <a href="#" className="text-black">
                     Terms & Conditions
                   </a>
-                  <a href="#" className="text-black">
+                  <Link to="/contactus" className="text-black">
                     Contact Us
-                  </a>
+                  </Link>
                   <a href="#" className="text-black">
                     Library
                   </a>
