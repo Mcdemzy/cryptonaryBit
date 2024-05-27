@@ -17,6 +17,7 @@ import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react";
 import Bch from "./component/coins/Bch";
 import Coming from "./component/coming/Coming";
 import Stake from "./component/stake/Stake";
+import ContactUs from "./component/contactus/ContactUs";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -105,6 +106,7 @@ const router = createBrowserRouter(
       <Route path="/swap" element={<Coming />} />
       <Route path="/coming" element={<Coming />} />
       <Route path="/bch" element={<Bch />} />
+      <Route path="/contactus" element={<ContactUs />} />
       <Route
         path="/wallet"
         element={
