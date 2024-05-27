@@ -98,7 +98,7 @@ const Navbar = () => {
             <Link to="/products" className="text-white hover:text-blue-500">
               Products
             </Link>
-            <Link to="/contact" className="text-white hover:text-blue-500">
+            <Link to="/contactus" className="text-white hover:text-blue-500">
               Contact Us
             </Link>
             <Link to="/about" className="text-white hover:text-blue-500">
@@ -188,7 +188,7 @@ const Navbar = () => {
           <Link to="/products" className="px-4 py-2 hover:text-blue-500">
             Products
           </Link>
-          <Link to="/contact" className="px-4 py-2 hover:text-blue-500">
+          <Link to="/contactus" className="px-4 py-2 hover:text-blue-500">
             Contact Us
           </Link>
           <Link to="/about" className="px-4 py-2 hover:text-blue-500">
