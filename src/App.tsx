@@ -21,7 +21,7 @@ import Withdrawal from "./component/withdraw/Withdrawal";
 import OnlineBankWithdrawal from "./component/withdraw/OnlineBankWithdrawal"; // Import the new component
 import Transactions from "./component/transactions/Transactions";
 import News from "./component/news/News";
-import { TransactionProvider } from "./component/transactions/TransactionContext";
+// import { TransactionProvider } from "./component/transactions/TransactionContext";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

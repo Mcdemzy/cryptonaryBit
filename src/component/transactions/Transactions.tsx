@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./transactions.css";
 import Folder from "../../assets/folder.png";
 import { Link } from "react-router-dom";
@@ -13,7 +13,7 @@ interface Transaction {
 }
 
 const Transactions = () => {
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [transactions] = useState<Transaction[]>([]);
   const [filter, setFilter] = useState({
     type: "All transaction types",
     status: "All statuses",
