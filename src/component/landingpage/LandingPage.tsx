@@ -1548,7 +1548,7 @@ const LandingPage = () => {
                   <a href="#" className="text-black">
                     Terms & Conditions
                   </a>
-                  <Link to="/contactus" className="text-black">
+                  <Link to="/contact" className="text-black">
                     Contact Us
                   </Link>
                   <a href="#" className="text-black">

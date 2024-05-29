@@ -41,16 +41,18 @@ const Navbar = () => {
       {/* Main Navbar */}
       <nav className="bg-[#0d141c] border-gray-200 dark:bg-black dark:border-gray-700 fixed w-full z-50">
         <div className="max-w-screen-xl flex items-center justify-between mx-auto px-6 py-2.5">
-          <div className="flex items-center space-x-3 rtl:space-x-reverse">
-            <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="h-8"
-              alt="Flowbite Logo"
-            />
-            <span className="text-white self-center text-[1.25rem] font-medium whitespace-nowrap dark:text-white">
-              CryptonaryBit
-            </span>
-          </div>
+          <Link to="/">
+            <div className="flex items-center space-x-3 rtl:space-x-reverse">
+              <img
+                src="https://flowbite.com/docs/images/logo.svg"
+                className="h-8"
+                alt="Flowbite Logo"
+              />
+              <span className="text-white self-center text-[1.25rem] font-medium whitespace-nowrap dark:text-white">
+                CryptonaryBit
+              </span>
+            </div>
+          </Link>
           <div className="hidden md:flex items-center space-x-4 relative">
             <button
               onClick={toggleSubDropdown}
@@ -98,7 +100,7 @@ const Navbar = () => {
             <Link to="/products" className="text-white hover:text-blue-500">
               Products
             </Link>
-            <Link to="/contactus" className="text-white hover:text-blue-500">
+            <Link to="/contact" className="text-white hover:text-blue-500">
               Contact Us
             </Link>
             <Link to="/about" className="text-white hover:text-blue-500">
@@ -127,16 +129,18 @@ const Navbar = () => {
         } transition-transform duration-300 ease-in-out z-50`}
       >
         <div className="flex justify-between items-center p-4">
-          <div className="flex items-center space-x-3">
-            <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="h-8"
-              alt="Flowbite Logo"
-            />
-            <span className="self-center text-2xl font-semibold">
-              CryptonaryBit
-            </span>
-          </div>
+          <Link to="/">
+            <div className="flex items-center space-x-3">
+              <img
+                src="https://flowbite.com/docs/images/logo.svg"
+                className="h-8"
+                alt="Flowbite Logo"
+              />
+              <span className="self-center text-2xl font-semibold">
+                CryptonaryBit
+              </span>
+            </div>
+          </Link>
           <button onClick={handleCloseClick} aria-label="Close mobile menu">
             <IoClose className="w-6 h-6" />
           </button>
@@ -188,7 +192,7 @@ const Navbar = () => {
           <Link to="/products" className="px-4 py-2 hover:text-blue-500">
             Products
           </Link>
-          <Link to="/contactus" className="px-4 py-2 hover:text-blue-500">
+          <Link to="/contact" className="px-4 py-2 hover:text-blue-500">
             Contact Us
           </Link>
           <Link to="/about" className="px-4 py-2 hover:text-blue-500">

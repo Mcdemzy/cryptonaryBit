@@ -21,6 +21,7 @@ import Withdrawal from "./component/withdraw/Withdrawal";
 import OnlineBankWithdrawal from "./component/withdraw/OnlineBankWithdrawal"; // Import the new component
 import Transactions from "./component/transactions/Transactions";
 import News from "./component/news/News";
+import AboutUs from "./component/aboutus/AboutUs";
 // import { TransactionProvider } from "./component/transactions/TransactionContext";
 
 const router = createBrowserRouter(
@@ -111,10 +112,11 @@ const router = createBrowserRouter(
       <Route path="/swap" element={<Coming />} />
       <Route path="/coming" element={<Coming />} />
       <Route path="/bch" element={<Bch />} />
-      <Route path="/contactus" element={<ContactUs />} />
+      <Route path="/contact" element={<ContactUs />} />
       <Route path="/withdrawal" element={<Withdrawal />} />
       <Route path="/online-bank" element={<OnlineBankWithdrawal />} />
       <Route path="/news" element={<News />} />
+      <Route path="/about" element={<AboutUs />} />
       <Route
         path="/wallet"
         element={
