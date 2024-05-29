@@ -1,0 +1,241 @@
+.withdrawal-section {
+  padding: 2rem;
+  background-color: var(--color-bg);
+  padding-bottom: 100px;
+}
+
+.withdrawal-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.withdrawal-subtitle {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  color: var(--text-gray);
+}
+
+.withdrawal-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .withdrawal-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.withdrawal-card {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-bg-variant);
+  border: 1px solid var(--nav-bg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.withdrawal-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.withdrawal-card-title {
+  display: flex;
+  align-items: center;
+}
+
+.withdrawal-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 0.75rem;
+}
+
+.withdrawal-method-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-white);
+}
+
+.withdrawal-recommended {
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: var(--text-primary);
+  color: var(--text-primary-variant);
+}
+
+.withdrawal-info {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-gray);
+}
+
+.withdrawal-info-label {
+  font-weight: 600;
+  color: var(--text-white);
+}
+
+.withdrawal-footer {
+  padding: 2rem;
+  background-color: var(--color-bg-variant);
+  color: var(--text-gray);
+  border-top: 1px solid var(--nav-bg);
+  margin-top: 2rem;
+}
+
+.footer-text {
+  margin-bottom: 1rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+.footer-links {
+  margin-top: 1rem;
+}
+
+.footer-links a {
+  margin-right: 1rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-contact {
+  margin-top: 1rem;
+  color: var(--text-gray);
+}
+
+.footer-contact a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-contact {
+  margin-top: 1rem;
+  color: var(--text-gray);
+}
+
+.footer-copyright {
+  margin-top: 1rem;
+  color: var(--text-gray);
+}
+
+/* Online Bank Styles */
+
+:root {
+  --color-bg: #ffffff;
+  --color-bg-variant: #f8f9fa;
+  --color-variant: #e9ecef;
+  --color-text-primary: #212529;
+  --color-text-secondary: #6c757d;
+}
+
+.online-bank-withdrawal-section {
+  padding: 2rem;
+  background-color: var(--color-bg);
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+
+.withdrawal-form {
+  background-color: var(--color-bg-variant);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group .form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-variant);
+  border-radius: 0.25rem;
+}
+
+.input-group {
+  display: flex;
+}
+
+.input-group .form-control {
+  flex: 1;
+}
+
+.input-group-text {
+  padding: 0.75rem;
+  background-color: var(--color-variant);
+  border: 1px solid var(--color-variant);
+  border-radius: 0.25rem;
+  color: var(--color-text-primary);
+}
+
+.info-box {
+  padding: 1rem;
+  background-color: #e0f3ff;
+  border-left: 4px solid #007bff;
+  color: #004085;
+}
+
+.result-box {
+  padding: 1rem;
+  background-color: var(--color-bg-variant);
+  border-left: 4px solid #28a745;
+  color: #155724;
+  font-weight: bold;
+  text-align: center;
+}
+
+.terms,
+.faq {
+  margin-bottom: 1rem;
+}
+
+.terms h2,
+.faq h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.terms p,
+.faq p {
+  color: var(--color-text-secondary);
+}

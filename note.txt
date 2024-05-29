@@ -39,3 +39,6 @@ import EtfImg4 from "../../assets/etfimg4.jpeg";
 
 import Flag1 from "../../assets/flag.png";
 // { name: "Nigerian Naira", code: "NGN", symbol: "₦", flag: Flag1 },
+
+
+

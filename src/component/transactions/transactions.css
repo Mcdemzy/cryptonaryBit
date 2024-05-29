@@ -1,0 +1,159 @@
+.transaction-history {
+  padding: 20px;
+  margin: 0 auto;
+  background-color: var(--color-bg-variant);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.filter {
+  flex: 1;
+  margin: 10px;
+}
+
+.filter label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.875rem;
+  color: var(--text-gray);
+}
+
+.filter select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--text-gray-variant);
+  border-radius: 4px;
+  background-color: var(--color-variant);
+  color: var(--text-white);
+}
+
+.transactions {
+  background-color: var(--nav-bg);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: var(--color-variant);
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--text-gray-variant);
+}
+
+th {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+td {
+  font-size: 0.875rem;
+  color: var(--text-white);
+}
+
+.no-transactions {
+  text-align: center;
+  padding: 50px;
+}
+
+.folder-img {
+  max-width: 48px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.no-transactions p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: var(--text-gray);
+}
+
+.btn-deposit {
+  background-color: var(--text-primary);
+  color: var(--text-black);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-filter {
+  display: none;
+  background-color: var(--text-primary);
+  color: var(--text-black);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--color-bg-variant);
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.close {
+  color: var(--text-white);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .filters {
+    display: none;
+  }
+
+  .btn-filter {
+    display: block;
+  }
+}

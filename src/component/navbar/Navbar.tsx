@@ -1,6 +1,8 @@
 import { BiWallet } from "react-icons/bi";
 import { FaRegChartBar } from "react-icons/fa";
 import { SiBetterstack } from "react-icons/si";
+import { SiApplenews } from "react-icons/si";
+import { FaMoneyBillTransfer } from "react-icons/fa6";
 
 import "./navbar.css";
 import { NavLink } from "react-router-dom";
@@ -45,14 +47,22 @@ const Navbar = () => {
           <span>ETF</span>
         </div>
       </NavLink>
-
       <NavLink
-        to="/stake"
+        to="/transactions"
         className={({ isActive }) => (isActive ? "active__nav" : "")}
       >
         <div className="flex flex-col justify-center items-center">
-          <SiBetterstack className="nav__icon" />
-          <span>Stake</span>
+          <FaMoneyBillTransfer className="nav__icon" />
+          <span>Transaction</span>
+        </div>
+      </NavLink>{" "}
+      <NavLink
+        to="/news"
+        className={({ isActive }) => (isActive ? "active__nav" : "")}
+      >
+        <div className="flex flex-col justify-center items-center">
+          <SiApplenews className="nav__icon" />
+          <span>News</span>
         </div>
       </NavLink>
     </section>

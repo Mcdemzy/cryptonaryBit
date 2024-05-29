@@ -4,6 +4,7 @@ import Navbar from "../navbar/Navbar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./stake.css";
+import Footer from "../footer/Footer";
 
 const Stake = () => {
   const location = useLocation();
@@ -156,6 +157,7 @@ const Stake = () => {
             </form>
           </div>
         </div>
+        <Footer />
       </div>
       <ToastContainer />
       <Navbar />

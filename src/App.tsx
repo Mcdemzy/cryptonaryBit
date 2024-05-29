@@ -11,13 +11,17 @@ import Dashboard from "./component/dashboard/Dashboard";
 import Etf from "./component/etf/Etf";
 import EtfAbout from "./component/etf/EtfAbout";
 import EtfFinancials from "./component/etf/EtfFinancials";
-import EtfNews from "./component/etf/EtfNews";
 import Wallet from "./component/wallet/Wallet";
 import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react";
 import Bch from "./component/coins/Bch";
 import Coming from "./component/coming/Coming";
 import Stake from "./component/stake/Stake";
 import ContactUs from "./component/contactus/ContactUs";
+import Withdrawal from "./component/withdraw/Withdrawal";
+import OnlineBankWithdrawal from "./component/withdraw/OnlineBankWithdrawal"; // Import the new component
+import Transactions from "./component/transactions/Transactions";
+import News from "./component/news/News";
+import { TransactionProvider } from "./component/transactions/TransactionContext";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -75,19 +79,7 @@ const router = createBrowserRouter(
           </>
         }
       />
-      <Route
-        path="/news"
-        element={
-          <>
-            <SignedIn>
-              <EtfNews />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
-          </>
-        }
-      />
+
       <Route
         path="/stake"
         element={
@@ -101,18 +93,47 @@ const router = createBrowserRouter(
           </>
         }
       />
+      <Route
+        path="/transactions"
+        element={
+          <>
+            <SignedIn>
+              <Transactions />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
       <Route path="/signup" element={<Signup />} />
       <Route path="/signin" element={<Signin />} />
       <Route path="/swap" element={<Coming />} />
       <Route path="/coming" element={<Coming />} />
       <Route path="/bch" element={<Bch />} />
       <Route path="/contactus" element={<ContactUs />} />
+      <Route path="/withdrawal" element={<Withdrawal />} />
+      <Route path="/online-bank" element={<OnlineBankWithdrawal />} />
+      <Route path="/news" element={<News />} />
       <Route
         path="/wallet"
         element={
           <>
             <SignedIn>
               <Wallet />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/online-bank-withdrawal"
+        element={
+          <>
+            <SignedIn>
+              <OnlineBankWithdrawal />
             </SignedIn>
             <SignedOut>
               <RedirectToSignIn />
