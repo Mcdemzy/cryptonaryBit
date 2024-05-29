@@ -137,7 +137,7 @@ const AboutUs = () => {
             </div>
           </div>
           {/* Card 6 */}
-          <div className="space-y-4 flex flex-col p-4] border-2  w-full md:w-[30%] md:h-[250px] rounded-lg">
+          <div className="space-y-4 flex flex-col p-4 border-2  w-full md:w-[30%] md:h-[250px] rounded-lg">
             <div
               className="w-20 rounded-md h-20 ml-auto"
               style={{
