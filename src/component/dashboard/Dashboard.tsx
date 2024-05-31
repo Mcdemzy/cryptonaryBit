@@ -8,17 +8,6 @@ import { BsBoxArrowInLeft } from "react-icons/bs";
 import { BsBoxArrowInDownLeft } from "react-icons/bs";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { BiShow } from "react-icons/bi";
-// import { MdArrowDropUp } from "react-icons/md";
-// import { MdArrowDropDown } from "react-icons/md";
-// import { MdOutlineArrowForwardIos } from "react-icons/md";
-
-// import CryptoIcon1 from "../../assets/crypto1.png";
-// import CryptoIcon2 from "../../assets/crypto2.png";
-// import CryptoIcon3 from "../../assets/crypto3.png";
-// import CryptoIcon4 from "../../assets/crypto4.png";
-// import CryptoIcon5 from "../../assets/crypto5.png";
-// import CryptoIcon6 from "../../assets/crypto6.png";
-// import CryptoIcon7 from "../../assets/crypto7.png";
 import Cup from "../../assets/cup.png";
 
 import { Pagination } from "swiper/modules";

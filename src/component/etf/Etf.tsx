@@ -11,6 +11,7 @@ import EtfImg8 from "../../assets/EtfImg8.png";
 import EtfImg9 from "../../assets/EtfImg9.webp";
 import EtfImg10 from "../../assets/EtfImg10.webp";
 import Navbar from "../navbar/Navbar";
+import Footer from "../footer/Footer";
 
 interface Etf {
   img: string;
@@ -90,7 +91,7 @@ const Etf = () => {
 
   return (
     <article>
-      <section className="etf__page pb-[80px] bg-[#0d141c] text-white">
+      <section className="etf__page pb-[50px] bg-[#0d141c] text-white">
         <div className="etf__top-nav">
           <h1>Invest</h1>
           <div className="etf__nav-links">
@@ -100,7 +101,6 @@ const Etf = () => {
             </Link>
           </div>
         </div>
-
         <section className="etf__page-content">
           <div className="mt-4 text-[1.1rem]">Featured Stocks</div>
           {etfs.map((etf, index) => (
@@ -118,6 +118,7 @@ const Etf = () => {
             </div>
           ))}
         </section>
+        <Footer />
       </section>
       <Navbar />
     </article>

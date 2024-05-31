@@ -1,5 +1,6 @@
 .staking-page {
-  background-color: var(--color-bg);
+  /* background-color: var(--color-bg); */
+  background: var(--color-bg-variant);
   color: var(--text-white);
   display: flex;
   flex-direction: column;
@@ -8,7 +9,7 @@
 }
 
 .stake-container {
-  max-width: 600px;
+  max-width: 900px;
   width: 100%;
   background-color: var(--color-bg-variant);
   border-radius: 10px;
@@ -58,6 +59,7 @@
 
 .stake-details img {
   margin-bottom: 1rem;
+  margin: auto;
 }
 
 .input-group {

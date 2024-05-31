@@ -64,7 +64,7 @@ const Stake = () => {
 
   return (
     <article>
-      <div className="staking-page">
+      <div className="staking-page pb-[100px]">
         <div className="stake-container">
           <div className="stats-container">
             <h2>Stats</h2>
