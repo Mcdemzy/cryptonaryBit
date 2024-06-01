@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import "./withdrawal.css";
 import WithdrawalIcon1 from "../../assets/withdrawalicon5.png";
 import CryptoIcon3 from "../../assets/crypto3.png";
 import CryptoIcon7 from "../../assets/crypto7.png";
+
 import Navbar from "../navbar/Navbar";
-import "./withdrawal.css";
+import { Link } from "react-router-dom";
 
 const Withdrawal = () => {
   const paymentMethods = [
@@ -14,7 +15,7 @@ const Withdrawal = () => {
       limits: "3 - 10,000 USD",
       icon: WithdrawalIcon1,
       recommended: true,
-      link: "online-bank",
+      link: "/online-bank",
     },
     {
       name: "BTC Withdrawal",
@@ -23,7 +24,7 @@ const Withdrawal = () => {
       limits: "4 - 10,000 USD",
       icon: CryptoIcon3,
       recommended: false,
-      link: "btc-withdrawal",
+      link: "/",
     },
     {
       name: "USDT Withdrawal",
@@ -32,7 +33,7 @@ const Withdrawal = () => {
       limits: "2 - 100,000 USD",
       icon: CryptoIcon7,
       recommended: false,
-      link: "usdt-withdrawal",
+      link: "/",
     },
   ];
 
@@ -42,8 +43,8 @@ const Withdrawal = () => {
       <p className="withdrawal-subtitle">All payment methods</p>
       <div className="withdrawal-grid">
         {paymentMethods.map((method, index) => (
-          <Link to={`/withdraw/${method.link}`} key={index}>
-            <div className="withdrawal-card">
+          <Link to={method.link}>
+            <div key={index} className="withdrawal-card">
               <div className="withdrawal-card-header">
                 <div className="withdrawal-card-title">
                   <img

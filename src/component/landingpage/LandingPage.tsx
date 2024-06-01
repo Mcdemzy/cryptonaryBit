@@ -1,17 +1,12 @@
-// import Navbar from "../navbar/Navbar";
-import { useState } from "react";
 import Navbar from "./components/Navbar";
 import "./landingpage.css";
 import { SignInButton } from "@clerk/clerk-react";
 import Ticker from "../chart/Ticker";
-import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
 import Subscription from "./components/Subscription";
 import FAQ from "./components/FAQ";
 
 const LandingPage = () => {
-  // const [activeTab, setActiveTab] = useState("monthly");
-
   return (
     <>
       <article className="landing__page">

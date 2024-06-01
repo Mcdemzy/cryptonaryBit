@@ -14,7 +14,7 @@ const Withdrawal = () => {
       fee: "0%",
       limits: "10 - 10,000 USD",
       icon: WithdrawalIcon1,
-      recommended: true,
+      recommended: false,
       link: "/wallet",
     },
     {
@@ -32,7 +32,7 @@ const Withdrawal = () => {
       fee: "0%",
       limits: "4 - 10,000 USD",
       icon: CryptoIcon3,
-      recommended: false,
+      recommended: true,
       link: "/wallet",
     },
     {
@@ -41,14 +41,14 @@ const Withdrawal = () => {
       fee: "0%",
       limits: "2 - 100,000 USD",
       icon: CryptoIcon7,
-      recommended: false,
+      recommended: true,
       link: "/wallet",
     },
   ];
 
   return (
     <section className="withdrawal-section">
-      <h1 className="withdrawal-title">Withdrawal</h1>
+      <h1 className="withdrawal-title">Deposit</h1>
       <p className="withdrawal-subtitle">All payment methods</p>
       <div className="withdrawal-grid">
         {paymentMethods.map((method, index) => (

@@ -62,7 +62,7 @@ const Dashboard = () => {
             </div>
           </Link>
 
-          <Link to="/">
+          <Link to="/coming">
             <div className="flex flex-col items-center">
               <div className="bg-[#151F2B] h-8 w-12 flex justify-center items-center text-[1.2rem] rounded-xl">
                 <AiOutlineSwap className="bg-[#151f2b] text-[#ffcc00] dashboard__icon" />
