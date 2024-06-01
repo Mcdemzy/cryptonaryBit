@@ -20,6 +20,7 @@ import CryptoIcon7 from "../../assets/crypto7.png";
 import "./wallet.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "../footer/Footer";
 
 type Wallet = {
   icon: string;
@@ -215,6 +216,7 @@ const Wallet = () => {
             </div>
           </div>
         ))}
+        <Footer />
       </section>
       {modal && selectedWallet && (
         <div className="modal">
