@@ -54,3 +54,8 @@ import Flag1 from "../../assets/flag.png";
 // import CryptoIcon5 from "../../assets/crypto5.png";
 // import CryptoIcon6 from "../../assets/crypto6.png";
 // import CryptoIcon7 from "../../assets/crypto7.png";
+
+{/* <div className="text-center mt-6">
+          <h3>Total Balance</h3>
+          <p className="text-[2.5rem] font-[700]">$0.00</p>
+        </div> */}

@@ -19,6 +19,7 @@ import { Link } from "react-router-dom";
 import { UserButton } from "@clerk/clerk-react";
 import MarketChart from "../chart/MarketChart";
 import Navbar from "../navbar/Navbar";
+import AccountBalance from "./components/AccountBalance";
 
 const Dashboard = () => {
   // const { user } = useClerk();
@@ -38,9 +39,8 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="text-center mt-6">
-          <h3>Total Balance</h3>
-          <p className="text-[2.5rem] font-[700]">$0.00</p>
+        <div className="flex items-center justify-center">
+          <AccountBalance />
         </div>
 
         <div className="mt-6 dashboard__feature flex justify-around items-center w-[90vw] h-[16vh] m-auto bg-[#060d17] p-[10px] rounded-xl">

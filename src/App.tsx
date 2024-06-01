@@ -18,12 +18,12 @@ import Coming from "./component/coming/Coming";
 import Stake from "./component/stake/Stake";
 import ContactUs from "./component/contactus/ContactUs";
 import Withdrawal from "./component/withdraw/Withdrawal";
-import OnlineBankWithdrawal from "./component/withdraw/OnlineBankWithdrawal"; // Import the new component
+import WithdrawalDetail from "./component/withdraw/WithdrawalDetail"; // Import the new component
 import Transactions from "./component/transactions/Transactions";
 import News from "./component/news/News";
 import AboutUs from "./component/aboutus/AboutUs";
 import AirDrop from "./component/airdrop/AirDrop";
-// import { TransactionProvider } from "./component/transactions/TransactionContext";
+import Deposit from "./component/deposit/Deposit";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -81,7 +81,6 @@ const router = createBrowserRouter(
           </>
         }
       />
-
       <Route
         path="/stake"
         element={
@@ -115,29 +114,18 @@ const router = createBrowserRouter(
       <Route path="/bch" element={<Bch />} />
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/withdrawal" element={<Withdrawal />} />
-      <Route path="/online-bank" element={<OnlineBankWithdrawal />} />
+      <Route path="/withdraw/:method" element={<WithdrawalDetail />} />{" "}
+      {/* Dynamic route for withdrawal details */}
       <Route path="/news" element={<News />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/airdrop" element={<AirDrop />} />
+      <Route path="/deposit" element={<Deposit />} />
       <Route
         path="/wallet"
         element={
           <>
             <SignedIn>
               <Wallet />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
-          </>
-        }
-      />
-      <Route
-        path="/online-bank-withdrawal"
-        element={
-          <>
-            <SignedIn>
-              <OnlineBankWithdrawal />
             </SignedIn>
             <SignedOut>
               <RedirectToSignIn />
