@@ -22,6 +22,7 @@ import OnlineBankWithdrawal from "./component/withdraw/OnlineBankWithdrawal"; //
 import Transactions from "./component/transactions/Transactions";
 import News from "./component/news/News";
 import AboutUs from "./component/aboutus/AboutUs";
+import AirDrop from "./component/airdrop/AirDrop";
 // import { TransactionProvider } from "./component/transactions/TransactionContext";
 
 const router = createBrowserRouter(
@@ -117,6 +118,7 @@ const router = createBrowserRouter(
       <Route path="/online-bank" element={<OnlineBankWithdrawal />} />
       <Route path="/news" element={<News />} />
       <Route path="/about" element={<AboutUs />} />
+      <Route path="/airdrop" element={<AirDrop />} />
       <Route
         path="/wallet"
         element={
