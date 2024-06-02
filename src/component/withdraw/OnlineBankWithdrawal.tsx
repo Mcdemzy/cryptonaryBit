@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./onlineBankWithdrawal.css";
-import "./withdrawal.css";
+// import "./withdrawal.css";
 import Navbar from "../navbar/Navbar";
+import { Link } from "react-router-dom";
 
 const OnlineBankWithdrawal = () => {
   const [amount, setAmount] = useState("");
@@ -11,9 +12,9 @@ const OnlineBankWithdrawal = () => {
       <section className="online-bank-withdrawal-section pb-[50px]">
         <div className="withdrawal-header">
           <h1 className="title">Withdrawal</h1>
-          <a href="/withdrawal" className="back-link">
+          <Link to="/withdrawal" className="back-link">
             See all payment methods
-          </a>
+          </Link>
         </div>
 
         <div className="withdrawal-form">
@@ -47,6 +48,23 @@ const OnlineBankWithdrawal = () => {
             </div>
           </div>
 
+          <div className="form-group ">
+            <label htmlFor="amount">Card Details</label>
+            <div className="card__details">
+              <input
+                type="number"
+                id="amount"
+                className="form-control"
+                placeholder="1234-5678-9000-0000"
+              />
+              <input
+                type="number"
+                id="amount"
+                className="form-control"
+                placeholder="CVC"
+              />
+            </div>
+          </div>
           <div className="form-group">
             <label htmlFor="amount">Amount</label>
             <input

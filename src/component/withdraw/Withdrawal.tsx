@@ -23,8 +23,8 @@ const Withdrawal = () => {
       fee: "0%",
       limits: "4 - 10,000 USD",
       icon: CryptoIcon3,
-      recommended: false,
-      link: "/",
+      recommended: true,
+      link: "/btc-withdrawal",
     },
     {
       name: "USDT Withdrawal",
@@ -32,7 +32,7 @@ const Withdrawal = () => {
       fee: "0%",
       limits: "2 - 100,000 USD",
       icon: CryptoIcon7,
-      recommended: false,
+      recommended: true,
       link: "/",
     },
   ];

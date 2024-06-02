@@ -1,16 +1,28 @@
-.online-bank-withdrawal-section {
-  display: flex;
-  flex-direction: column;
+:root {
+  --color-bg: #000000;
+  --color-bg-variant: #0d141c;
+  --color-variant: #060d17;
+  --nav-bg: #151f2b;
+  --color-bg-white: #ffffff;
+  --text-primary: #ffcc00;
+  --text-primary-variant: #75580c;
+  --text-white: #ffffff;
+  --text-gray: #a5a5a5;
+  --text-gray-variant: #5b5f62;
+  --text-black: #0d141c;
+}
+
+.bitcoin-withdrawal-section {
   padding: 20px;
   background-color: var(--color-bg-variant);
   color: var(--text-white);
   max-width: 960px;
   margin: 0 auto;
+  border-radius: 8px;
 }
 
 .withdrawal-header {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
@@ -30,11 +42,10 @@
 }
 
 .withdrawal-form {
-  background-color: var(--color-bg);
+  background: var(--color-bg);
   padding: 20px;
-  border: 1px solid var(--text-gray-variant);
   border-radius: 8px;
-  margin-bottom: 20px;
+  border: 1px solid var(--text-gray-variant);
 }
 
 .form-group {
@@ -66,6 +77,7 @@
 .balance {
   font-size: 0.875rem;
   color: var(--text-gray);
+  padding: 10px;
 }
 
 .limits {
@@ -153,13 +165,8 @@
   text-decoration: underline;
 }
 
-.card__details {
-  display: flex;
-  gap: 40px;
-}
-
-@media screen and (max-width: 600px) {
-  .card__details {
-    flex-wrap: wrap;
-  }
+.withdrawal-footer {
+  margin-top: 40px;
+  text-align: center;
+  color: var(--text-white);
 }
