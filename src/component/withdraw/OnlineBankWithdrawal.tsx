@@ -11,7 +11,7 @@ const OnlineBankWithdrawal = () => {
     <article className="bg-[#060d17]">
       <section className="online-bank-withdrawal-section pb-[50px]">
         <div className="withdrawal-header">
-          <h1 className="title">Withdrawal</h1>
+          <h1 className="title">Online Bank Withdrawal</h1>
           <Link to="/withdrawal" className="back-link">
             See all payment methods
           </Link>
@@ -20,7 +20,7 @@ const OnlineBankWithdrawal = () => {
         <div className="withdrawal-form">
           <div className="form-group">
             <label htmlFor="payment-method">Payment method</label>
-            <select id="payment-method" className="form-control">
+            <select id="payment-method" className="form-control" disabled>
               <option>Online Bank</option>
               <option>BTC Withdrawal</option>
               <option>USDT Withdrawal</option>

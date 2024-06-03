@@ -25,6 +25,7 @@ import AboutUs from "./component/aboutus/AboutUs";
 import AirDrop from "./component/airdrop/AirDrop";
 import Deposit from "./component/deposit/Deposit";
 import BitcoinWithdrawal from "./component/withdraw/BitcoinWithdrawal";
+import UsdtWithdrawal from "./component/withdraw/UsdtWithdrawal";
 // import { TransactionProvider } from "./component/transactions/TransactionContext";
 
 const router = createBrowserRouter(
@@ -123,6 +124,7 @@ const router = createBrowserRouter(
       <Route path="/airdrop" element={<AirDrop />} />
       <Route path="/deposit" element={<Deposit />} />
       <Route path="/btc-withdrawal" element={<BitcoinWithdrawal />} />
+      <Route path="/usdt-withdrawal" element={<UsdtWithdrawal />} />
       <Route
         path="/wallet"
         element={

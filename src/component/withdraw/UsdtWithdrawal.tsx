@@ -22,7 +22,7 @@ const BitcoinWithdrawal = () => {
     <article className="bg-[#060d17]">
       <section className="bitcoin-withdrawal-section pb-[50px]">
         <div className="withdrawal-header">
-          <h1 className="title">Bitcoin (BTC) Withdrawal</h1>
+          <h1 className="title">Tether (USDT TRC20) Withdrawal</h1>
           <Link to="/withdrawal" className="back-link">
             See all payment methods
           </Link>
@@ -32,8 +32,8 @@ const BitcoinWithdrawal = () => {
           <div className="form-group">
             <label htmlFor="payment-method">Payment method</label>
             <select id="payment-method" className="form-control" disabled>
+              <option>Tether (USDT TRC20)</option>
               <option>Bitcoin (BTC)</option>
-              <option>USDT Withdrawal</option>
               <option>Online Bank</option>
             </select>
           </div>
@@ -41,12 +41,12 @@ const BitcoinWithdrawal = () => {
           <div className="form-group">
             <label htmlFor="currency">Currency</label>
             <select id="currency" className="form-control" disabled>
-              <option>BTC</option>
+              <option>USDT</option>
             </select>
           </div>
 
           <div className="form-group">
-            <label htmlFor="external-wallet">To External Wallet</label>
+            <label htmlFor="external-wallet">To External TRON account</label>
             <input
               type="text"
               id="external-wallet"
@@ -58,12 +58,12 @@ const BitcoinWithdrawal = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="account">From Wallet at CryptonaryBit</label>
+            <label htmlFor="account">From account</label>
             <div className="account-info">
               <select id="account" className="form-control">
-                <option>Bitcoin (BTC)</option>
+                <option>USDT</option>
               </select>
-              <span className="balance">0.00000000 BTC</span>
+              <span className="balance">0.00000000 USDT</span>
             </div>
           </div>
 
@@ -73,11 +73,11 @@ const BitcoinWithdrawal = () => {
               type="number"
               id="amount"
               className="form-control"
-              placeholder="0.00000000"
+              placeholder="0.00"
               value={amount}
               onChange={handleAmountChange}
             />
-            <span className="limits">3 - 10,000 USD</span>
+            <span className="limits">3 - 10,000 USDT</span>
           </div>
 
           <div className="info-box">
@@ -91,7 +91,7 @@ const BitcoinWithdrawal = () => {
 
           <div className="total-box">
             <p>To be withdrawn</p>
-            <p className="amount">{amount} BTC</p>
+            <p className="amount">{amount} USDT</p>
           </div>
 
           <button
