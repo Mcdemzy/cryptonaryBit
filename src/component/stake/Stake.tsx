@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import { ToastContainer, toast } from "react-toastify";
@@ -14,6 +14,7 @@ const Stake = () => {
   const [duration, setDuration] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [messageSent, setMessageSent] = useState(false);
 
   if (!wallet) {
     return (
@@ -34,7 +35,7 @@ const Stake = () => {
     );
   }
 
-  const handleStake = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleStake = (e) => {
     e.preventDefault();
 
     if (!amount) {
@@ -58,6 +59,7 @@ const Stake = () => {
     // Simulate staking process
     setTimeout(() => {
       setIsLoading(false);
+      setMessageSent(true);
       toast.success(`Staked ${amount} ${wallet.symbol} for ${duration} days`);
     }, 2000);
   };
@@ -157,9 +159,20 @@ const Stake = () => {
             </form>
           </div>
         </div>
+
+        {/* Display popup when message is sent */}
+        {messageSent && (
+          <div className="popup">
+            <p>
+              You've successfully Staked <br /> {amount} {wallet.symbol} for{" "}
+              {duration} days
+            </p>
+            <button onClick={() => setMessageSent(false)}>Close</button>
+          </div>
+        )}
         <Footer />
       </div>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <Navbar />
     </article>
   );
