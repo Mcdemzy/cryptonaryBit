@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer className="withdrawal-footer mt-[40px]">
@@ -26,11 +28,17 @@ const Footer = () => {
         PCI DSS requirements for our business model.
       </p>
       <div className="footer-links">
-        <a href="#">Privacy Agreement</a>
-        <a href="#">Risk Disclosure</a>
-        <a href="#">Preventing Money Laundering</a>
-        <a href="#">Security instructions</a>
-        <a href="#">Legal documents</a>
+        <a href="/docs/preventingmoneylaundering.pdf" target="_blank">
+          Preventing Money Laundering
+        </a>
+        <a href="/docs/privacy-policy.pdf" target="_blank">
+          Privacy Policy
+        </a>
+        <a href="#">Terms & Conditions</a>
+        <Link to="/contact">Contact Us</Link>
+        <a href="/docs/risk&disclosure.pdf" target="_blank">
+          Risk & Disclosure
+        </a>
       </div>
       <p className="footer-contact">
         Email:{" "}

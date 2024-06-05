@@ -30,7 +30,7 @@ const OnlineBankWithdrawal = () => {
           <div className="form-group">
             <label htmlFor="currency">Currency</label>
             <select id="currency" className="form-control">
-              <option>NGN</option>
+              <option>x</option>
             </select>
           </div>
 

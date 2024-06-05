@@ -1,8 +1,6 @@
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import { useLocation, Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import "./stake.css";
 import Footer from "../footer/Footer";
 
@@ -12,9 +10,11 @@ const Stake = () => {
 
   const [amount, setAmount] = useState("");
   const [duration, setDuration] = useState("");
+  const [estimatedAPY, setEstimatedAPY] = useState(0);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
 
   if (!wallet) {
     return (
@@ -35,7 +35,7 @@ const Stake = () => {
     );
   }
 
-  const handleStake = (e) => {
+  const handleStake = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!amount) {
@@ -48,8 +48,8 @@ const Stake = () => {
       return;
     }
 
-    if (parseFloat(duration) <= 0) {
-      setError("The duration must be greater than zero.");
+    if (!duration) {
+      setError("Please select a duration.");
       return;
     }
 
@@ -60,8 +60,29 @@ const Stake = () => {
     setTimeout(() => {
       setIsLoading(false);
       setMessageSent(true);
-      toast.success(`Staked ${amount} ${wallet.symbol} for ${duration} days`);
+      setPopupMessage(`Staked ${amount} ${wallet.symbol} for ${duration}`);
     }, 2000);
+  };
+
+  const handleDurationChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const selectedDuration = e.target.value;
+    setDuration(selectedDuration);
+
+    let apy;
+    switch (selectedDuration) {
+      case "7 days":
+        apy = 100;
+        break;
+      case "2 weeks":
+        apy = 700;
+        break;
+      case "1 month":
+        apy = 3000;
+        break;
+      default:
+        apy = 0;
+    }
+    setEstimatedAPY(apy);
   };
 
   return (
@@ -123,14 +144,20 @@ const Stake = () => {
               </div>
               <div className="input-group">
                 <label htmlFor="duration">Duration</label>
-                <input
-                  type="number"
+                <select
                   id="duration"
                   value={duration}
-                  onChange={(e) => setDuration(e.target.value)}
+                  onChange={handleDurationChange}
                   required
                   className="form-input"
-                />
+                >
+                  <option value="" disabled>
+                    Select duration
+                  </option>
+                  <option value="7 days">7 days</option>
+                  <option value="2 weeks">2 weeks</option>
+                  <option value="1 month">1 month</option>
+                </select>
               </div>
               {error && <p className="text-red-500">{error}</p>}
               <div className="info-group">
@@ -139,7 +166,7 @@ const Stake = () => {
               </div>
               <div className="info-group">
                 <p>Est APY</p>
-                <p>5%</p>
+                <p>{estimatedAPY}%</p>
               </div>
               <div className="info-group">
                 <p>Available Balance</p>
@@ -163,16 +190,12 @@ const Stake = () => {
         {/* Display popup when message is sent */}
         {messageSent && (
           <div className="popup">
-            <p>
-              You've successfully Staked <br /> {amount} {wallet.symbol} for{" "}
-              {duration} days
-            </p>
+            <p>{popupMessage}</p>
             <button onClick={() => setMessageSent(false)}>Close</button>
           </div>
         )}
         <Footer />
       </div>
-      {/* <ToastContainer /> */}
       <Navbar />
     </article>
   );
