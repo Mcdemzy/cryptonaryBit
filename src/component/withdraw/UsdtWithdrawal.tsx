@@ -25,6 +25,9 @@ const USDTWithdrawal = () => {
     setTimeout(() => {
       setMessageSent(true);
       setPopupMessage(`Your USDT withdrawal is being processed`);
+      // Reset input field data
+      setAmount("");
+      setExternalWallet("");
     }, 1000);
   };
 

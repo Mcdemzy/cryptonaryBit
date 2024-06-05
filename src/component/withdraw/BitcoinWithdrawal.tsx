@@ -23,6 +23,9 @@ const BitcoinWithdrawal = () => {
     setTimeout(() => {
       setMessageSent(true);
       setPopupMessage(`Your BTC withdrawal is being processed`);
+      // Reset input field data
+      setAmount("");
+      setExternalWallet("");
     }, 1000);
   };
 

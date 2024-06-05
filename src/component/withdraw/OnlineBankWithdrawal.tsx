@@ -15,6 +15,10 @@ const OnlineBankWithdrawal = () => {
     setTimeout(() => {
       setMessageSent(true);
       setPopupMessage(`Your Online withdrawal is being processed`);
+      // Reset input field data
+      setAmount("");
+      setCardNumber("");
+      setCvc("");
     }, 1000);
   };
 
@@ -121,7 +125,7 @@ const OnlineBankWithdrawal = () => {
             disabled={!isWithdrawalEnabled}
             onClick={handleWithdrawal}
           >
-            Continue
+            Withdraw
           </button>
         </div>
 
