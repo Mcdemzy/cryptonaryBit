@@ -142,9 +142,9 @@ const OnlineBankWithdrawal = () => {
 
           <div className="faq-section">
             <h3>FAQ</h3>
-            <a href="#">
+            <Link to="/faq">
               How to deposit and withdraw with online bank transfers
-            </a>
+            </Link>
           </div>
         </div>
 

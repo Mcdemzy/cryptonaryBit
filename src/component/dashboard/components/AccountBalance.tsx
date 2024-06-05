@@ -22,7 +22,7 @@ const AccountBalance = () => {
           0.00 USD
         </div>
         <div className="flex space-x-2 sm:space-x-4">
-          <Link to="/wallet">
+          <Link to="/deposit">
             <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded">
               Deposit
             </button>

@@ -138,7 +138,7 @@ const USDTWithdrawal = () => {
 
           <div className="faq-section">
             <h3>FAQ</h3>
-            <a href="#">Find out more about crypto payments</a>
+            <Link to="/faq">Find out more about crypto payments</Link>
           </div>
         </div>
 
