@@ -1,12 +1,14 @@
 import { useState } from "react";
-import Navbar from "../navbar/Navbar";
-import "./bitcoinwithdrawal.css";
 import { Link } from "react-router-dom";
+import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
+import "./bitcoinwithdrawal.css";
 
-const BitcoinWithdrawal = () => {
+const USDTWithdrawal = () => {
   const [amount, setAmount] = useState("");
   const [externalWallet, setExternalWallet] = useState("");
+  const [messageSent, setMessageSent] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(e.target.value);
@@ -16,6 +18,22 @@ const BitcoinWithdrawal = () => {
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     setExternalWallet(e.target.value);
+  };
+
+  const handleWithdrawal = () => {
+    // Simulate withdrawal process
+    setTimeout(() => {
+      setMessageSent(true);
+      setPopupMessage(`Your USDT withdrawal is being processed`);
+    }, 1000);
+  };
+
+  const isWithdrawalEnabled = () => {
+    return (
+      Number(amount) >= 3 &&
+      Number(amount) <= 10000 &&
+      externalWallet.trim() !== ""
+    );
   };
 
   return (
@@ -54,6 +72,7 @@ const BitcoinWithdrawal = () => {
               placeholder="Enter your wallet address"
               value={externalWallet}
               onChange={handleExternalWalletChange}
+              required
             />
           </div>
 
@@ -96,7 +115,8 @@ const BitcoinWithdrawal = () => {
 
           <button
             className="continue-btn"
-            disabled={Number(amount) < 0.00001 || Number(amount) > 10000}
+            disabled={!isWithdrawalEnabled()}
+            onClick={handleWithdrawal}
           >
             Continue
           </button>
@@ -118,11 +138,22 @@ const BitcoinWithdrawal = () => {
             <a href="#">Find out more about crypto payments</a>
           </div>
         </div>
+
         <Footer />
       </section>
       <Navbar />
+
+      {/* Display popup when message is sent */}
+      {messageSent && (
+        <div className="popup">
+          <div className="popup-content">
+            <p>{popupMessage}</p>
+            <button onClick={() => setMessageSent(false)}>Close</button>
+          </div>
+        </div>
+      )}
     </article>
   );
 };
 
-export default BitcoinWithdrawal;
+export default USDTWithdrawal;

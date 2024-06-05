@@ -1,11 +1,28 @@
 import { useState } from "react";
-import "./onlineBankWithdrawal.css";
-// import "./withdrawal.css";
-import Navbar from "../navbar/Navbar";
 import { Link } from "react-router-dom";
+import Navbar from "../navbar/Navbar";
+import "./onlineBankWithdrawal.css";
 
 const OnlineBankWithdrawal = () => {
   const [amount, setAmount] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cvc, setCvc] = useState("");
+  const [messageSent, setMessageSent] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
+
+  const handleWithdrawal = () => {
+    // Simulate withdrawal process
+    setTimeout(() => {
+      setMessageSent(true);
+      setPopupMessage(`Your Online withdrawal is being processed`);
+    }, 1000);
+  };
+
+  const isWithdrawalEnabled =
+    Number(amount) >= 3 &&
+    Number(amount) <= 10000 &&
+    cardNumber.trim() !== "" &&
+    cvc.trim() !== "";
 
   return (
     <article className="bg-[#060d17]">
@@ -29,8 +46,8 @@ const OnlineBankWithdrawal = () => {
 
           <div className="form-group">
             <label htmlFor="currency">Currency</label>
-            <select id="currency" className="form-control">
-              <option>x</option>
+            <select id="currency" className="form-control" disabled>
+              <option>USD</option>
             </select>
           </div>
 
@@ -48,23 +65,28 @@ const OnlineBankWithdrawal = () => {
             </div>
           </div>
 
-          <div className="form-group ">
-            <label htmlFor="amount">Card Details</label>
+          <div className="form-group">
+            <label htmlFor="card-number">Card Details</label>
             <div className="card__details">
               <input
                 type="number"
-                id="amount"
+                id="card-number"
                 className="form-control"
                 placeholder="1234-5678-9000-0000"
+                value={cardNumber}
+                onChange={(e) => setCardNumber(e.target.value)}
               />
               <input
                 type="number"
-                id="amount"
+                id="cvc"
                 className="form-control"
                 placeholder="CVC"
+                value={cvc}
+                onChange={(e) => setCvc(e.target.value)}
               />
             </div>
           </div>
+
           <div className="form-group">
             <label htmlFor="amount">Amount</label>
             <input
@@ -96,7 +118,8 @@ const OnlineBankWithdrawal = () => {
 
           <button
             className="continue-btn"
-            disabled={Number(amount) < 3 || Number(amount) > 10000}
+            disabled={!isWithdrawalEnabled}
+            onClick={handleWithdrawal}
           >
             Continue
           </button>
@@ -147,11 +170,17 @@ const OnlineBankWithdrawal = () => {
             the PCI DSS requirements for our business model.
           </p>
           <div className="footer-links">
-            <a href="#">Privacy Agreement</a>
-            <a href="#">Risk Disclosure</a>
-            <a href="#">Preventing Money Laundering</a>
-            <a href="#">Security instructions</a>
-            <a href="#">Legal documents</a>
+            <a href="/docs/preventingmoneylaundering.pdf" target="_blank">
+              Preventing Money Laundering
+            </a>
+            <a href="/docs/privacy-policy.pdf" target="_blank">
+              Privacy Policy
+            </a>
+            <a href="#">Terms & Conditions</a>
+            <Link to="/contact">Contact Us</Link>
+            <a href="/docs/risk&disclosure.pdf" target="_blank">
+              Risk & Disclosure
+            </a>
           </div>
           <p className="footer-contact">
             Email:{" "}
@@ -159,6 +188,16 @@ const OnlineBankWithdrawal = () => {
           </p>
           <p className="footer-copyright">&copy; 2008 - 2024. CryptonaryBit</p>
         </footer>
+
+        {/* Display popup when message is sent */}
+        {messageSent && (
+          <div className="popup">
+            <div className="popup-content">
+              <p>{popupMessage}</p>
+              <button onClick={() => setMessageSent(false)}>Close</button>
+            </div>
+          </div>
+        )}
       </section>
       <Navbar />
     </article>

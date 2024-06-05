@@ -71,13 +71,13 @@ const Stake = () => {
     let apy;
     switch (selectedDuration) {
       case "7 days":
-        apy = 100;
+        apy = 250;
         break;
       case "2 weeks":
-        apy = 700;
+        apy = 750;
         break;
       case "1 month":
-        apy = 3000;
+        apy = 1000;
         break;
       default:
         apy = 0;

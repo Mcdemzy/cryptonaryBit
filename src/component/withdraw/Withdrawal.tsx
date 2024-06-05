@@ -1,7 +1,7 @@
 import "./withdrawal.css";
 import WithdrawalIcon1 from "../../assets/withdrawalicon5.png";
 import CryptoIcon3 from "../../assets/crypto3.png";
-import CryptoIcon7 from "../../assets/crypto7.png";
+import CryptoIcon7 from "../../assets/crypto8.png";
 
 import Navbar from "../navbar/Navbar";
 import { Link } from "react-router-dom";

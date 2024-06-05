@@ -16,7 +16,7 @@ import CryptoIcon3 from "../../assets/crypto3.png";
 import CryptoIcon4 from "../../assets/crypto4.png";
 import CryptoIcon5 from "../../assets/crypto5.png";
 import CryptoIcon6 from "../../assets/crypto6.png";
-import CryptoIcon7 from "../../assets/crypto7.png";
+import CryptoIcon7 from "../../assets/crypto8.png";
 import "./wallet.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
