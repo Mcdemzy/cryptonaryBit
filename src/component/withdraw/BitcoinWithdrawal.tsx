@@ -70,7 +70,7 @@ const BitcoinWithdrawal = () => {
               type="text"
               id="external-wallet"
               className="form-control"
-              placeholder="Enter your wallet address"
+              placeholder="Enter your Bitcoin wallet address"
               value={externalWallet}
               onChange={handleExternalWalletChange}
               required

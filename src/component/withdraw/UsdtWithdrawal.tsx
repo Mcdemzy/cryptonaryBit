@@ -72,7 +72,7 @@ const USDTWithdrawal = () => {
               type="text"
               id="external-wallet"
               className="form-control"
-              placeholder="Enter your wallet address"
+              placeholder="Enter your TRON wallet address"
               value={externalWallet}
               onChange={handleExternalWalletChange}
               required
