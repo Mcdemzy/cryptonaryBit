@@ -27,6 +27,7 @@ import Deposit from "./component/deposit/Deposit";
 import BitcoinWithdrawal from "./component/withdraw/BitcoinWithdrawal";
 import UsdtWithdrawal from "./component/withdraw/UsdtWithdrawal";
 import FAQ from "./component/landingpage/components/FAQ";
+import OnlineBankDeposit from "./component/deposit/OnlineBankDeposit";
 // import { TransactionProvider } from "./component/transactions/TransactionContext";
 
 const router = createBrowserRouter(
@@ -127,6 +128,7 @@ const router = createBrowserRouter(
       <Route path="/btc-withdrawal" element={<BitcoinWithdrawal />} />
       <Route path="/usdt-withdrawal" element={<UsdtWithdrawal />} />
       <Route path="/faq" element={<FAQ />} />
+      <Route path="/online-deposit" element={<OnlineBankDeposit />} />
       <Route
         path="/wallet"
         element={
