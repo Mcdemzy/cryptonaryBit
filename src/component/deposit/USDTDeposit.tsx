@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import QRCode from "qrcode.react";
 import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
