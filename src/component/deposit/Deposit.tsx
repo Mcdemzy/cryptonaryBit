@@ -33,7 +33,7 @@ const Deposit = () => {
       limits: "2 - 100,000 USD",
       icon: CryptoIcon7,
       recommended: true,
-      link: "/wallet",
+      link: "/usdt-deposit",
     },
   ];
 
