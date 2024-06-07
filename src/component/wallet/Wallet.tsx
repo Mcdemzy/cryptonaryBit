@@ -206,13 +206,13 @@ const Wallet = () => {
                   <span>Stake</span>
                 </div>
               )}
-              <div
+              {/* <div
                 onClick={() => toggleModal(wallet)}
                 className="flex flex-col justify-center items-center cursor-pointer"
               >
                 <BsBoxArrowUpRight className="wallet__links-icon" />
                 <span>Deposit</span>
-              </div>
+              </div> */}
             </div>
           </div>
         ))}

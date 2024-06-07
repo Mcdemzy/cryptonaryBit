@@ -434,3 +434,36 @@ export default BitcoinWithdrawal;
   color: white;
 }
 "
+
+
+<div
+                onClick={() => toggleModal(wallet)}
+                className="flex flex-col justify-center items-center cursor-pointer"
+              >
+                <BsBoxArrowUpRight className="wallet__links-icon" />
+                <span>Deposit</span>
+              </div>
+                {modal && selectedWallet && (
+        <div className="modal">
+          <div onClick={() => toggleModal(null)} className="overlay"></div>
+          <div className="modal-content">
+            <h2>Send {selectedWallet.symbol}</h2>
+            <div className="modal-container">
+              <img
+                src={selectedWallet.icon}
+                width={48}
+                alt={selectedWallet.name}
+              />
+              <div className="bitcoin__address-container">
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Animi, labore.
+                </p>
+              </div>
+            </div>
+            <button className="close-modal" onClick={() => toggleModal(null)}>
+              <AiOutlineClose />
+            </button>
+          </div>
+        </div>
+      )}

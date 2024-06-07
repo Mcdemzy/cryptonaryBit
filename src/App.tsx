@@ -28,6 +28,9 @@ import BitcoinWithdrawal from "./component/withdraw/BitcoinWithdrawal";
 import UsdtWithdrawal from "./component/withdraw/UsdtWithdrawal";
 import FAQ from "./component/landingpage/components/FAQ";
 import OnlineBankDeposit from "./component/deposit/OnlineBankDeposit";
+import PortfolioManagement from "./component/portfolio/PortfolioManagement";
+import BTCDeposit from "./component/deposit/BTCDeposit";
+
 // import { TransactionProvider } from "./component/transactions/TransactionContext";
 
 const router = createBrowserRouter(
@@ -129,6 +132,8 @@ const router = createBrowserRouter(
       <Route path="/usdt-withdrawal" element={<UsdtWithdrawal />} />
       <Route path="/faq" element={<FAQ />} />
       <Route path="/online-deposit" element={<OnlineBankDeposit />} />
+      <Route path="/pim" element={<PortfolioManagement />} />
+      <Route path="/btc-deposit" element={<BTCDeposit />} />
       <Route
         path="/wallet"
         element={

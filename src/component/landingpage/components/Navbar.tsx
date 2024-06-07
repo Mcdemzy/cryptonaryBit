@@ -8,6 +8,8 @@ import { SignInButton } from "@clerk/clerk-react";
 
 const Navbar = () => {
   const [isSubDropdownOpen, setIsSubDropdownOpen] = useState(false);
+  const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false); // New state for Products dropdown
+
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
 
   useEffect(() => {
@@ -26,6 +28,10 @@ const Navbar = () => {
 
   const toggleSubDropdown = () => {
     setIsSubDropdownOpen((prevState) => !prevState);
+  };
+
+  const toggleProductsDropdown = () => {
+    setIsProductsDropdownOpen((prevState) => !prevState); // Toggle Products dropdown visibility
   };
 
   const handleMenuClick = () => {
@@ -97,9 +103,40 @@ const Navbar = () => {
                 </Link>
               </div>
             )}
-            <Link to="/products" className="text-white hover:text-blue-500">
-              Products
-            </Link>
+
+            <button
+              onClick={toggleProductsDropdown} // Toggle Products dropdown
+              className={`flex items-center text-white hover:text-blue-500 ${
+                isProductsDropdownOpen ? "text-blue-500" : ""
+              }`}
+              aria-expanded={isProductsDropdownOpen}
+              aria-controls="products-dropdown"
+            >
+              Products <FaChevronDown className="ml-1" />
+            </button>
+            {isProductsDropdownOpen && (
+              <div
+                id="products-dropdown"
+                className="absolute top-full mt-2 left-0 bg-black border-gray-700 text-white rounded-md shadow-lg w-48 z-50"
+              >
+                <Link
+                  to="/product1"
+                  className="block px-4 py-2 hover:bg-gray-800"
+                  onClick={() => setIsProductsDropdownOpen(false)}
+                >
+                  Product 1
+                </Link>
+                <Link
+                  to="/product2"
+                  className="block px-4 py-2 hover:bg-gray-800"
+                  onClick={() => setIsProductsDropdownOpen(false)}
+                >
+                  Product 2
+                </Link>
+                {/* Add more links for other products */}
+              </div>
+            )}
+
             <Link to="/contact" className="text-white hover:text-blue-500">
               Contact Us
             </Link>
@@ -189,9 +226,50 @@ const Navbar = () => {
               </Link>
             </div>
           )}
-          <Link to="/products" className="px-4 py-2 hover:text-blue-500">
-            Products
-          </Link>
+          <button
+            onClick={toggleProductsDropdown}
+            className="flex items-center justify-between w-full px-4 py-2 text-left"
+            aria-expanded={isProductsDropdownOpen}
+            aria-controls="mobile-tools-dropdown"
+          >
+            Products <FaChevronDown />
+          </button>
+          {isProductsDropdownOpen && (
+            <div
+              id="mobile-tools-dropdown"
+              className="flex flex-col space-y-2 pl-8"
+            >
+              <Link
+                to="/charts"
+                className="hover:text-blue-500"
+                onClick={() => setIsProductsDropdownOpen(false)}
+              >
+                Real-Time Charts
+              </Link>
+              <Link
+                to="/picks"
+                className="hover:text-blue-500"
+                onClick={() => setIsProductsDropdownOpen(false)}
+              >
+                CryptonaryBit Picks
+              </Link>
+              <Link
+                to="/etf"
+                className="hover:text-blue-500"
+                onClick={() => setIsProductsDropdownOpen(false)}
+              >
+                ETF Tracker
+              </Link>
+              <Link
+                to="/airdrops"
+                className="hover:text-blue-500"
+                onClick={() => setIsProductsDropdownOpen(false)}
+              >
+                Airdrops
+              </Link>
+            </div>
+          )}
+
           <Link to="/contact" className="px-4 py-2 hover:text-blue-500">
             Contact Us
           </Link>
