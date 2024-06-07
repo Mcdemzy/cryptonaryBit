@@ -1,9 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import QRCode from "qrcode.react";
 import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
-import "./btcdeposit.css";
+import "./usdtdeposit.css";
 
 const USDTDeposit = () => {
   const [showAddress, setShowAddress] = useState(false);
@@ -14,9 +14,9 @@ const USDTDeposit = () => {
   };
 
   const handleCopyAddress = () => {
-    const address = "bc1qpde50hql3zdy5avxr5nal462o6a9mu2h3rpa6t";
+    const address = "0x4f5FDe7d1B9e04aEBa28c5cDa2D87E1beEc0a3Df"; // Example USDT wallet address
     navigator.clipboard.writeText(address);
-    setPopupMessage("TRON Wallet Address copied!");
+    setPopupMessage("USDT Wallet Address copied!");
 
     setTimeout(() => {
       setPopupMessage("");
@@ -25,9 +25,9 @@ const USDTDeposit = () => {
 
   return (
     <article className="bg-[#060d17]">
-      <section className="btc-deposit-section pb-[50px]">
+      <section className="usdt-deposit-section pb-[50px]">
         <div className="deposit-header">
-          <h1 className="title">Tether (USDT TRC20)</h1>
+          <h1 className="title">USDT Deposit</h1>
           <Link to="/deposit" className="back-link">
             See all payment methods
           </Link>
@@ -38,19 +38,19 @@ const USDTDeposit = () => {
             <div className="form-group">
               <label htmlFor="payment-method">Payment method</label>
               <select id="payment-method" className="form-control" disabled>
-                <option>Bitcoin (BTC)</option>
+                <option>USDT (Tether)</option>
               </select>
             </div>
             <div className="form-group">
               <label htmlFor="to-account">To account</label>
               <select id="to-account" className="form-control" disabled>
-                <option>Bitcoin (BTC) - 0.00000000 BTC</option>
+                <option>USDT (Tether) - 0.00 USDT</option>
               </select>
             </div>
             <div className="info-box">
               <p>
                 Deposit processing time depends on the limit you set when making
-                a transfer. Bitcoin deposits will be credited to your Exness BTC
+                a transfer. USDT deposits will be credited to your Exness USDT
                 wallet and can be easily transferred to any trading account
                 within your Personal Area.
               </p>
@@ -64,28 +64,30 @@ const USDTDeposit = () => {
             <div className="form-group">
               <label htmlFor="payment-method">Payment method</label>
               <select id="payment-method" className="form-control" disabled>
-                <option>Bitcoin (BTC)</option>
+                <option>USDT (Tether)</option>
               </select>
             </div>
             <div className="info-box">
               <p>
-                To deposit funds, make a bitcoin transfer to the BTC-wallet
-                shown below. Copy wallet address or scan QR code with your
-                camera.
+                To deposit funds, make a USDT transfer to the USDT-wallet shown
+                below. Copy wallet address or scan QR code with your camera.
               </p>
             </div>
             <div className="form-group">
-              <label className="btc-deposit-address-text">
-                Your unique Bitcoin wallet address
+              <label className="usdt-deposit-address-text">
+                Your unique USDT wallet address
               </label>
-              <div className="btc-deposit-address-box">
-                <p>bc1qpde50hql3zdy5avxr5nal462o6a9mu2h3rpa6t</p>
-                <button className="btc-copy-button" onClick={handleCopyAddress}>
+              <div className="usdt-deposit-address-box">
+                <p>0x4f5FDe7d1B9e04aEBa28c5cDa2D87E1beEc0a3Df</p>
+                <button
+                  className="usdt-copy-button"
+                  onClick={handleCopyAddress}
+                >
                   Copy address
                 </button>
               </div>
               <QRCode
-                value="bc1qpde50hql3zdy5avxr5nal462o6a9mu2h3rpa6t"
+                value="0x4f5FDe7d1B9e04aEBa28c5cDa2D87E1beEc0a3Df"
                 size={128}
               />
             </div>
@@ -109,7 +111,7 @@ const USDTDeposit = () => {
 
           <div className="faq-section">
             <h3>FAQ</h3>
-            <Link to="/faq">Find out more about crypto payments</Link>
+            <Link to="/faq">Find out more about USDT payments</Link>
           </div>
         </div>
 

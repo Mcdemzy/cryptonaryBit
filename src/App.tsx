@@ -30,6 +30,7 @@ import FAQ from "./component/landingpage/components/FAQ";
 import OnlineBankDeposit from "./component/deposit/OnlineBankDeposit";
 import PortfolioManagement from "./component/portfolio/PortfolioManagement";
 import BTCDeposit from "./component/deposit/BTCDeposit";
+import USDTDeposit from "./component/deposit/USDTDeposit";
 
 // import { TransactionProvider } from "./component/transactions/TransactionContext";
 
@@ -134,6 +135,7 @@ const router = createBrowserRouter(
       <Route path="/online-deposit" element={<OnlineBankDeposit />} />
       <Route path="/pim" element={<PortfolioManagement />} />
       <Route path="/btc-deposit" element={<BTCDeposit />} />
+      <Route path="/usdt-deposit" element={<USDTDeposit />} />
       <Route
         path="/wallet"
         element={
