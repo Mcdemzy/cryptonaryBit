@@ -5,6 +5,7 @@ import Ticker from "../chart/Ticker";
 import Footer from "./components/Footer";
 import Subscription from "./components/Subscription";
 import FAQ from "./components/FAQ";
+import Review from "./components/Review";
 
 const LandingPage = () => {
   return (
@@ -1136,6 +1137,13 @@ const LandingPage = () => {
         </section>
         {/* Section Subscription */}
         <Subscription />
+        {/* Section Reviews */}
+        <section className="w-[95%] m-auto my-10">
+          <h1 className="text-center text-4xl font-bold text-primary my-8 underline">
+            Reviews
+          </h1>
+          <Review />
+        </section>
         {/* Section FAQ */}
         <FAQ />
         {/*  footer */}

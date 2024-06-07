@@ -2,9 +2,9 @@ export default function Review() {
   return (
     <>
       {/* review card 1 */}
-      <aside className="flex flex-col md:flex-row flex-wrap gap-y-6 justify-between items-center">
+      <aside className="flex flex-col lg:flex-row gap-x-4 gap-y-6 justify-between items-center">
         {/* first review */}
-        <section className="w-full md:w-[400px] py-4 p-3 rounded-md shadow-lg">
+        <section className="w-full lg:w-[400px] py-4 p-3 rounded-md shadow-lg">
           {/* username */}
           <div className="border-b flex justify-start items-center gap-x-3">
             <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
@@ -140,7 +140,7 @@ export default function Review() {
           </div>
         </section>
         {/* second review */}
-        <section className="w-full md:w-[400px] py-4 p-3 rounded-md shadow-lg">
+        <section className="w-full lg:w-[400px] py-4 p-3 rounded-md shadow-lg">
           {/* username */}
           <div className="border-b flex justify-start items-center gap-x-3">
             <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-blue-400 rounded-full dark:bg-gray-600">
@@ -276,7 +276,7 @@ export default function Review() {
           </div>
         </section>
         {/* third review */}
-        <section className="w-full md:w-[400px] py-4 p-3 rounded-md shadow-lg">
+        <section className="w-full lg:w-[400px] py-4 p-3 rounded-md shadow-lg">
           {/* username */}
           <div className="border-b flex justify-start items-center gap-x-3">
             <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
