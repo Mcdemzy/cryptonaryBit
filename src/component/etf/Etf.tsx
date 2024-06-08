@@ -96,7 +96,7 @@ const Etf = () => {
           <h1>Invest</h1>
           <div className="etf__nav-links">
             <p>Us Stocks</p>
-            <Link to="/coming">
+            <Link to="/fixed-etf">
               <p>Fixed Returns</p>
             </Link>
           </div>

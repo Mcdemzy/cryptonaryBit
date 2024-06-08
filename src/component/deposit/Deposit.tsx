@@ -9,15 +9,6 @@ import { Link } from "react-router-dom";
 const Deposit = () => {
   const paymentMethods = [
     {
-      name: "Bank Card",
-      processingTime: "Instant - 30 minutes",
-      fee: "0%",
-      limits: "10 - 10,000 USD",
-      icon: WithdrawalIcon1,
-      recommended: true,
-      link: "/coming",
-    },
-    {
       name: "BTC Deposit",
       processingTime: "Instant - 1 day",
       fee: "0%",

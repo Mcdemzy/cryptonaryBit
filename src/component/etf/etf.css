@@ -28,6 +28,7 @@
   display: grid;
   grid-template-columns: 30% 55% 10%;
   gap: 2%;
+  cursor: pointer;
 }
 
 .etf__main-display img {

@@ -14,7 +14,7 @@ const AccountBalance = () => {
           <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded mb-2 sm:mb-0">
             Standard
           </span>
-          <span className="text-gray-700 font-semibold"># 407121577</span>
+          <span className="text-gray-700 font-semibold"># 600154598</span>
         </div>
       </div>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">

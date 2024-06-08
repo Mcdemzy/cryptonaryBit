@@ -8,6 +8,7 @@ import { SignInButton } from "@clerk/clerk-react";
 
 const Navbar = () => {
   const [isSubDropdownOpen, setIsSubDropdownOpen] = useState(false);
+  const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
 
   useEffect(() => {
@@ -25,7 +26,21 @@ const Navbar = () => {
   }, []);
 
   const toggleSubDropdown = () => {
-    setIsSubDropdownOpen((prevState) => !prevState);
+    setIsSubDropdownOpen((prevState) => {
+      if (!prevState) {
+        setIsProductsDropdownOpen(false);
+      }
+      return !prevState;
+    });
+  };
+
+  const toggleProductsDropdown = () => {
+    setIsProductsDropdownOpen((prevState) => {
+      if (!prevState) {
+        setIsSubDropdownOpen(false);
+      }
+      return !prevState;
+    });
   };
 
   const handleMenuClick = () => {
@@ -67,7 +82,7 @@ const Navbar = () => {
                 id="tools-dropdown"
                 className="absolute top-full mt-2 left-0 bg-black border-gray-700 text-white rounded-md shadow-lg w-48 z-50"
               >
-                <Link
+                {/* <Link
                   to="/charts"
                   className="block px-4 py-2 hover:bg-gray-800"
                   onClick={() => setIsSubDropdownOpen(false)}
@@ -80,7 +95,7 @@ const Navbar = () => {
                   onClick={() => setIsSubDropdownOpen(false)}
                 >
                   CryptonaryBit Picks
-                </Link>
+                </Link> */}
                 <Link
                   to="/etf"
                   className="block px-4 py-2 hover:bg-gray-800"
@@ -97,9 +112,28 @@ const Navbar = () => {
                 </Link>
               </div>
             )}
-            <Link to="/products" className="text-white hover:text-blue-500">
-              Products
-            </Link>
+            <button
+              onClick={toggleProductsDropdown}
+              className="flex items-center text-white hover:text-blue-500"
+              aria-expanded={isProductsDropdownOpen}
+              aria-controls="products-dropdown"
+            >
+              Products <FaChevronDown className="ml-1" />
+            </button>
+            {isProductsDropdownOpen && (
+              <div
+                id="products-dropdown"
+                className="absolute top-full mt-2 left-0 bg-black border-gray-700 text-white rounded-md shadow-lg w-48 z-50"
+              >
+                <Link
+                  to="/pmi"
+                  className="block px-4 py-2 hover:bg-gray-800"
+                  onClick={() => setIsProductsDropdownOpen(false)}
+                >
+                  Portfolio Management
+                </Link>
+              </div>
+            )}
             <Link to="/contact" className="text-white hover:text-blue-500">
               Contact Us
             </Link>
@@ -159,7 +193,7 @@ const Navbar = () => {
               id="mobile-tools-dropdown"
               className="flex flex-col space-y-2 pl-8"
             >
-              <Link
+              {/* <Link
                 to="/charts"
                 className="hover:text-blue-500"
                 onClick={() => setIsSubDropdownOpen(false)}
@@ -172,7 +206,7 @@ const Navbar = () => {
                 onClick={() => setIsSubDropdownOpen(false)}
               >
                 CryptonaryBit Picks
-              </Link>
+              </Link> */}
               <Link
                 to="/etf"
                 className="hover:text-blue-500"
@@ -189,9 +223,42 @@ const Navbar = () => {
               </Link>
             </div>
           )}
-          <Link to="/products" className="px-4 py-2 hover:text-blue-500">
-            Products
-          </Link>
+          <button
+            onClick={toggleProductsDropdown}
+            className="flex items-center justify-between w-full px-4 py-2 text-left"
+            aria-expanded={isProductsDropdownOpen}
+            aria-controls="mobile-products-dropdown"
+          >
+            Products <FaChevronDown />
+          </button>
+          {isProductsDropdownOpen && (
+            <div
+              id="mobile-products-dropdown"
+              className="flex flex-col space-y-2 pl-8"
+            >
+              <Link
+                to="/pmi"
+                className="hover:text-blue-500"
+                onClick={() => setIsProductsDropdownOpen(false)}
+              >
+                Portfolio Management
+              </Link>
+              {/* <Link
+                to="/product2"
+                className="hover:text-blue-500"
+                onClick={() => setIsProductsDropdownOpen(false)}
+              >
+                Product 2
+              </Link>
+              <Link
+                to="/product3"
+                className="hover:text-blue-500"
+                onClick={() => setIsProductsDropdownOpen(false)}
+              >
+                Product 3
+              </Link> */}
+            </div>
+          )}
           <Link to="/contact" className="px-4 py-2 hover:text-blue-500">
             Contact Us
           </Link>

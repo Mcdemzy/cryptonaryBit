@@ -8,13 +8,14 @@ import "./usdtdeposit.css";
 const USDTDeposit = () => {
   const [showAddress, setShowAddress] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
+  const [depositAmount, setDepositAmount] = useState<string>("");
 
   const handleContinue = () => {
     setShowAddress(true);
   };
 
   const handleCopyAddress = () => {
-    const address = "0x4f5FDe7d1B9e04aEBa28c5cDa2D87E1beEc0a3Df"; // Example USDT wallet address
+    const address = "TLNpM6QvZ31i2HGCHfvoWnK9F7JaLrtACd"; // Example USDT wallet address
     navigator.clipboard.writeText(address);
     setPopupMessage("USDT Wallet Address copied!");
 
@@ -22,6 +23,13 @@ const USDTDeposit = () => {
       setPopupMessage("");
     }, 750);
   };
+
+  const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setDepositAmount(event.target.value);
+  };
+
+  const isContinueButtonEnabled =
+    parseFloat(depositAmount) >= 0.008 && parseFloat(depositAmount) <= 10;
 
   return (
     <article className="bg-[#060d17]">
@@ -38,14 +46,24 @@ const USDTDeposit = () => {
             <div className="form-group">
               <label htmlFor="payment-method">Payment method</label>
               <select id="payment-method" className="form-control" disabled>
-                <option>USDT (Tether)</option>
+                <option>Tether (USDT TRC20)</option>
               </select>
             </div>
             <div className="form-group">
               <label htmlFor="to-account">To account</label>
-              <select id="to-account" className="form-control" disabled>
+              {/* <select id="to-account" className="form-control" disabled>
                 <option>USDT (Tether) - 0.00 USDT</option>
-              </select>
+              </select> */}
+              <input
+                className="form-control"
+                type="number"
+                placeholder="0.000 USDT"
+                required
+                min={0.008}
+                max={1}
+                value={depositAmount}
+                onChange={handleAmountChange}
+              />
             </div>
             <div className="info-box">
               <p>
@@ -55,7 +73,11 @@ const USDTDeposit = () => {
                 within your Personal Area.
               </p>
             </div>
-            <button className="continue-btn" onClick={handleContinue}>
+            <button
+              className="continue-btn"
+              onClick={handleContinue}
+              disabled={!isContinueButtonEnabled}
+            >
               Continue
             </button>
           </div>
@@ -78,7 +100,7 @@ const USDTDeposit = () => {
                 Your unique USDT wallet address
               </label>
               <div className="usdt-deposit-address-box">
-                <p>0x4f5FDe7d1B9e04aEBa28c5cDa2D87E1beEc0a3Df</p>
+                <p>TLNpM6QvZ31i2HGCHfvoWnK9F7JaLrtACd</p>
                 <button
                   className="usdt-copy-button"
                   onClick={handleCopyAddress}
@@ -86,10 +108,7 @@ const USDTDeposit = () => {
                   Copy address
                 </button>
               </div>
-              <QRCode
-                value="0x4f5FDe7d1B9e04aEBa28c5cDa2D87E1beEc0a3Df"
-                size={128}
-              />
+              <QRCode value="TLNpM6QvZ31i2HGCHfvoWnK9F7JaLrtACd" size={128} />
             </div>
             {/* <button className="continue-btn">Go to My Accounts</button> */}
             <Link to="/deposit">

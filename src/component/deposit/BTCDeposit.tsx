@@ -8,13 +8,14 @@ import "./btcdeposit.css";
 const BTCDeposit = () => {
   const [showAddress, setShowAddress] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
+  const [depositAmount, setDepositAmount] = useState<string>("");
 
   const handleContinue = () => {
     setShowAddress(true);
   };
 
   const handleCopyAddress = () => {
-    const address = "bc1qpde50hql3zdy5avxr5nal462o6a9mu2h3rpa6t";
+    const address = "bc1qh3s2ct457njk4chq04hjdfh76w802arcxaexzy";
     navigator.clipboard.writeText(address);
     setPopupMessage("Bitcoin Wallet Address copied!");
 
@@ -22,6 +23,13 @@ const BTCDeposit = () => {
       setPopupMessage("");
     }, 750);
   };
+
+  const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setDepositAmount(event.target.value);
+  };
+
+  const isContinueButtonEnabled =
+    parseFloat(depositAmount) > 0.0001 && parseFloat(depositAmount) <= 10;
 
   return (
     <article className="bg-[#060d17]">
@@ -43,9 +51,19 @@ const BTCDeposit = () => {
             </div>
             <div className="form-group">
               <label htmlFor="to-account">To account</label>
-              <select id="to-account" className="form-control" disabled>
+              {/* <select id="to-account" className="form-control" disabled>
                 <option>Bitcoin (BTC) - 0.00000000 BTC</option>
-              </select>
+              </select> */}
+              <input
+                className="form-control"
+                type="number"
+                placeholder="0.00000000 BTC"
+                required
+                min={0.0000000008}
+                max={1}
+                value={depositAmount}
+                onChange={handleAmountChange}
+              />
             </div>
             <div className="info-box">
               <p>
@@ -55,7 +73,11 @@ const BTCDeposit = () => {
                 within your Personal Area.
               </p>
             </div>
-            <button className="continue-btn" onClick={handleContinue}>
+            <button
+              className="continue-btn"
+              onClick={handleContinue}
+              disabled={!isContinueButtonEnabled}
+            >
               Continue
             </button>
           </div>
@@ -79,13 +101,13 @@ const BTCDeposit = () => {
                 Your unique Bitcoin wallet address
               </label>
               <div className="btc-deposit-address-box">
-                <p>bc1qpde50hql3zdy5avxr5nal462o6a9mu2h3rpa6t</p>
+                <p>bc1qh3s2ct457njk4chq04hjdfh76w802arcxaexzy</p>
                 <button className="btc-copy-button" onClick={handleCopyAddress}>
                   Copy address
                 </button>
               </div>
               <QRCode
-                value="bc1qpde50hql3zdy5avxr5nal462o6a9mu2h3rpa6t"
+                value="bc1qh3s2ct457njk4chq04hjdfh76w802arcxaexzy"
                 size={128}
               />
             </div>

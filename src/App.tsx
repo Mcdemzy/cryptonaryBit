@@ -31,8 +31,9 @@ import OnlineBankDeposit from "./component/deposit/OnlineBankDeposit";
 import PortfolioManagement from "./component/portfolio/PortfolioManagement";
 import BTCDeposit from "./component/deposit/BTCDeposit";
 import USDTDeposit from "./component/deposit/USDTDeposit";
+import FixedEtf from "./component/etf/FixedEtf";
 
-// import { TransactionProvider } from "./component/transactions/TransactionContext";
+// import ETFFixed from "./component/etf/EtfFixed";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -133,9 +134,10 @@ const router = createBrowserRouter(
       <Route path="/usdt-withdrawal" element={<UsdtWithdrawal />} />
       <Route path="/faq" element={<FAQ />} />
       <Route path="/online-deposit" element={<OnlineBankDeposit />} />
-      <Route path="/pim" element={<PortfolioManagement />} />
+      <Route path="/pmi" element={<PortfolioManagement />} />
       <Route path="/btc-deposit" element={<BTCDeposit />} />
       <Route path="/usdt-deposit" element={<USDTDeposit />} />
+      <Route path="/fixed-etf" element={<FixedEtf />} />
       <Route
         path="/wallet"
         element={
