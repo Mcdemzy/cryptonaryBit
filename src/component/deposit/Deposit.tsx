@@ -1,5 +1,4 @@
 import "../withdraw/withdrawal.css";
-import WithdrawalIcon1 from "../../assets/withdrawalicon5.png";
 import CryptoIcon3 from "../../assets/crypto3.png";
 import CryptoIcon7 from "../../assets/crypto8.png";
 
