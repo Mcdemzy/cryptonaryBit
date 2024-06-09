@@ -4,7 +4,6 @@ import "./dashboard.css";
 
 import { AiOutlineSwap } from "react-icons/ai";
 import { BsBoxArrowInRight } from "react-icons/bs";
-import { BsBoxArrowInLeft } from "react-icons/bs";
 import { BsBoxArrowInDownLeft } from "react-icons/bs";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { BiShow } from "react-icons/bi";
