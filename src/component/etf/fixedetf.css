@@ -165,6 +165,10 @@
 }
 
 @media screen and (max-width: 600px) {
+  .fixed-etf-stats-container {
+    width: 100%;
+  }
+
   .fixed-etf-stats {
     display: block;
     margin: auto;
