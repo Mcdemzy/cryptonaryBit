@@ -23,7 +23,7 @@ const TradingViewTimelineWidget = () => {
         displayMode: "regular",
         width: "100%",
         height: 700,
-        colorTheme: "light",
+        colorTheme: "dark",
         locale: "en",
       });
       container.appendChild(script);

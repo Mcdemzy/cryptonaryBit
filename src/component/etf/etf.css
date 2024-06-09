@@ -1,49 +1,99 @@
+/* ETF Page Styles */
 .etf__page {
-  padding: 10px;
-  /* miheight: 100vh; */
+  padding: 20px;
+  background: #0d141c;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+.etf__top-nav {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .etf__top-nav h1 {
-  font-weight: 600;
-  font-size: 1.55rem;
-  text-align: center;
-  margin-top: 20px;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
 .etf__nav-links {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 20px;
+  justify-content: center;
+  gap: 20px;
   font-size: 1.2rem;
 }
 
-.etf__page-content {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
+.etf__nav-links p {
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
-.etf__main-display {
-  margin-top: 20px;
+
+.etf__nav-links p:hover {
+  color: #ffcc00;
+}
+
+.etf__page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.etf__featured-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.etf__grid {
   display: grid;
-  grid-template-columns: 30% 55% 10%;
-  gap: 2%;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.etf__card {
+  background: #1a1f25;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
-.etf__main-display img {
-  margin-top: 5px;
-  width: 72px;
+.etf__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.etf__main-text {
+.etf__image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.etf__info {
+  text-align: left;
+}
+
+.etf__name {
   font-size: 1rem;
   font-weight: 700;
+  margin-bottom: 5px;
   text-transform: uppercase;
 }
 
-.etf__main-text span {
+.etf__symbol {
+  font-size: 0.875rem;
   font-weight: 400;
+  color: #999999;
+  margin-bottom: 10px;
+}
+
+.etf__price {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffcc00;
 }
 
 /* About Etf Page */

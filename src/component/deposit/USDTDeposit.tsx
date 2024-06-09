@@ -29,7 +29,7 @@ const USDTDeposit = () => {
   };
 
   const isContinueButtonEnabled =
-    parseFloat(depositAmount) >= 0.008 && parseFloat(depositAmount) <= 10;
+    parseFloat(depositAmount) >= 0.008 && parseFloat(depositAmount) <= 10000;
 
   return (
     <article className="bg-[#060d17]">

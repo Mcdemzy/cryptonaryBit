@@ -91,36 +91,38 @@ const Etf = () => {
 
   return (
     <article>
-      <section className="etf__page pb-[50px] bg-[#0d141c] text-white">
+      <Navbar />
+      <section className="etf__page">
         <div className="etf__top-nav">
           <h1>Invest</h1>
           <div className="etf__nav-links">
-            <p>Us Stocks</p>
+            <p>US Stocks</p>
             <Link to="/fixed-etf">
               <p>Fixed Returns</p>
             </Link>
           </div>
         </div>
         <section className="etf__page-content">
-          <div className="mt-4 text-[1.1rem]">Featured Stocks</div>
-          {etfs.map((etf, index) => (
-            <div
-              key={index}
-              className="etf__main-display"
-              onClick={() => handleEtfClick(etf)}
-            >
-              <img src={etf.img} alt={etf.name} width={60} height={60} />
-              <p className="etf__main-text">
-                {etf.name} <br />
-                <span>{etf.symbol}</span>
-              </p>
-              <p className="text-[1rem]">{etf.price}</p>
-            </div>
-          ))}
+          <div className="etf__featured-title">Featured ETFs</div>
+          <div className="etf__grid">
+            {etfs.map((etf, index) => (
+              <div
+                key={index}
+                className="etf__card"
+                onClick={() => handleEtfClick(etf)}
+              >
+                <img src={etf.img} alt={etf.name} className="etf__image" />
+                <div className="etf__info">
+                  <p className="etf__name">{etf.name}</p>
+                  <p className="etf__symbol">{etf.symbol}</p>
+                  <p className="etf__price">{etf.price}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
         <Footer />
       </section>
-      <Navbar />
     </article>
   );
 };

@@ -53,16 +53,7 @@ const Dashboard = () => {
             </div>
           </Link>
 
-          <Link to="/coming">
-            <div className="flex flex-col items-center">
-              <div className="bg-[#151F2B] h-8 w-12 flex justify-center items-center text-[1.2rem] rounded-xl">
-                <BsBoxArrowInLeft className="bg-[#151f2b] text-[#ffcc00] dashboard__icon" />
-              </div>
-              <span className="font-[400] text-[0.7rem]">Sell Crypto</span>
-            </div>
-          </Link>
-
-          <Link to="/coming">
+          <Link to="/swap">
             <div className="flex flex-col items-center">
               <div className="bg-[#151F2B] h-8 w-12 flex justify-center items-center text-[1.2rem] rounded-xl">
                 <AiOutlineSwap className="bg-[#151f2b] text-[#ffcc00] dashboard__icon" />

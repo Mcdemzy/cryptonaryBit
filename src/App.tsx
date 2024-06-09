@@ -32,6 +32,7 @@ import PortfolioManagement from "./component/portfolio/PortfolioManagement";
 import BTCDeposit from "./component/deposit/BTCDeposit";
 import USDTDeposit from "./component/deposit/USDTDeposit";
 import FixedEtf from "./component/etf/FixedEtf";
+import Swap from "./component/swap/Swap";
 
 // import ETFFixed from "./component/etf/EtfFixed";
 
@@ -120,7 +121,6 @@ const router = createBrowserRouter(
       />
       <Route path="/signup" element={<Signup />} />
       <Route path="/signin" element={<Signin />} />
-      <Route path="/swap" element={<Coming />} />
       <Route path="/coming" element={<Coming />} />
       <Route path="/bch" element={<Bch />} />
       <Route path="/contact" element={<ContactUs />} />
@@ -138,6 +138,7 @@ const router = createBrowserRouter(
       <Route path="/btc-deposit" element={<BTCDeposit />} />
       <Route path="/usdt-deposit" element={<USDTDeposit />} />
       <Route path="/fixed-etf" element={<FixedEtf />} />
+      <Route path="/swap" element={<Swap />} />
       <Route
         path="/wallet"
         element={
