@@ -90,7 +90,7 @@ const Etf = () => {
   };
 
   return (
-    <article>
+    <article className="pb-[40px]">
       <Navbar />
       <section className="etf__page">
         <div className="etf__top-nav">
