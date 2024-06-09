@@ -95,7 +95,7 @@ const FixedEtf = () => {
 
   return (
     <article>
-      <div className="fixed-etf-page pb-[100px]">
+      <div className="fixed-etf-page">
         <div className="fixed-etf-container">
           <div className="fixed-etf-stats-container">
             <h2>Select an ETF to Stake</h2>
@@ -176,6 +176,7 @@ const FixedEtf = () => {
             </form>
           </div>
         </div>
+        <Footer />
 
         {/* Display popup when message is sent */}
         {messageSent && (
@@ -184,7 +185,6 @@ const FixedEtf = () => {
             <button onClick={() => setMessageSent(false)}>Close</button>
           </div>
         )}
-        <Footer />
       </div>
       <Navbar />
     </article>
