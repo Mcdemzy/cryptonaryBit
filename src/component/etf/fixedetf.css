@@ -164,3 +164,14 @@
 .popup button:hover {
   background-color: var(--text-primary-variant);
 }
+
+@media screen and (max-width: 600px) {
+  .fixed-etf-stats {
+    display: block;
+    margin: auto;
+  }
+
+  .fixed-etf-card {
+    width: 100%;
+  }
+}

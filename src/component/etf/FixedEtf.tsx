@@ -8,10 +8,6 @@ import EtfImg3 from "../../assets/etfImg3.jpg";
 import EtfImg4 from "../../assets/etfimg4.jpeg";
 import EtfImg5 from "../../assets/EtfImg5.jpeg";
 import EtfImg6 from "../../assets/EtfImg6.jpeg";
-import EtfImg7 from "../../assets/EtfImg7.jpeg";
-import EtfImg8 from "../../assets/EtfImg8.png";
-import EtfImg9 from "../../assets/EtfImg9.webp";
-import EtfImg10 from "../../assets/EtfImg10.webp";
 
 const predefinedETFs = [
   {
@@ -35,25 +31,6 @@ const predefinedETFs = [
     price: 79.05,
   },
   { img: EtfImg6, name: "Franklin Bitcoin Etf", symbol: "Ezbc", price: 40.13 },
-  {
-    img: EtfImg7,
-    name: "Fidelity Wise Origin Bitcoin",
-    symbol: "Fbtc",
-    price: 60.57,
-  },
-  {
-    img: EtfImg8,
-    name: "Greyscale Bitcoin Trust",
-    symbol: "Gbtc",
-    price: 61.53,
-  },
-  { img: EtfImg9, name: "Vaneck Bitcoin Trust", symbol: "Hodl", price: 78.3 },
-  {
-    img: EtfImg10,
-    name: "Ishares Bitcoin Trust",
-    symbol: "Ibit",
-    price: 39.46,
-  },
 ];
 
 const FixedEtf = () => {
