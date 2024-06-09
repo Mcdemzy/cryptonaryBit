@@ -9,7 +9,7 @@ const Swap = () => {
   const [toAmount, setToAmount] = useState<string>("");
   const [fromCurrency, setFromCurrency] = useState<string>("BTC");
   const [toCurrency, setToCurrency] = useState<string>("ETH");
-  const [balance] = useState<number>(10); // State for balance
+  const [balance] = useState<number>(400); // State for balance
   const [isPopupVisible, setIsPopupVisible] = useState<boolean>(false); // State for popup visibility
   const [popupMessage, setPopupMessage] = useState<string>(""); // State for popup message
 

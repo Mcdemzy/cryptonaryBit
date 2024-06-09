@@ -162,11 +162,13 @@ const Stake = () => {
               {error && <p className="text-red-500">{error}</p>}
               <div className="info-group">
                 <p>Minimum</p>
-                <p>0.01 {wallet.symbol}</p>
+                <p>
+                  {wallet.minimum} {wallet.symbol}
+                </p>
               </div>
               <div className="info-group">
                 <p>Est APY</p>
-                <p>{estimatedAPY}%</p>
+                <p className=" text-green-500">{estimatedAPY}%</p>
               </div>
               <div className="info-group">
                 <p>Available Balance</p>

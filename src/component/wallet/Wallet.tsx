@@ -28,6 +28,7 @@ type Wallet = {
   symbol: string;
   approxValue: string;
   canStake?: boolean;
+  minimum: number;
 };
 
 type Currency = {
@@ -45,6 +46,7 @@ const wallets: Wallet[] = [
     symbol: "BCH",
     approxValue: "~ $ 0.00 ~ $ 0.00",
     canStake: true,
+    minimum: 0.5,
   },
   {
     icon: CryptoIcon2,
@@ -52,6 +54,7 @@ const wallets: Wallet[] = [
     symbol: "BNB",
     approxValue: "~ $ 0.00 ~ $ 0.00",
     canStake: true,
+    minimum: 0.3,
   },
   {
     icon: CryptoIcon3,
@@ -59,6 +62,7 @@ const wallets: Wallet[] = [
     symbol: "BTC",
     approxValue: "~ $ 0.00 ~ $ 0.00",
     canStake: true,
+    minimum: 0.004,
   },
   {
     icon: CryptoIcon4,
@@ -66,6 +70,7 @@ const wallets: Wallet[] = [
     symbol: "ETH",
     approxValue: "~ $ 0.00 ~ $ 0.00",
     canStake: true,
+    minimum: 0.06,
   },
   {
     icon: CryptoIcon5,
@@ -73,6 +78,7 @@ const wallets: Wallet[] = [
     symbol: "SOL",
     approxValue: "~ $ 0.00 ~ $ 0.00",
     canStake: true,
+    minimum: 1.5,
   },
   {
     icon: CryptoIcon6,
@@ -80,13 +86,15 @@ const wallets: Wallet[] = [
     symbol: "TRX",
     approxValue: "~ $ 0.00 ~ $ 0.00",
     canStake: true,
+    minimum: 2000,
   },
   {
     icon: CryptoIcon7,
-    name: "USD Coin Wallet",
-    symbol: "USDC",
+    name: "USDT (TRC 20)",
+    symbol: "USDT",
     approxValue: "~ $ 0.00 ~ $ 0.00",
     canStake: true,
+    minimum: 250,
   },
 ];
 

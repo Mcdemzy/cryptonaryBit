@@ -11,7 +11,7 @@ const Deposit = () => {
       name: "BTC Deposit",
       processingTime: "Instant - 1 day",
       fee: "0%",
-      limits: "4 - 10,000 USD",
+      limits: "4 - 100,000 USD",
       icon: CryptoIcon3,
       recommended: true,
       link: "/btc-deposit",
