@@ -12,6 +12,7 @@ import EtfImg9 from "../../assets/EtfImg9.webp";
 import EtfImg10 from "../../assets/EtfImg10.webp";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
+import Header from "../header/Header";
 
 interface Etf {
   img: string;
@@ -91,8 +92,9 @@ const Etf = () => {
 
   return (
     <article className="pb-[40px]">
+      <Header />
       <Navbar />
-      <section className="etf__page">
+      <section className="etf__page pt-[80px]">
         <div className="etf__top-nav">
           <h1>Invest</h1>
           <div className="etf__nav-links">

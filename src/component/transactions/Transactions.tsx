@@ -4,6 +4,7 @@ import Folder from "../../assets/folder.png";
 import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
+import Header from "../header/Header";
 
 interface Transaction {
   date: string;
@@ -32,6 +33,7 @@ const Transactions = () => {
 
   return (
     <article>
+      <Header />
       <div className="transaction-history">
         <h1 className="title">Transaction history</h1>
         <div className="filters">
@@ -158,7 +160,7 @@ const Transactions = () => {
               <img src={Folder} alt="No transactions" className="folder-img" />
               <p>There are currently no transactions</p>
               <p>Your deposits and withdrawals will appear here</p>
-              <Link to="/wallet">
+              <Link to="/deposit">
                 <button className="btn-deposit">Deposit</button>
               </Link>
             </div>

@@ -11,7 +11,7 @@ const FAQ: React.FC = () => {
             <div className="divide-y divide-gray-100 space-y-4">
               <details className="group bg-yellow-200 rounded-md px-3" open>
                 <summary className="font-semibold flex cursor-pointer list-none items-center justify-between py-4 text-lg text-secondary-900 group-open:text-primary-500">
-                  What is Cryptonary Pro?
+                  What is CryptonaryBit?
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ const FAQ: React.FC = () => {
                   </div>
                 </summary>
                 <div className="pb-4 text-secondary-500">
-                  Cryptonary Pro is your gateway to mastering the crypto market.
+                  CryptonaryBit is your gateway to mastering the crypto market.
                   Discover cutting-edge research and analysis, that will empower
                   you with the insights to capitalise on the most exciting
                   opportunities in crypto.
@@ -172,7 +172,7 @@ const FAQ: React.FC = () => {
               </details>
               <details className="group bg-yellow-200 rounded-md px-3">
                 <summary className="font-semibold flex cursor-pointer list-none items-center justify-between py-4 text-lg text-secondary-900 group-open:text-primary-500">
-                  Is Cryptonary suitable for begineers?
+                  Is CryptonaryBit suitable for begineers?
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +205,7 @@ const FAQ: React.FC = () => {
                   </div>
                 </summary>
                 <div className="pb-4 text-secondary-500">
-                  Absolutely. Cryptonary is designed for investors at all
+                  Absolutely. CryptonaryBit is designed for investors at all
                   levels, offering the insights and tools necessary for everyone
                   to navigate the crypto market successfully.
                 </div>

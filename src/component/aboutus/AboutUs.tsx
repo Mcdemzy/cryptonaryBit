@@ -1,3 +1,4 @@
+import { SignInButton } from "@clerk/clerk-react";
 import Footer from "../landingpage/components/Footer";
 import Navbar from "../landingpage/components/Navbar";
 
@@ -23,12 +24,16 @@ const AboutUs = () => {
             <br /> conditions.
           </p>
           <div className="flex flex-wrap gap-y-4 flex-row justify-start items-center gap-x-5">
-            <button className="w-fit sm:w-40 rounded-lg p-2 px-4 bg-primary">
-              Register
-            </button>
-            <button className="w-fit sm:w-40  rounded-lg p-2 px-4 bg-gray-200">
-              Try Free Demo
-            </button>
+            <SignInButton forceRedirectUrl="/dashboard">
+              <button className="w-fit sm:w-40 rounded-lg p-2 px-4 bg-primary">
+                Register
+              </button>
+            </SignInButton>
+            <SignInButton forceRedirectUrl="/dashboard">
+              <button className="w-fit sm:w-40  rounded-lg p-2 px-4 bg-gray-200">
+                Try Free Demo
+              </button>
+            </SignInButton>
           </div>
         </div>
       </section>

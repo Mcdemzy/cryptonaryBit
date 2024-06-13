@@ -33,6 +33,7 @@ import BTCDeposit from "./component/deposit/BTCDeposit";
 import USDTDeposit from "./component/deposit/USDTDeposit";
 import FixedEtf from "./component/etf/FixedEtf";
 import Swap from "./component/swap/Swap";
+import Header from "./component/header/Header";
 
 // import ETFFixed from "./component/etf/EtfFixed";
 
@@ -54,11 +55,89 @@ const router = createBrowserRouter(
         }
       />
       <Route
+        path="/wallet"
+        element={
+          <>
+            <SignedIn>
+              <Wallet />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
         path="/etf"
         element={
           <>
             <SignedIn>
               <Etf />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/transactions"
+        element={
+          <>
+            <SignedIn>
+              <Transactions />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/news"
+        element={
+          <>
+            <SignedIn>
+              <News />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/swap"
+        element={
+          <>
+            <SignedIn>
+              <Swap />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/deposit"
+        element={
+          <>
+            <SignedIn>
+              <Deposit />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/withdrawal"
+        element={
+          <>
+            <SignedIn>
+              <Withdrawal />
             </SignedIn>
             <SignedOut>
               <RedirectToSignIn />
@@ -107,11 +186,11 @@ const router = createBrowserRouter(
         }
       />
       <Route
-        path="/transactions"
+        path="/online-bank"
         element={
           <>
             <SignedIn>
-              <Transactions />
+              <OnlineBankWithdrawal />
             </SignedIn>
             <SignedOut>
               <RedirectToSignIn />
@@ -119,39 +198,108 @@ const router = createBrowserRouter(
           </>
         }
       />
+      <Route
+        path="/online-bank"
+        element={
+          <>
+            <SignedIn>
+              <OnlineBankWithdrawal />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/btc-withdrawal"
+        element={
+          <>
+            <SignedIn>
+              <BitcoinWithdrawal />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/usdt-withdrawal"
+        element={
+          <>
+            <SignedIn>
+              <UsdtWithdrawal />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/online-deposit"
+        element={
+          <>
+            <SignedIn>
+              <OnlineBankDeposit />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/btc-deposit"
+        element={
+          <>
+            <SignedIn>
+              <BTCDeposit />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/usdt-deposit"
+        element={
+          <>
+            <SignedIn>
+              <USDTDeposit />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/fixed-etf"
+        element={
+          <>
+            <SignedIn>
+              <FixedEtf />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+
       <Route path="/signup" element={<Signup />} />
       <Route path="/signin" element={<Signin />} />
       <Route path="/coming" element={<Coming />} />
-      <Route path="/bch" element={<Bch />} />
       <Route path="/contact" element={<ContactUs />} />
-      <Route path="/withdrawal" element={<Withdrawal />} />
-      <Route path="/online-bank" element={<OnlineBankWithdrawal />} />
-      <Route path="/news" element={<News />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/airdrop" element={<AirDrop />} />
-      <Route path="/deposit" element={<Deposit />} />
-      <Route path="/btc-withdrawal" element={<BitcoinWithdrawal />} />
-      <Route path="/usdt-withdrawal" element={<UsdtWithdrawal />} />
       <Route path="/faq" element={<FAQ />} />
-      <Route path="/online-deposit" element={<OnlineBankDeposit />} />
       <Route path="/pmi" element={<PortfolioManagement />} />
-      <Route path="/btc-deposit" element={<BTCDeposit />} />
-      <Route path="/usdt-deposit" element={<USDTDeposit />} />
       <Route path="/fixed-etf" element={<FixedEtf />} />
-      <Route path="/swap" element={<Swap />} />
-      <Route
-        path="/wallet"
-        element={
-          <>
-            <SignedIn>
-              <Wallet />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
-          </>
-        }
-      />
+
       <Route
         path="/online-bank-withdrawal"
         element={
