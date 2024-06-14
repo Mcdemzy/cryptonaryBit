@@ -87,6 +87,12 @@ const FixedEtf = () => {
       case "1 month":
         apy = 1000;
         break;
+      case "3 months":
+        apy = 3000;
+        break;
+      case "6 months":
+        apy = 6000;
+        break;
       default:
         apy = 0;
     }
@@ -147,6 +153,8 @@ const FixedEtf = () => {
                   <option value="7 days">7 days</option>
                   <option value="2 weeks">2 weeks</option>
                   <option value="1 month">1 month</option>
+                  <option value="3 months">3 months</option>
+                  <option value="6 months">6 months</option>
                 </select>
               </div>
               {error && <p className="text-red-500">{error}</p>}
@@ -156,7 +164,7 @@ const FixedEtf = () => {
               </div>
               <div className="info-group">
                 <p>Est APY</p>
-                <p>{estimatedAPY}%</p>
+                <p className="text-green-500">{estimatedAPY}%</p>
               </div>
               <div className="info-group">
                 <p>Available Balance</p>

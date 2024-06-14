@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserButton } from "@clerk/clerk-react";
 import { IoIosArrowDown, IoMdStopwatch } from "react-icons/io";
-// import { BsBoxArrowUpRight } from "react-icons/bs";
-import { BiHide } from "react-icons/bi";
+import { BiHide, BiShow } from "react-icons/bi"; // Import BiShow for the visible eye icon
 import { SiBetterstack } from "react-icons/si";
 import { AiOutlineClose } from "react-icons/ai";
 import Navbar from "../navbar/Navbar";
@@ -22,11 +21,18 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "../footer/Footer";
 
+// Conversion rates for demonstration purposes
+const conversionRates = {
+  USD: 1,
+  EUR: 0.85,
+  GBP: 0.75,
+};
+
 type Wallet = {
   icon: string;
   name: string;
   symbol: string;
-  approxValue: string;
+  approxValue: number;
   canStake?: boolean;
   minimum: number;
 };
@@ -38,13 +44,15 @@ type Currency = {
   flag: string;
 };
 
-// Wallets array with the type Wallet
+// Generate random values for the wallets
+const generateRandomValue = () => Math.random() * 10000;
+
 const wallets: Wallet[] = [
   {
     icon: CryptoIcon1,
     name: "Bitcoin Cash Wallet",
     symbol: "BCH",
-    approxValue: "~ $ 0.00 ~ $ 0.00",
+    approxValue: generateRandomValue(),
     canStake: true,
     minimum: 0.5,
   },
@@ -52,7 +60,7 @@ const wallets: Wallet[] = [
     icon: CryptoIcon2,
     name: "BNB Wallet",
     symbol: "BNB",
-    approxValue: "~ $ 0.00 ~ $ 0.00",
+    approxValue: generateRandomValue(),
     canStake: true,
     minimum: 0.3,
   },
@@ -60,7 +68,7 @@ const wallets: Wallet[] = [
     icon: CryptoIcon3,
     name: "Bitcoin Wallet",
     symbol: "BTC",
-    approxValue: "~ $ 0.00 ~ $ 0.00",
+    approxValue: generateRandomValue(),
     canStake: true,
     minimum: 0.004,
   },
@@ -68,7 +76,7 @@ const wallets: Wallet[] = [
     icon: CryptoIcon4,
     name: "Ethereum Wallet",
     symbol: "ETH",
-    approxValue: "~ $ 0.00 ~ $ 0.00",
+    approxValue: generateRandomValue(),
     canStake: true,
     minimum: 0.06,
   },
@@ -76,7 +84,7 @@ const wallets: Wallet[] = [
     icon: CryptoIcon5,
     name: "Solana Wallet",
     symbol: "SOL",
-    approxValue: "~ $ 0.00 ~ $ 0.00",
+    approxValue: generateRandomValue(),
     canStake: true,
     minimum: 1.5,
   },
@@ -84,7 +92,7 @@ const wallets: Wallet[] = [
     icon: CryptoIcon6,
     name: "Tron Wallet",
     symbol: "TRX",
-    approxValue: "~ $ 0.00 ~ $ 0.00",
+    approxValue: generateRandomValue(),
     canStake: true,
     minimum: 2000,
   },
@@ -92,7 +100,7 @@ const wallets: Wallet[] = [
     icon: CryptoIcon7,
     name: "USDT (TRC 20)",
     symbol: "USDT",
-    approxValue: "~ $ 0.00 ~ $ 0.00",
+    approxValue: generateRandomValue(),
     canStake: true,
     minimum: 250,
   },
@@ -118,7 +126,21 @@ const Wallet = () => {
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>(
     currencies[0]
   );
+  const [balanceVisible, setBalanceVisible] = useState(true); // Add state for balance visibility
+  const [convertedBalances, setConvertedBalances] = useState<{
+    [key: string]: number;
+  }>({}); // State for converted balances
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Convert balances to the selected currency when the selected currency changes
+    const newBalances: { [key: string]: number } = {};
+    wallets.forEach((wallet) => {
+      newBalances[wallet.symbol] =
+        wallet.approxValue * conversionRates[selectedCurrency.code];
+    });
+    setConvertedBalances(newBalances);
+  }, [selectedCurrency]);
 
   const toggleModal = (wallet: Wallet | null) => {
     setSelectedWallet(wallet);
@@ -144,6 +166,10 @@ const Wallet = () => {
   const selectCurrency = (currency: Currency) => {
     setSelectedCurrency(currency);
     setDropdownVisible(false);
+  };
+
+  const toggleBalanceVisibility = () => {
+    setBalanceVisible(!balanceVisible);
   };
 
   return (
@@ -192,10 +218,24 @@ const Wallet = () => {
               <div>
                 <p className="text-[#707579] text-[1rem]">{wallet.name}</p>
                 <p className="flex items-center gap-4 text-[1.3rem]">
-                  {wallet.symbol} *.** <BiHide />
+                  {wallet.symbol}{" "}
+                  {balanceVisible &&
+                  convertedBalances[wallet.symbol] !== undefined
+                    ? `${selectedCurrency.symbol} ${convertedBalances[
+                        wallet.symbol
+                      ].toFixed(2)}`
+                    : "*.**"}{" "}
+                  <span onClick={toggleBalanceVisibility}>
+                    {balanceVisible ? <BiHide /> : <BiShow />}
+                  </span>
                 </p>
                 <p className="text-[#707579] text-[14px] mt-3">
-                  {wallet.approxValue}
+                  {balanceVisible &&
+                  convertedBalances[wallet.symbol] !== undefined
+                    ? `${selectedCurrency.symbol} ${convertedBalances[
+                        wallet.symbol
+                      ].toFixed(2)}`
+                    : ""}
                 </p>
               </div>
             </div>

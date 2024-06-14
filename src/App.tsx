@@ -13,7 +13,6 @@ import EtfAbout from "./component/etf/EtfAbout";
 import EtfFinancials from "./component/etf/EtfFinancials";
 import Wallet from "./component/wallet/Wallet";
 import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react";
-import Bch from "./component/coins/Bch";
 import Coming from "./component/coming/Coming";
 import Stake from "./component/stake/Stake";
 import ContactUs from "./component/contactus/ContactUs";
@@ -33,7 +32,8 @@ import BTCDeposit from "./component/deposit/BTCDeposit";
 import USDTDeposit from "./component/deposit/USDTDeposit";
 import FixedEtf from "./component/etf/FixedEtf";
 import Swap from "./component/swap/Swap";
-import Header from "./component/header/Header";
+import Buy from "./component/buy/Buy";
+// import Header from "./component/header/Header";
 
 // import ETFFixed from "./component/etf/EtfFixed";
 
@@ -282,6 +282,19 @@ const router = createBrowserRouter(
           <>
             <SignedIn>
               <FixedEtf />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        }
+      />
+      <Route
+        path="/buy"
+        element={
+          <>
+            <SignedIn>
+              <Buy />
             </SignedIn>
             <SignedOut>
               <RedirectToSignIn />

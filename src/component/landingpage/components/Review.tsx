@@ -85,9 +85,9 @@ export default function Review() {
           </div>
           <h1 className="mt-4 font-bold text-lg">Fastest Payout Processing</h1>
           <p>
-            Recently got funded with FTM my payout was processed withing 24hrs
-            which is the fastes I've experienced with a prop firm plus the
-            flexibility of setting your profit split day is top tier!
+            Recently got funded with CryptonaryBit my payout was processed
+            within 24hrs which is the fastest I've experienced with a prop firm
+            plus the flexibility of setting your profit split day is top tier!
           </p>
           <h1 className="border-b py-3">
             Date of experience: <span></span>May 22, 2024
@@ -361,8 +361,8 @@ export default function Review() {
           <p>
             I am recently funded by CryptonaryBit, I also encountered some
             issued while trading but there support team is really supportive. My
-            issues were sorted out, but cool thng is there Dashboard, support
-            team is very rfficirnt and helpful.
+            issues were sorted out, but cool thng is their Dashboard, support
+            team is very efficient and helpful.
           </p>
           <h1 className="border-b py-3">
             Date of experience: <span></span>May 19, 2024
