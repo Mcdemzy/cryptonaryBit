@@ -12,6 +12,13 @@ const BTCDeposit = () => {
 
   const handleContinue = () => {
     setShowAddress(true);
+    saveTransaction({
+      date: new Date().toISOString(),
+      type: "Deposit",
+      amount: parseFloat(depositAmount),
+      status: "Pending",
+      currency: "BTC",
+    });
   };
 
   const handleCopyAddress = () => {
@@ -30,6 +37,21 @@ const BTCDeposit = () => {
 
   const isContinueButtonEnabled =
     parseFloat(depositAmount) > 0.0001 && parseFloat(depositAmount) <= 10;
+
+  const saveTransaction = (transaction: {
+    date: string;
+    type: string;
+    amount: number;
+    status: string;
+    currency: string;
+  }) => {
+    const storedTransactions = localStorage.getItem("transactions");
+    const transactions = storedTransactions
+      ? JSON.parse(storedTransactions)
+      : [];
+    transactions.push(transaction);
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+  };
 
   return (
     <article className="bg-[#060d17]">
@@ -51,9 +73,6 @@ const BTCDeposit = () => {
             </div>
             <div className="form-group">
               <label htmlFor="to-account">To account</label>
-              {/* <select id="to-account" className="form-control" disabled>
-                <option>Bitcoin (BTC) - 0.00000000 BTC</option>
-              </select> */}
               <input
                 className="form-control"
                 type="number"
@@ -111,7 +130,6 @@ const BTCDeposit = () => {
                 size={128}
               />
             </div>
-            {/* <button className="continue-btn">Go to My Accounts</button> */}
             <Link to="/deposit">
               <button className="continue-btn">Change Deposit Method</button>
             </Link>

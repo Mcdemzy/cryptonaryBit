@@ -47,9 +47,14 @@
   border-radius: 10px;
 }
 
-table {
+.table-container {
+  overflow-x: auto;
+}
+
+.transaction-table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 600px;
 }
 
 thead {
@@ -132,6 +137,7 @@ td {
   border-radius: 10px;
   width: 90%;
   max-width: 500px;
+  height: fit-content;
 }
 
 .close {
@@ -149,7 +155,15 @@ td {
   cursor: pointer;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .transaction-table {
+    min-width: 600px;
+  }
+
   .filters {
     display: none;
   }

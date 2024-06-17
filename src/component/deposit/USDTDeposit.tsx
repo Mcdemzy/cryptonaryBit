@@ -12,6 +12,13 @@ const USDTDeposit = () => {
 
   const handleContinue = () => {
     setShowAddress(true);
+    saveTransaction({
+      date: new Date().toISOString(),
+      type: "Deposit",
+      amount: parseFloat(depositAmount),
+      status: "Pending",
+      currency: "USDT",
+    });
   };
 
   const handleCopyAddress = () => {
@@ -30,6 +37,21 @@ const USDTDeposit = () => {
 
   const isContinueButtonEnabled =
     parseFloat(depositAmount) >= 0.008 && parseFloat(depositAmount) <= 10000;
+
+  const saveTransaction = (transaction: {
+    date: string;
+    type: string;
+    amount: number;
+    status: string;
+    currency: string;
+  }) => {
+    const storedTransactions = localStorage.getItem("transactions");
+    const transactions = storedTransactions
+      ? JSON.parse(storedTransactions)
+      : [];
+    transactions.push(transaction);
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+  };
 
   return (
     <article className="bg-[#060d17]">
@@ -51,16 +73,13 @@ const USDTDeposit = () => {
             </div>
             <div className="form-group">
               <label htmlFor="to-account">To account</label>
-              {/* <select id="to-account" className="form-control" disabled>
-                <option>USDT (Tether) - 0.00 USDT</option>
-              </select> */}
               <input
                 className="form-control"
                 type="number"
                 placeholder="0.000 USDT"
                 required
                 min={0.008}
-                max={1}
+                max={10000}
                 value={depositAmount}
                 onChange={handleAmountChange}
               />
@@ -110,7 +129,6 @@ const USDTDeposit = () => {
               </div>
               <QRCode value="TLNpM6QvZ31i2HGCHfvoWnK9F7JaLrtACd" size={128} />
             </div>
-            {/* <button className="continue-btn">Go to My Accounts</button> */}
             <Link to="/deposit">
               <button className="continue-btn">Change Deposit Method</button>
             </Link>

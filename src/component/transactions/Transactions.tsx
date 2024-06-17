@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./transactions.css";
 import Folder from "../../assets/folder.png";
 import { Link } from "react-router-dom";
@@ -11,10 +11,11 @@ interface Transaction {
   type: string;
   amount: number;
   status: string;
+  currency: string;
 }
 
 const Transactions = () => {
-  const [transactions] = useState<Transaction[]>([]);
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [filter, setFilter] = useState({
     type: "All transaction types",
     status: "All statuses",
@@ -23,12 +24,34 @@ const Transactions = () => {
   });
   const [showModal, setShowModal] = useState(false);
 
+  useEffect(() => {
+    const storedTransactions = localStorage.getItem("transactions");
+    if (storedTransactions) {
+      setTransactions(JSON.parse(storedTransactions));
+    } else {
+      setTransactions([]);
+    }
+  }, []);
+
   const handleFilterChange = (key: keyof typeof filter, value: string) => {
     setFilter({ ...filter, [key]: value });
   };
 
   const handleModalClose = () => {
     setShowModal(false);
+  };
+
+  const filterTransactions = () => {
+    return transactions.filter((transaction) => {
+      const matchesType =
+        filter.type === "All transaction types" ||
+        transaction.type === filter.type;
+      const matchesStatus =
+        filter.status === "All statuses" ||
+        transaction.status === filter.status;
+      // Assuming account and period filters are not yet implemented
+      return matchesType && matchesStatus;
+    });
   };
 
   return (
@@ -165,30 +188,34 @@ const Transactions = () => {
               </Link>
             </div>
           ) : (
-            <table>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Type</th>
-                  <th>Amount</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {transactions.map((transaction, index) => (
-                  <tr key={index}>
-                    <td>{transaction.date}</td>
-                    <td>{transaction.type}</td>
-                    <td>{transaction.amount}</td>
-                    <td>{transaction.status}</td>
+            <div className="table-container">
+              <table className="transaction-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Currency</th>
+                    <th>Status</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {filterTransactions().map((transaction, index) => (
+                    <tr key={index}>
+                      <td>{transaction.date}</td>
+                      <td>{transaction.type}</td>
+                      <td>{transaction.amount}</td>
+                      <td>{transaction.currency}</td>
+                      <td>{transaction.status}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </div>
         <Footer />
-      </div>{" "}
+      </div>
       <Navbar />
     </article>
   );
