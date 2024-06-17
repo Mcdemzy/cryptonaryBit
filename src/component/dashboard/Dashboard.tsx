@@ -43,7 +43,7 @@ const Dashboard = () => {
         </div>
 
         <div className="mt-6 dashboard__feature flex justify-around items-center w-[90vw] h-[16vh] m-auto bg-[#060d17] p-[10px] rounded-xl">
-          <Link to="/wallet">
+          <Link to="/buy">
             <div className="flex flex-col items-center">
               <div className="bg-[#151F2B] h-8 w-12 flex justify-center items-center text-[1.2rem] rounded-xl">
                 <BsBoxArrowInRight className="bg-[#151f2b] text-[#ffcc00] dashboard__icon" />

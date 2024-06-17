@@ -22,7 +22,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Footer from "../footer/Footer";
 
 // Conversion rates for demonstration purposes
-const conversionRates = {
+const conversionRates: { [key in "USD" | "EUR" | "GBP"]: number } = {
   USD: 1,
   EUR: 0.85,
   GBP: 0.75,
@@ -39,7 +39,7 @@ type Wallet = {
 
 type Currency = {
   name: string;
-  code: string;
+  code: "USD" | "EUR" | "GBP";
   symbol: string;
   flag: string;
 };
