@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react"; // Import ChangeEvent
+import { useState, ChangeEvent } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
@@ -21,6 +21,13 @@ const BitcoinWithdrawal = () => {
   const handleWithdrawal = () => {
     // Simulate withdrawal process
     setTimeout(() => {
+      saveTransaction({
+        date: new Date().toISOString(),
+        type: "Withdrawal",
+        amount: parseFloat(amount),
+        status: "Pending",
+        currency: "BTC",
+      });
       setMessageSent(true);
       setPopupMessage(`Your BTC withdrawal is being processed`);
       // Reset input field data
@@ -37,39 +44,62 @@ const BitcoinWithdrawal = () => {
     );
   };
 
+  const saveTransaction = (transaction: {
+    date: string;
+    type: string;
+    amount: number;
+    status: string;
+    currency: string;
+  }) => {
+    const storedTransactions = localStorage.getItem("transactions");
+    const transactions = storedTransactions
+      ? JSON.parse(storedTransactions)
+      : [];
+    transactions.push(transaction);
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+  };
+
   return (
-    <article className="bg-[#060d17]">
-      <section className="bitcoin-withdrawal-section pb-[50px]">
-        <div className="withdrawal-header">
-          <h1 className="title">Bitcoin (BTC) Withdrawal</h1>
-          <Link to="/withdrawal" className="back-link">
+    <article className="bitcoin-withdrawal-bg">
+      <section className="bitcoin-withdrawal-section">
+        <div className="bitcoin-withdrawal-header">
+          <h1 className="bitcoin-withdrawal-title">Bitcoin (BTC) Withdrawal</h1>
+          <Link to="/withdrawal" className="bitcoin-withdrawal-back-link">
             See all payment methods
           </Link>
         </div>
 
-        <div className="withdrawal-form">
-          <div className="form-group">
+        <div className="bitcoin-withdrawal-form">
+          <div className="bitcoin-withdrawal-form-group">
             <label htmlFor="payment-method">Payment method</label>
-            <select id="payment-method" className="form-control" disabled>
+            <select
+              id="payment-method"
+              className="bitcoin-withdrawal-form-control"
+              disabled
+            >
               <option>Bitcoin (BTC)</option>
               <option>USDT Withdrawal</option>
               <option>Online Bank</option>
             </select>
           </div>
 
-          <div className="form-group">
+          <div className="bitcoin-withdrawal-form-group">
             <label htmlFor="currency">Currency</label>
-            <select id="currency" className="form-control" disabled>
+            <select
+              id="currency"
+              className="bitcoin-withdrawal-form-control"
+              disabled
+            >
               <option>BTC</option>
             </select>
           </div>
 
-          <div className="form-group">
+          <div className="bitcoin-withdrawal-form-group">
             <label htmlFor="external-wallet">To External Wallet</label>
             <input
               type="text"
               id="external-wallet"
-              className="form-control"
+              className="bitcoin-withdrawal-form-control"
               placeholder="Enter your Bitcoin wallet address"
               value={externalWallet}
               onChange={handleExternalWalletChange}
@@ -77,30 +107,32 @@ const BitcoinWithdrawal = () => {
             />
           </div>
 
-          <div className="form-group">
+          <div className="bitcoin-withdrawal-form-group">
             <label htmlFor="account">From Wallet at CryptonaryBit</label>
-            <div className="account-info">
-              <select id="account" className="form-control">
+            <div className="bitcoin-withdrawal-account-info">
+              <select id="account" className="bitcoin-withdrawal-form-control">
                 <option>Bitcoin (BTC)</option>
               </select>
-              <span className="balance">0.00000000 BTC</span>
+              <span className="bitcoin-withdrawal-balance">0.00000000 BTC</span>
             </div>
           </div>
 
-          <div className="form-group">
+          <div className="bitcoin-withdrawal-form-group">
             <label htmlFor="amount">Amount</label>
             <input
               type="number"
               id="amount"
-              className="form-control"
+              className="bitcoin-withdrawal-form-control"
               placeholder="0.00000000"
               value={amount}
               onChange={handleAmountChange}
             />
-            <span className="limits">0.00001 - 10,000 USD</span>
+            <span className="bitcoin-withdrawal-limits">
+              0.00001 - 10,000 USD
+            </span>
           </div>
 
-          <div className="info-box">
+          <div className="bitcoin-withdrawal-info-box">
             <p>
               Enter the amount you want to withdraw. It should fall within the
               suggested range and cannot be more than available on your trading
@@ -109,13 +141,13 @@ const BitcoinWithdrawal = () => {
             </p>
           </div>
 
-          <div className="total-box">
+          <div className="bitcoin-withdrawal-total-box">
             <p>To be withdrawn</p>
-            <p className="amount">{amount} BTC</p>
+            <p className="bitcoin-withdrawal-amount">{amount} BTC</p>
           </div>
 
           <button
-            className="continue-btn"
+            className="bitcoin-withdrawal-continue-btn"
             disabled={!isWithdrawalEnabled()}
             onClick={handleWithdrawal}
           >
@@ -123,8 +155,8 @@ const BitcoinWithdrawal = () => {
           </button>
         </div>
 
-        <div className="additional-info">
-          <div className="terms-section">
+        <div className="bitcoin-withdrawal-additional-info">
+          <div className="bitcoin-withdrawal-terms-section">
             <h3>Terms</h3>
             <p>
               Average payment time <strong>Instant</strong>
@@ -134,7 +166,7 @@ const BitcoinWithdrawal = () => {
             </p>
           </div>
 
-          <div className="faq-section">
+          <div className="bitcoin-withdrawal-faq-section">
             <h3>FAQ</h3>
             <Link to="/faq">Find out more about crypto payments</Link>
           </div>
@@ -144,10 +176,9 @@ const BitcoinWithdrawal = () => {
       </section>
       <Navbar />
 
-      {/* Display popup when message is sent */}
       {messageSent && (
-        <div className="popup">
-          <div className="popup-content">
+        <div className="bitcoin-withdrawal-popup">
+          <div className="bitcoin-withdrawal-popup-content">
             <p>{popupMessage}</p>
             <button onClick={() => setMessageSent(false)}>Close</button>
           </div>

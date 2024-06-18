@@ -1,53 +1,53 @@
-.bitcoin-withdrawal-bg {
+.usdt-withdrawal-bg {
   background-color: #060d17;
   padding: 20px;
 }
 
-.bitcoin-withdrawal-section {
+.usdt-withdrawal-section {
   padding-bottom: 50px;
   max-width: 960px;
   margin: 0 auto;
 }
 
-.bitcoin-withdrawal-header {
+.usdt-withdrawal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.bitcoin-withdrawal-title {
+.usdt-withdrawal-title {
   font-size: 1.5rem;
   line-height: 40px;
   font-weight: bold;
   color: var(--text-primary);
 }
 
-.bitcoin-withdrawal-back-link {
+.usdt-withdrawal-back-link {
   font-size: 0.875rem;
   color: var(--text-primary);
   text-decoration: none;
 }
 
-.bitcoin-withdrawal-form {
+.usdt-withdrawal-form {
   background: var(--color-bg);
   padding: 20px;
   border-radius: 8px;
   border: 1px solid var(--text-gray-variant);
 }
 
-.bitcoin-withdrawal-form-group {
+.usdt-withdrawal-form-group {
   margin-bottom: 1rem;
 }
 
-.bitcoin-withdrawal-form-group label {
+.usdt-withdrawal-form-group label {
   display: block;
   margin-bottom: 0.5rem;
   font-size: 0.875rem;
   color: var(--text-gray);
 }
 
-.bitcoin-withdrawal-form-control {
+.usdt-withdrawal-form-control {
   width: 100%;
   padding: 10px;
   border: 1px solid var(--text-gray-variant);
@@ -56,26 +56,26 @@
   color: var(--text-white);
 }
 
-.bitcoin-withdrawal-account-info {
+.usdt-withdrawal-account-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.bitcoin-withdrawal-balance {
+.usdt-withdrawal-balance {
   font-size: 0.875rem;
   color: var(--text-gray);
   padding: 10px;
 }
 
-.bitcoin-withdrawal-limits {
+.usdt-withdrawal-limits {
   display: block;
   margin-top: 0.5rem;
   font-size: 0.875rem;
   color: var(--text-gray);
 }
 
-.bitcoin-withdrawal-info-box {
+.usdt-withdrawal-info-box {
   background-color: var(--nav-bg);
   padding: 10px;
   border-radius: 4px;
@@ -84,7 +84,7 @@
   color: var(--text-gray);
 }
 
-.bitcoin-withdrawal-total-box {
+.usdt-withdrawal-total-box {
   display: flex;
   justify-content: space-between;
   background-color: var(--color-bg-variant);
@@ -94,16 +94,16 @@
   margin-bottom: 1rem;
 }
 
-.bitcoin-withdrawal-total-box p {
+.usdt-withdrawal-total-box p {
   margin: 0;
 }
 
-.bitcoin-withdrawal-amount {
+.usdt-withdrawal-amount {
   font-weight: bold;
   color: var(--text-primary);
 }
 
-.bitcoin-withdrawal-continue-btn {
+.usdt-withdrawal-continue-btn {
   width: 100%;
   background-color: var(--text-primary);
   color: var(--text-black);
@@ -114,46 +114,46 @@
   font-size: 1rem;
 }
 
-.bitcoin-withdrawal-continue-btn:disabled {
+.usdt-withdrawal-continue-btn:disabled {
   background-color: var(--text-gray-variant);
   cursor: not-allowed;
 }
 
-.bitcoin-withdrawal-additional-info {
+.usdt-withdrawal-additional-info {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.bitcoin-withdrawal-terms-section,
-.bitcoin-withdrawal-faq-section {
+.usdt-withdrawal-terms-section,
+.usdt-withdrawal-faq-section {
   width: 45%;
 }
 
-.bitcoin-withdrawal-terms-section h3,
-.bitcoin-withdrawal-faq-section h3 {
+.usdt-withdrawal-terms-section h3,
+.usdt-withdrawal-faq-section h3 {
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
-.bitcoin-withdrawal-terms-section p,
-.bitcoin-withdrawal-faq-section a {
+.usdt-withdrawal-terms-section p,
+.usdt-withdrawal-faq-section a {
   font-size: 0.875rem;
   color: var(--text-gray);
   margin: 0.25rem 0;
 }
 
-.bitcoin-withdrawal-faq-section a {
+.usdt-withdrawal-faq-section a {
   color: var(--text-primary);
   text-decoration: none;
 }
 
-.bitcoin-withdrawal-faq-section a:hover {
+.usdt-withdrawal-faq-section a:hover {
   text-decoration: underline;
 }
 
-.bitcoin-withdrawal-popup {
+.usdt-withdrawal-popup {
   position: fixed;
   top: 0;
   left: 0;
@@ -165,18 +165,18 @@
   align-items: center;
 }
 
-.bitcoin-withdrawal-popup-content {
+.usdt-withdrawal-popup-content {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
 }
 
-.bitcoin-withdrawal-popup-content p {
+.usdt-withdrawal-popup-content p {
   margin-bottom: 20px;
 }
 
-.bitcoin-withdrawal-popup-content button {
+.usdt-withdrawal-popup-content button {
   background-color: var(--text-primary);
   color: var(--text-black);
   padding: 10px 20px;
