@@ -1,8 +1,8 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 import { useLocation, Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
-import "./stake.css";
 import Footer from "../footer/Footer";
+import "./stake.css";
 
 const Stake = () => {
   const location = useLocation();
@@ -38,13 +38,31 @@ const Stake = () => {
   const handleStake = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const amountValue = parseFloat(amount);
+
     if (!amount) {
       setError("Please enter the amount to stake.");
       return;
     }
 
-    if (parseFloat(amount) <= 0) {
+    if (amountValue <= 0) {
       setError("The amount must be greater than zero.");
+      return;
+    }
+
+    if (amountValue < wallet.minimum) {
+      setError(
+        `The amount must be at least ${wallet.minimum} ${wallet.symbol}.`
+      );
+      return;
+    }
+
+    if (amountValue > wallet.approxValue) {
+      setError(
+        `Insufficient balance. You have ${wallet.approxValue.toFixed(2)} ${
+          wallet.symbol
+        }.`
+      );
       return;
     }
 
@@ -180,7 +198,9 @@ const Stake = () => {
               </div>
               <div className="info-group">
                 <p>Available Balance</p>
-                <p>0.5 {wallet.symbol}</p>
+                <p>
+                  {wallet.approxValue.toFixed(2)} {wallet.symbol}
+                </p>
               </div>
               <button
                 type="submit"

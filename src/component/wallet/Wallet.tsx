@@ -44,15 +44,12 @@ type Currency = {
   flag: string;
 };
 
-// Generate random values for the wallets
-const generateRandomValue = () => Math.random() * 10000;
-
 const wallets: Wallet[] = [
   {
     icon: CryptoIcon1,
     name: "Bitcoin Cash Wallet",
     symbol: "BCH",
-    approxValue: generateRandomValue(),
+    approxValue: 5000,
     canStake: true,
     minimum: 0.5,
   },
@@ -60,7 +57,7 @@ const wallets: Wallet[] = [
     icon: CryptoIcon2,
     name: "BNB Wallet",
     symbol: "BNB",
-    approxValue: generateRandomValue(),
+    approxValue: 3000,
     canStake: true,
     minimum: 0.3,
   },
@@ -68,7 +65,7 @@ const wallets: Wallet[] = [
     icon: CryptoIcon3,
     name: "Bitcoin Wallet",
     symbol: "BTC",
-    approxValue: generateRandomValue(),
+    approxValue: 15000,
     canStake: true,
     minimum: 0.004,
   },
@@ -76,7 +73,7 @@ const wallets: Wallet[] = [
     icon: CryptoIcon4,
     name: "Ethereum Wallet",
     symbol: "ETH",
-    approxValue: generateRandomValue(),
+    approxValue: 10000,
     canStake: true,
     minimum: 0.06,
   },
@@ -84,7 +81,7 @@ const wallets: Wallet[] = [
     icon: CryptoIcon5,
     name: "Solana Wallet",
     symbol: "SOL",
-    approxValue: generateRandomValue(),
+    approxValue: 2000,
     canStake: true,
     minimum: 1.5,
   },
@@ -92,7 +89,7 @@ const wallets: Wallet[] = [
     icon: CryptoIcon6,
     name: "Tron Wallet",
     symbol: "TRX",
-    approxValue: generateRandomValue(),
+    approxValue: 8000,
     canStake: true,
     minimum: 2000,
   },
@@ -100,7 +97,7 @@ const wallets: Wallet[] = [
     icon: CryptoIcon7,
     name: "USDT (TRC 20)",
     symbol: "USDT",
-    approxValue: generateRandomValue(),
+    approxValue: 500,
     canStake: true,
     minimum: 250,
   },
@@ -254,13 +251,6 @@ const Wallet = () => {
                   <span>Stake</span>
                 </div>
               )}
-              {/* <div
-                onClick={() => toggleModal(wallet)}
-                className="flex flex-col justify-center items-center cursor-pointer"
-              >
-                <BsBoxArrowUpRight className="wallet__links-icon" />
-                <span>Deposit</span>
-              </div> */}
             </div>
           </div>
         ))}
@@ -280,10 +270,45 @@ const Wallet = () => {
               <div className="bitcoin__address-container">
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Animi, labore.
+                  Animi, veritatis!
                 </p>
+                <p>Blockchain Address</p>
               </div>
             </div>
+            <form className="modal__form">
+              <div className="input-group">
+                <label htmlFor="recipient">Recipient Address</label>
+                <input
+                  type="text"
+                  id="recipient"
+                  name="recipient"
+                  placeholder="Enter recipient address"
+                  required
+                />
+              </div>
+              <div className="input-group">
+                <label htmlFor="amount">Amount ({selectedWallet.symbol})</label>
+                <input
+                  type="number"
+                  id="amount"
+                  name="amount"
+                  placeholder="Enter amount"
+                  required
+                />
+              </div>
+              <div className="modal-buttons">
+                <button type="submit" className="btn-primary">
+                  Send
+                </button>
+                <button
+                  type="button"
+                  className="btn-secondary"
+                  onClick={() => toggleModal(null)}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
             <button className="close-modal" onClick={() => toggleModal(null)}>
               <AiOutlineClose />
             </button>

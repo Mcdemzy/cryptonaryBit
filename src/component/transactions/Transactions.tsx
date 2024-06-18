@@ -4,7 +4,7 @@ import Folder from "../../assets/folder.png";
 import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
-import Header from "../header/Header";
+// import Header from "../header/Header";
 
 interface Transaction {
   date: string;
@@ -54,11 +54,25 @@ const Transactions = () => {
     });
   };
 
+  const handleClearTransactions = () => {
+    if (
+      window.confirm("Are you sure you want to clear all transaction history?")
+    ) {
+      localStorage.removeItem("transactions");
+      setTransactions([]);
+    }
+  };
+
   return (
     <article>
-      <Header />
+      {/* <Header /> */}
       <div className="transaction-history">
-        <h1 className="title">Transaction history</h1>
+        <div className="header-container">
+          <h1 className="title">Transaction history</h1>
+          <button className="btn-clear" onClick={handleClearTransactions}>
+            Clear
+          </button>
+        </div>
         <div className="filters">
           <div className="filter">
             <label htmlFor="period">Period</label>
