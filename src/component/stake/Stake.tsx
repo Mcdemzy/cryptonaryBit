@@ -79,6 +79,28 @@ const Stake = () => {
       setIsLoading(false);
       setMessageSent(true);
       setPopupMessage(`Staked ${amount} ${wallet.symbol} for ${duration}`);
+
+      // Create new transaction object
+      const newTransaction = {
+        date: new Date().toISOString(),
+        type: "Stake",
+        amount: parseFloat(amount),
+        status: "Pending",
+        currency: wallet.symbol,
+      };
+
+      // Retrieve existing transactions from localStorage
+      const storedTransactions = localStorage.getItem("transactions");
+      let transactions = [];
+      if (storedTransactions) {
+        transactions = JSON.parse(storedTransactions);
+      }
+
+      // Add the new stake transaction to the existing transactions array
+      transactions.push(newTransaction);
+
+      // Store updated transactions array in localStorage
+      localStorage.setItem("transactions", JSON.stringify(transactions));
     }, 2000);
   };
 
@@ -111,7 +133,7 @@ const Stake = () => {
 
   return (
     <article>
-      <div className="staking-page pb-[100px]">
+      <div className="staking-page">
         <div className="stake-container">
           <div className="stats-container">
             <h2>Stats</h2>
@@ -150,7 +172,6 @@ const Stake = () => {
               </div>
             </div>
           </div>
-
           <div className="stake-details">
             <h2>{wallet.name}</h2>
             <img src={wallet.icon} alt={wallet.name} width={48} />
@@ -216,6 +237,7 @@ const Stake = () => {
             </form>
           </div>
         </div>
+        <Footer />
 
         {/* Display popup when message is sent */}
         {messageSent && (
@@ -224,7 +246,6 @@ const Stake = () => {
             <button onClick={() => setMessageSent(false)}>Close</button>
           </div>
         )}
-        <Footer />
       </div>
       <Navbar />
     </article>

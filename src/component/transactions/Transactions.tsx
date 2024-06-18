@@ -99,9 +99,8 @@ const Transactions = () => {
               <option>Deposit</option>
               <option>Withdrawal</option>
               <option>Transfer</option>
-              <option>Refund</option>
-              <option>Reward</option>
-              <option>Rebate</option>
+              <option>Stake</option>
+              <option>Swap</option>
             </select>
           </div>
           <div className="filter">
@@ -159,6 +158,7 @@ const Transactions = () => {
                   <option>All transaction types</option>
                   <option>Deposit</option>
                   <option>Withdrawal</option>
+                  <option>Stake</option>
                 </select>
               </div>
               <div className="filter">
