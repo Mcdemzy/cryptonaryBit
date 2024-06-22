@@ -12,7 +12,7 @@ import Etf from "./component/etf/Etf";
 import EtfAbout from "./component/etf/EtfAbout";
 import EtfFinancials from "./component/etf/EtfFinancials";
 import Wallet from "./component/wallet/Wallet";
-import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react";
+// import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react";
 import Coming from "./component/coming/Coming";
 import Stake from "./component/stake/Stake";
 import ContactUs from "./component/contactus/ContactUs";
@@ -33,6 +33,7 @@ import USDTDeposit from "./component/deposit/USDTDeposit";
 import FixedEtf from "./component/etf/FixedEtf";
 import Swap from "./component/swap/Swap";
 import Buy from "./component/buy/Buy";
+import PrivateRoutes from "../utils/privateRoutes";
 // import Header from "./component/header/Header";
 
 // import ETFFixed from "./component/etf/EtfFixed";
@@ -42,15 +43,20 @@ const router = createBrowserRouter(
     <>
       <Route path="/" element={<LandingPage />} />
       <Route
+        path="/signup"
+        element={<Signup />}
+      />
+      <Route
+        path="/login"
+        element={<Signin />}
+      />
+      <Route
         path="/dashboard"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <Dashboard />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -58,12 +64,9 @@ const router = createBrowserRouter(
         path="/wallet"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <Wallet />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -71,12 +74,9 @@ const router = createBrowserRouter(
         path="/etf"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <Etf />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -84,12 +84,9 @@ const router = createBrowserRouter(
         path="/transactions"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <Transactions />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -97,12 +94,9 @@ const router = createBrowserRouter(
         path="/news"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <News />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -110,12 +104,9 @@ const router = createBrowserRouter(
         path="/swap"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <Swap />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -123,12 +114,9 @@ const router = createBrowserRouter(
         path="/deposit"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <Deposit />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -136,12 +124,9 @@ const router = createBrowserRouter(
         path="/withdrawal"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <Withdrawal />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -149,12 +134,9 @@ const router = createBrowserRouter(
         path="/etfabout"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <EtfAbout />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -162,12 +144,9 @@ const router = createBrowserRouter(
         path="/etffinancials"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <EtfFinancials />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -176,12 +155,9 @@ const router = createBrowserRouter(
         path="/stake"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <Stake />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -189,12 +165,9 @@ const router = createBrowserRouter(
         path="/online-bank"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <OnlineBankWithdrawal />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -202,12 +175,9 @@ const router = createBrowserRouter(
         path="/online-bank"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <OnlineBankWithdrawal />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -215,12 +185,9 @@ const router = createBrowserRouter(
         path="/btc-withdrawal"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <BitcoinWithdrawal />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -228,12 +195,9 @@ const router = createBrowserRouter(
         path="/usdt-withdrawal"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <UsdtWithdrawal />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -241,12 +205,9 @@ const router = createBrowserRouter(
         path="/online-deposit"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <OnlineBankDeposit />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -254,12 +215,9 @@ const router = createBrowserRouter(
         path="/btc-deposit"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <BTCDeposit />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -267,12 +225,9 @@ const router = createBrowserRouter(
         path="/usdt-deposit"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <USDTDeposit />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -280,12 +235,9 @@ const router = createBrowserRouter(
         path="/fixed-etf"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <FixedEtf />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
@@ -293,18 +245,15 @@ const router = createBrowserRouter(
         path="/buy"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <Buy />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />
 
       <Route path="/signup" element={<Signup />} />
-      <Route path="/signin" element={<Signin />} />
+      <Route path="/login" element={<Signin />} />
       <Route path="/coming" element={<Coming />} />
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/about" element={<AboutUs />} />
@@ -317,12 +266,9 @@ const router = createBrowserRouter(
         path="/online-bank-withdrawal"
         element={
           <>
-            <SignedIn>
+            <PrivateRoutes>
               <OnlineBankWithdrawal />
-            </SignedIn>
-            <SignedOut>
-              <RedirectToSignIn />
-            </SignedOut>
+            </PrivateRoutes>
           </>
         }
       />

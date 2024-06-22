@@ -4,7 +4,6 @@ import { HiOutlineMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import "./navbar.css";
-import { SignInButton } from "@clerk/clerk-react";
 
 const Navbar = () => {
   const [isSubDropdownOpen, setIsSubDropdownOpen] = useState(false);
@@ -142,9 +141,11 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-4">
-            <div className="text-[#0d141c] text-[1.125rem] font-[500] rounded-xl flex justify-center items-center p-3 m-[auto] bg-[#ffcc00] hover:bg-[#ffdd00] transition duration-300 ease-in-out">
-              <SignInButton forceRedirectUrl="/dashboard" />
-            </div>
+            <Link to="/login">
+              <button className="text-[#0d141c] text-[1.125rem] font-[500] rounded-xl flex justify-center items-center p-3 m-[auto] bg-[#ffcc00] hover:bg-[#ffdd00] transition duration-300 ease-in-out">
+                SignIn
+              </button>
+            </Link>
           </div>
           <button
             onClick={handleMenuClick}
@@ -158,9 +159,8 @@ const Navbar = () => {
 
       {/* Mobile Navbar */}
       <nav
-        className={`fixed top-0 left-0 w-full h-full bg-black text-white transform ${
-          isMobileNavVisible ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out z-50`}
+        className={`fixed top-0 left-0 w-full h-full bg-black text-white transform ${isMobileNavVisible ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-300 ease-in-out z-50`}
       >
         <div className="flex justify-between items-center p-4">
           <Link to="/">
@@ -265,9 +265,11 @@ const Navbar = () => {
           <Link to="/about" className="px-4 py-2 hover:text-blue-500">
             About Us
           </Link>
-          <div className="cursor-pointer w-[90%] text-[1.25rem] font-[500] rounded-xl flex justify-center items-center p-3 m-[auto] bg-[#ffcc00] hover:bg-[#ffdd00] transition duration-300 ease-in-out">
-            <SignInButton forceRedirectUrl="/dashboard" />
-          </div>
+          <Link to="/login">
+            <div className="cursor-pointer w-[90%] text-[1.25rem] font-[500] rounded-xl flex justify-center items-center p-3 m-[auto] bg-[#ffcc00] hover:bg-[#ffdd00] transition duration-300 ease-in-out">
+              Sign in
+            </div>
+          </Link>
         </div>
       </nav>
 

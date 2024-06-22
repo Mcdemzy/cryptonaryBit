@@ -1,29 +1,39 @@
 // /src/components/signin/Signin.js
-import { useSignIn } from "@clerk/clerk-react";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./signin.css";
+import { login } from "../../../utils/services";
 
 const Signin = () => {
-  const { signIn } = useSignIn();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (signIn) {
+    const validateForm = email !== "" && password !== ""
+    if (validateForm) {
       try {
-        await signIn.create({
-          identifier: email,
+        setLoading(true);
+        const res = await login({
+          email,
           password,
         });
-        navigate("/dashboard");
-      } catch (err) {
-        setError("Invalid email or password");
+        const result = await res.json();
+        if (res.ok) {
+          console.log(result);
+          navigate("/dashboard");
+        }
+        console.log(res);
+        setLoading(false);
+      } catch (error) {
+        console.log("Error", error);
+        setError("Could not sign up");
+        setLoading(false);
       }
-    }
+    } else alert("Please fill out all the required fields");
   };
 
   return (
@@ -57,7 +67,7 @@ const Signin = () => {
         <a href="" className="signin__container-forgot">
           Forgot Password?
         </a>
-        <button type="submit">Sign in</button>
+        <button type="submit" disabled={loading}>{loading ? "loading ....." : "Signin"}</button>
         {error && <p>{error}</p>}
         <p>
           Not a member yet? <a href="/signup">Sign up</a>
