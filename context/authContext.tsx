@@ -9,10 +9,18 @@ import {
 import { useCookies } from "react-cookie";
 import React from 'react';
 
+type User = {
+    email: string,
+    firstName: string,
+    lastName: string
+}
+
 type AuthContextType = {
     isAuth: boolean,
     loading: boolean,
     setIsAuth: React.Dispatch<React.SetStateAction<boolean>>,
+    removeCookies: () => void,
+    user: User | null
 };
 
 export const AuthContext = createContext<AuthContextType | null>(null);
@@ -20,14 +28,18 @@ export const AuthContext = createContext<AuthContextType | null>(null);
 const BASE_URL = "http://localhost:5000";
 
 export const UseAuthContext = ({ children }: { children: ReactNode }) => {
-    const [cookies,  removeCookie] = useCookies(['token']);
-    const [isAuth, setIsAuth] = useState(!!cookies.token);
+    const [cookies, removeCookie] = useCookies(['token']);
+    const [isAuth, setIsAuth] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [user, setUser] = useState<User | null>(null);
+
+    const removeCookies = () => {
+        removeCookie('token', { path: '/' });
+    }
 
     useEffect(() => {
         const verifyCookie = async () => {
             if (!cookies.token) {
-                console.log('no cookies');
                 setIsAuth(false);
                 setLoading(false);
                 return;
@@ -44,10 +56,10 @@ export const UseAuthContext = ({ children }: { children: ReactNode }) => {
                 const result = await res.json();
                 if (res.ok) {
                     result.status == true ? setIsAuth(true) : setIsAuth(false);
+                    setUser(result.user);
                 } else {
                     setIsAuth(false);
                 }
-                console.log(result);
             } catch (error) {
                 console.log('Error verifying token:', error);
                 setIsAuth(false);
@@ -55,10 +67,10 @@ export const UseAuthContext = ({ children }: { children: ReactNode }) => {
             setLoading(false);
         };
         verifyCookie();
-    }, [cookies.token]);
+    }, [cookies.token, isAuth]);
 
     return (
-        <AuthContext.Provider value={{ isAuth, setIsAuth, loading }}>
+        <AuthContext.Provider value={{ isAuth, setIsAuth, loading, removeCookies, user }}>
             {children}
         </AuthContext.Provider>
     );

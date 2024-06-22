@@ -3,8 +3,10 @@ import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./signin.css";
 import { login } from "../../../utils/services";
+import { useAuthContext } from "../../../context/authContext";
 
 const Signin = () => {
+  const { setIsAuth } = useAuthContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -21,12 +23,10 @@ const Signin = () => {
           email,
           password,
         });
-        const result = await res.json();
         if (res.ok) {
-          console.log(result);
+          setIsAuth(true);
           navigate("/dashboard");
         }
-        console.log(res);
         setLoading(false);
       } catch (error) {
         console.log("Error", error);

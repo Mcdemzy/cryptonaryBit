@@ -4,21 +4,57 @@ import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 import "./btcdeposit.css";
+import { useAuthContext } from "../../../context/authContext";
+import { btcDeposit } from "../../../utils/services";
+
+type Transactions = {
+  date: string;
+  type: string;
+  amount: number;
+  status: string;
+  currency: string;
+}
+
+type UserInfo = {
+  email?: string;
+  name?: string;
+};
+
+export type DepositDetails = Transactions & UserInfo;
 
 const BTCDeposit = () => {
+  const { user } = useAuthContext();
   const [showAddress, setShowAddress] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const [depositAmount, setDepositAmount] = useState<string>("");
 
+  const userInfo = {
+    email: user?.email,
+    name: user?.firstName + " " + user?.lastName
+  }
+
+  const handleDepositBTC = async (details: DepositDetails) => {
+    try {
+      const res = await btcDeposit(details);
+      if (res.ok) {
+        console.log("deposit successfull");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const handleContinue = () => {
     setShowAddress(true);
-    saveTransaction({
+    const details = {
       date: new Date().toISOString(),
       type: "Deposit",
       amount: parseFloat(depositAmount),
       status: "Pending",
       currency: "BTC",
-    });
+    }
+    handleDepositBTC({ ...details, ...userInfo });
+    saveTransaction(details);
   };
 
   const handleCopyAddress = () => {
@@ -38,17 +74,13 @@ const BTCDeposit = () => {
   const isContinueButtonEnabled =
     parseFloat(depositAmount) > 0.0001 && parseFloat(depositAmount) <= 10;
 
-  const saveTransaction = (transaction: {
-    date: string;
-    type: string;
-    amount: number;
-    status: string;
-    currency: string;
-  }) => {
+  const saveTransaction = (transaction: Transactions) => {
     const storedTransactions = localStorage.getItem("transactions");
     const transactions = storedTransactions
       ? JSON.parse(storedTransactions)
       : [];
+
+    console.log(transactions);
     transactions.push(transaction);
     localStorage.setItem("transactions", JSON.stringify(transactions));
   };

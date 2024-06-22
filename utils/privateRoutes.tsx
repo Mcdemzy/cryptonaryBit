@@ -4,10 +4,9 @@ import { ReactNode } from 'react';
 
 const PrivateRoutes = ({ children }: { children: ReactNode }) => {
     const { isAuth, loading } = useAuthContext();
-    console.log('isAuth:', isAuth);
 
     if (loading) {
-        return <div>Loading...</div>; // Display a loading message while verifying
+        return <div>Loading...</div>;
     }
 
     if (isAuth) {
