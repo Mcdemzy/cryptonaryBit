@@ -43,7 +43,7 @@ export const UseAuthContext = ({ children }: { children: ReactNode }) => {
                 });
                 const result = await res.json();
                 if (res.ok) {
-                    setIsAuth(true);
+                    result.status == true ? setIsAuth(true) : setIsAuth(false);
                 } else {
                     setIsAuth(false);
                 }
