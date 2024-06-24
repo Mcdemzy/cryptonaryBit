@@ -12,7 +12,8 @@ import React from 'react';
 type User = {
     email: string,
     firstName: string,
-    lastName: string
+    lastName: string,
+    accountBalance: number
 }
 
 type AuthContextType = {

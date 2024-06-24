@@ -95,7 +95,7 @@ const Signup = () => {
         <button type="submit" disabled={loading}>{loading ? "loading ....." : "Next"}</button>
         {error && <p>{error}</p>}
         <p>
-          Already a member? <a href="/signin">Sign in</a>
+          Already a member? <a href="/login">Sign in</a>
         </p>
       </form>
     </section>

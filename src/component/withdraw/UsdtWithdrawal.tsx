@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 import "./usdtwithdrawal.css";
+import { withdraw } from "../../../utils/services";
 
 const USDTWithdrawal = () => {
   const [amount, setAmount] = useState("");
   const [externalWallet, setExternalWallet] = useState("");
   const [messageSent, setMessageSent] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleAmountChange = (e: ChangeEvent<HTMLInputElement>) => {
     setAmount(e.target.value);
@@ -18,20 +20,31 @@ const USDTWithdrawal = () => {
     setExternalWallet(e.target.value);
   };
 
-  const handleWithdrawal = () => {
-    setTimeout(() => {
-      saveTransaction({
-        date: new Date().toISOString(),
-        type: "Withdrawal",
-        amount: parseFloat(amount),
-        status: "Pending",
-        currency: "USDT",
-      });
-      setMessageSent(true);
-      setPopupMessage(`Your USDT withdrawal is being processed`);
-      setAmount("");
-      setExternalWallet("");
-    }, 1000);
+  const details = {
+    date: new Date().toISOString(),
+    type: "Withdrawal",
+    amount: parseFloat(amount),
+    status: "Pending",
+    currency: "USDT",
+    externalWallet,
+  }
+
+  const handleWithdrawal = async () => {
+    try {
+      setLoading(true);
+      const res = await withdraw(details);
+      if (res.ok) {
+        setLoading(false);
+        setMessageSent(true);
+        setPopupMessage(`Your USDT withdrawal is being processed`);
+        setAmount("");
+        setExternalWallet("");
+      }
+    } catch (error) {
+      alert("deposit error please try again");
+      setLoading(false);
+      console.log(error);
+    }
   };
 
   const isWithdrawalEnabled = () => {
@@ -40,21 +53,6 @@ const USDTWithdrawal = () => {
       Number(amount) <= 10000 &&
       externalWallet.trim() !== ""
     );
-  };
-
-  const saveTransaction = (transaction: {
-    date: string;
-    type: string;
-    amount: number;
-    status: string;
-    currency: string;
-  }) => {
-    const storedTransactions = localStorage.getItem("transactions");
-    const transactions = storedTransactions
-      ? JSON.parse(storedTransactions)
-      : [];
-    transactions.push(transaction);
-    localStorage.setItem("transactions", JSON.stringify(transactions));
   };
 
   return (
@@ -149,7 +147,7 @@ const USDTWithdrawal = () => {
             disabled={!isWithdrawalEnabled()}
             onClick={handleWithdrawal}
           >
-            Continue
+            {loading ? "loading...." : "continue"}
           </button>
         </div>
 

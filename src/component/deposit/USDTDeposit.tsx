@@ -4,21 +4,40 @@ import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 import "./usdtdeposit.css";
+import { Transactions } from "./BTCDeposit";
+import { deposit } from "../../../utils/services";
 
 const USDTDeposit = () => {
   const [showAddress, setShowAddress] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const [depositAmount, setDepositAmount] = useState<string>("");
+  const [loading, setLoading] = useState(false);
+
+  const handleUsdtDeposit = async (details: Transactions) => {
+    try {
+      setLoading(true);
+      const res = await deposit(details);
+      if (res.ok) {
+        alert("Your USDT deposit is being processed");
+        setLoading(false);
+        setShowAddress(true);
+      }
+    } catch (error) {
+      alert("deposit error please try again");
+      setLoading(false);
+      console.log(error);
+    }
+  }
 
   const handleContinue = () => {
-    setShowAddress(true);
-    saveTransaction({
+    const details = {
       date: new Date().toISOString(),
       type: "Deposit",
       amount: parseFloat(depositAmount),
       status: "Pending",
       currency: "USDT",
-    });
+    }
+    handleUsdtDeposit(details);
   };
 
   const handleCopyAddress = () => {
@@ -38,20 +57,6 @@ const USDTDeposit = () => {
   const isContinueButtonEnabled =
     parseFloat(depositAmount) >= 0.008 && parseFloat(depositAmount) <= 10000;
 
-  const saveTransaction = (transaction: {
-    date: string;
-    type: string;
-    amount: number;
-    status: string;
-    currency: string;
-  }) => {
-    const storedTransactions = localStorage.getItem("transactions");
-    const transactions = storedTransactions
-      ? JSON.parse(storedTransactions)
-      : [];
-    transactions.push(transaction);
-    localStorage.setItem("transactions", JSON.stringify(transactions));
-  };
 
   return (
     <article className="bg-[#060d17]">
@@ -97,7 +102,7 @@ const USDTDeposit = () => {
               onClick={handleContinue}
               disabled={!isContinueButtonEnabled}
             >
-              Continue
+              {loading ? "loading...." : "deposit"}
             </button>
           </div>
         ) : (

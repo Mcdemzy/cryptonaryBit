@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 import "./btcdeposit.css";
-import { useAuthContext } from "../../../context/authContext";
-import { btcDeposit } from "../../../utils/services";
+import { deposit } from "../../../utils/services";
 
-type Transactions = {
+export type Transactions = {
   date: string;
   type: string;
   amount: number;
@@ -15,37 +14,30 @@ type Transactions = {
   currency: string;
 }
 
-type UserInfo = {
-  email?: string;
-  name?: string;
-};
-
-export type DepositDetails = Transactions & UserInfo;
-
 const BTCDeposit = () => {
-  const { user } = useAuthContext();
   const [showAddress, setShowAddress] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const [depositAmount, setDepositAmount] = useState<string>("");
+  const [loading, setLoading] = useState(false);
 
-  const userInfo = {
-    email: user?.email,
-    name: user?.firstName + " " + user?.lastName
-  }
 
-  const handleDepositBTC = async (details: DepositDetails) => {
+  const handleDepositBTC = async (details: Transactions) => {
     try {
-      const res = await btcDeposit(details);
+      setLoading(true);
+      const res = await deposit(details);
       if (res.ok) {
-        console.log("deposit successfull");
+        alert("your BTC deposit is being processed");
+        setLoading(false);
+        setShowAddress(true);
       }
     } catch (error) {
+      alert("deposit error please try again");
+      setLoading(false);
       console.log(error);
     }
   }
 
   const handleContinue = () => {
-    setShowAddress(true);
     const details = {
       date: new Date().toISOString(),
       type: "Deposit",
@@ -53,8 +45,7 @@ const BTCDeposit = () => {
       status: "Pending",
       currency: "BTC",
     }
-    handleDepositBTC({ ...details, ...userInfo });
-    saveTransaction(details);
+    handleDepositBTC(details);
   };
 
   const handleCopyAddress = () => {
@@ -73,17 +64,6 @@ const BTCDeposit = () => {
 
   const isContinueButtonEnabled =
     parseFloat(depositAmount) > 0.0001 && parseFloat(depositAmount) <= 10;
-
-  const saveTransaction = (transaction: Transactions) => {
-    const storedTransactions = localStorage.getItem("transactions");
-    const transactions = storedTransactions
-      ? JSON.parse(storedTransactions)
-      : [];
-
-    console.log(transactions);
-    transactions.push(transaction);
-    localStorage.setItem("transactions", JSON.stringify(transactions));
-  };
 
   return (
     <article className="bg-[#060d17]">
@@ -129,7 +109,7 @@ const BTCDeposit = () => {
               onClick={handleContinue}
               disabled={!isContinueButtonEnabled}
             >
-              Continue
+              {loading ? "loading...." : "deposit"}
             </button>
           </div>
         ) : (

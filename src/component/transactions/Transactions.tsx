@@ -4,6 +4,7 @@ import Folder from "../../assets/folder.png";
 import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
+import { getTransactions } from "../../../utils/services";
 // import Header from "../header/Header";
 
 interface Transaction {
@@ -16,6 +17,24 @@ interface Transaction {
 
 const Transactions = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
+
+  useEffect(() => {
+    const fetchTransactions = async () => {
+      try {
+        const res = await getTransactions()
+        if (res.ok) {
+          const transactionResponse = await res.json();
+          setTransactions(transactionResponse)
+        }
+      } catch (error) {
+        alert("Error loading transactions");
+        console.log(error);
+      }
+    }
+    fetchTransactions();
+  }, []);
+
+
   const [filter, setFilter] = useState({
     type: "All transaction types",
     status: "All statuses",
@@ -23,15 +42,6 @@ const Transactions = () => {
     period: "Total",
   });
   const [showModal, setShowModal] = useState(false);
-
-  useEffect(() => {
-    const storedTransactions = localStorage.getItem("transactions");
-    if (storedTransactions) {
-      setTransactions(JSON.parse(storedTransactions));
-    } else {
-      setTransactions([]);
-    }
-  }, []);
 
   const handleFilterChange = (key: keyof typeof filter, value: string) => {
     setFilter({ ...filter, [key]: value });
