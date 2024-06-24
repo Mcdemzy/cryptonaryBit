@@ -1,33 +1,43 @@
 // /src/components/signup/Signup.js
-import { useSignUp } from "@clerk/clerk-react";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { signup } from "../../../utils/services";
 import "./signup.css";
+import { useAuthContext } from "../../../context/authContext";
 
 const Signup = () => {
-  const { signUp } = useSignUp();
+  const { setIsAuth } = useAuthContext();
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (signUp) {
+    const validateForm = email !== "" && firstName !== "" && lastName !== "" && password !== ""
+    if (validateForm) {
       try {
-        await signUp.create({
-          emailAddress: email,
-          password,
+        setLoading(true);
+        const res = await signup({
+          email,
           firstName,
           lastName,
+          password,
         });
-        navigate("/dashboard");
-      } catch (err) {
+        if (res.ok) {
+          setIsAuth(true);
+          navigate("/dashboard");
+        }
+        setLoading(false);
+      } catch (error) {
+        console.log("Error", error);
         setError("Could not sign up");
+        setLoading(false);
       }
-    }
+    } else alert("Please enter all required fields");
   };
 
   return (
@@ -82,10 +92,10 @@ const Signup = () => {
         <a href="" className="signin__container-forgot">
           Forgot Password?
         </a>
-        <button type="submit">Next</button>
+        <button type="submit" disabled={loading}>{loading ? "loading ....." : "Next"}</button>
         {error && <p>{error}</p>}
         <p>
-          Already a member? <a href="/signin">Sign in</a>
+          Already a member? <a href="/login">Sign in</a>
         </p>
       </form>
     </section>
