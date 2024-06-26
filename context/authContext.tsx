@@ -7,7 +7,7 @@ import {
 } from 'react';
 
 import { useCookies } from "react-cookie";
-import React from 'react';
+import { BASE_URL } from '../utils/services';
 
 type User = {
     email: string,
@@ -26,13 +26,13 @@ type AuthContextType = {
 
 export const AuthContext = createContext<AuthContextType | null>(null);
 
-const BASE_URL = "http://localhost:5000";
-
 export const UseAuthContext = ({ children }: { children: ReactNode }) => {
     const [cookies, removeCookie] = useCookies(['token']);
     const [isAuth, setIsAuth] = useState(false);
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<User | null>(null);
+
+    console.log("isAuth ==>", isAuth);
 
     const removeCookies = () => {
         removeCookie('token', { path: '/' });
