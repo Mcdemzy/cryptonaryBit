@@ -24,9 +24,9 @@ const Signin = () => {
           password,
         });
         if (res.ok) {
+          const result = await res.json();
           setIsAuth(true);
           navigate("/dashboard");
-          const result = await res.json();
           console.log("login successful", result)
         }
         setLoading(false);
