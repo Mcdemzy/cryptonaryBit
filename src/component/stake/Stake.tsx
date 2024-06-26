@@ -3,6 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 import "./stake.css";
+import { stake } from "../../../utils/services";
 
 const Stake = () => {
   const location = useLocation();
@@ -35,7 +36,7 @@ const Stake = () => {
     );
   }
 
-  const handleStake = (e: FormEvent<HTMLFormElement>) => {
+  const handleStake = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const amountValue = parseFloat(amount);
@@ -74,34 +75,32 @@ const Stake = () => {
     setError("");
     setIsLoading(true);
 
-    // Simulate staking process
-    setTimeout(() => {
-      setIsLoading(false);
-      setMessageSent(true);
-      setPopupMessage(`Staked ${amount} ${wallet.symbol} for ${duration}`);
+    const details = {
+      date: new Date().toISOString(),
+      type: "Stake",
+      amount: amountValue,
+      status: "Pending",
+      currency: wallet.symbol,
+      duration,
+      externalWallet: "",
+      estimatedAPY,
+    };
 
-      // Create new transaction object
-      const newTransaction = {
-        date: new Date().toISOString(),
-        type: "Stake",
-        amount: parseFloat(amount),
-        status: "Pending",
-        currency: wallet.symbol,
-      };
-
-      // Retrieve existing transactions from localStorage
-      const storedTransactions = localStorage.getItem("transactions");
-      let transactions = [];
-      if (storedTransactions) {
-        transactions = JSON.parse(storedTransactions);
+    try {
+      const res = await stake(details);
+      if (res.ok) {
+        setIsLoading(false);
+        setMessageSent(true);
+        setPopupMessage(`Staked ${amount} ${wallet.symbol} for ${duration}`);
+      } else {
+        setError("Staking failed. Please try again.");
+        setIsLoading(false);
       }
-
-      // Add the new stake transaction to the existing transactions array
-      transactions.push(newTransaction);
-
-      // Store updated transactions array in localStorage
-      localStorage.setItem("transactions", JSON.stringify(transactions));
-    }, 2000);
+    } catch (error) {
+      setError("An error occurred. Please try again.");
+      setIsLoading(false);
+      console.error(error);
+    }
   };
 
   const handleDurationChange = (e: ChangeEvent<HTMLSelectElement>) => {

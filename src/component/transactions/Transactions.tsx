@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 import { getTransactions } from "../../../utils/services";
-// import Header from "../header/Header";
 
 interface Transaction {
   date: string;
@@ -21,19 +20,18 @@ const Transactions = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const res = await getTransactions()
+        const res = await getTransactions();
         if (res.ok) {
           const transactionResponse = await res.json();
-          setTransactions(transactionResponse)
+          setTransactions(transactionResponse);
         }
       } catch (error) {
         alert("Error loading transactions");
         console.log(error);
       }
-    }
+    };
     fetchTransactions();
   }, []);
-
 
   const [filter, setFilter] = useState({
     type: "All transaction types",
@@ -41,6 +39,7 @@ const Transactions = () => {
     account: "All accounts",
     period: "Total",
   });
+
   const [showModal, setShowModal] = useState(false);
 
   const handleFilterChange = (key: keyof typeof filter, value: string) => {
@@ -75,11 +74,14 @@ const Transactions = () => {
 
   return (
     <article>
-      {/* <Header /> */}
       <div className="transaction-history">
         <div className="header-container">
           <h1 className="title">Transaction history</h1>
-          <button className="btn-clear" onClick={handleClearTransactions}>
+          <button
+            className="btn-clear"
+            onClick={handleClearTransactions}
+            disabled={transactions.length === 0}
+          >
             Clear
           </button>
         </div>
@@ -108,7 +110,6 @@ const Transactions = () => {
               <option>All transaction types</option>
               <option>Deposit</option>
               <option>Withdrawal</option>
-              <option>Transfer</option>
               <option>Stake</option>
               <option>Swap</option>
             </select>
