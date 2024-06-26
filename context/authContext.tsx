@@ -36,6 +36,8 @@ export const UseAuthContext = ({ children }: { children: ReactNode }) => {
 
     const removeCookies = () => {
         removeCookie('token', { path: '/' });
+        setIsAuth(false);
+        setUser(null);
     }
 
     useEffect(() => {
@@ -56,7 +58,7 @@ export const UseAuthContext = ({ children }: { children: ReactNode }) => {
                 });
                 const result = await res.json();
                 if (res.ok) {
-                    result.status == true ? setIsAuth(true) : setIsAuth(false);
+                    result.status == true && setIsAuth(true);
                     setUser(result.user);
                 } else {
                     setIsAuth(false);

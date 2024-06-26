@@ -25,10 +25,11 @@ import { useAuthContext } from "../../../context/authContext";
 
 const Dashboard = () => {
   // const { user } = useClerk();
-  const { removeCookies, user } = useAuthContext();
+  const { removeCookies, user, setIsAuth } = useAuthContext();
 
   const handleLogOut = () => {
     removeCookies();
+    setIsAuth(false);
   };
 
   return (
