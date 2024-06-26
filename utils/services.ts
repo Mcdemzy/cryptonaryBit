@@ -1,4 +1,4 @@
-export const BASE_URL = process.env.NODE_ENV === "production" ? "https://crypto-app-backend-kohl.vercel.app/" : "http://localhost:5000"
+export const BASE_URL = process.env.NODE_ENV === "production" ? "https://crypto-app-backend-kohl.vercel.app" : "http://localhost:5000"
 import { type Transactions } from "../src/component/deposit/BTCDeposit";
 
 type withdrawal = {
