@@ -68,7 +68,7 @@ export const UseAuthContext = ({ children }: { children: ReactNode }) => {
             setLoading(false);
         };
         verifyCookie();
-    }, [cookies.token, isAuth]);
+    }, [cookies.token]);
 
     return (
         <AuthContext.Provider value={{ isAuth, setIsAuth, loading, removeCookies, user }}>
