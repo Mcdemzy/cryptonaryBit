@@ -16,6 +16,13 @@ interface Transaction {
 
 const Transactions = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [filter, setFilter] = useState({
+    type: "All transaction types",
+    status: "All statuses",
+    account: "All accounts",
+    period: "Total",
+  });
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const fetchTransactions = async () => {
@@ -33,15 +40,6 @@ const Transactions = () => {
     fetchTransactions();
   }, []);
 
-  const [filter, setFilter] = useState({
-    type: "All transaction types",
-    status: "All statuses",
-    account: "All accounts",
-    period: "Total",
-  });
-
-  const [showModal, setShowModal] = useState(false);
-
   const handleFilterChange = (key: keyof typeof filter, value: string) => {
     setFilter({ ...filter, [key]: value });
   };
@@ -51,6 +49,7 @@ const Transactions = () => {
   };
 
   const filterTransactions = () => {
+    if (!Array.isArray(transactions)) return [];
     return transactions.filter((transaction) => {
       const matchesType =
         filter.type === "All transaction types" ||
