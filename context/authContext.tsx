@@ -82,9 +82,6 @@ export const UseAuthContext = ({ children }: { children: ReactNode }) => {
       const res = await logOut();
       if (res.ok) {
         removeCookies();
-        setIsAuth(false); // Update isAuth state
-        setUser(null); // Remove user data
-        console.log("logout successful");
       } else {
         console.error("Failed to logout");
       }
