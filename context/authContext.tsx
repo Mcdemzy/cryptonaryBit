@@ -37,7 +37,7 @@ type AuthContextType = {
 export const AuthContext = createContext<AuthContextType | null>(null);
 
 export const UseAuthContext = ({ children }: { children: ReactNode }) => {
-    const [cookies, removeCookie] = useCookies(["token"]);
+    const [, removeCookie] = useCookies(["token"]);
     const [isAuth, setIsAuth] = useState(false);
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<User | null>(null);
@@ -108,7 +108,6 @@ export const UseAuthContext = ({ children }: { children: ReactNode }) => {
                 });
                 const result = await res.json();
                 if (res.ok && result.status) {
-                    console.log("result =>", result);
                     setIsAuth(true);
                     setUser(result.user);
                 } else {
