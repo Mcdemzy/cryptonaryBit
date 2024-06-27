@@ -2,11 +2,10 @@
 import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./signin.css";
-import { login } from "../../../utils/services";
 import { useAuthContext } from "../../../context/authContext";
 
 const Signin = () => {
-  const { setIsAuth } = useAuthContext();
+  const { handleLogin } = useAuthContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -19,16 +18,8 @@ const Signin = () => {
     if (validateForm) {
       try {
         setLoading(true);
-        const res = await login({
-          email,
-          password,
-        });
-        if (res.ok) {
-          const result = await res.json();
-          setIsAuth(true);
-          navigate("/dashboard");
-          console.log("login successful", result)
-        }
+        await handleLogin(email, password);
+        navigate("/dashboard");
         setLoading(false);
       } catch (error) {
         console.log("Error", error);

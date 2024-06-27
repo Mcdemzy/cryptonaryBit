@@ -1,12 +1,11 @@
 // /src/components/signup/Signup.js
 import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signup } from "../../../utils/services";
 import "./signup.css";
 import { useAuthContext } from "../../../context/authContext";
 
 const Signup = () => {
-  const { setIsAuth } = useAuthContext();
+  const { handleSignup } = useAuthContext();
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -21,16 +20,13 @@ const Signup = () => {
     if (validateForm) {
       try {
         setLoading(true);
-        const res = await signup({
+        await handleSignup({
           email,
           firstName,
           lastName,
           password,
         });
-        if (res.ok) {
-          setIsAuth(true);
-          navigate("/dashboard");
-        }
+        navigate("/dashboard");
         setLoading(false);
       } catch (error) {
         console.log("Error", error);

@@ -25,11 +25,10 @@ import { useAuthContext } from "../../../context/authContext";
 
 const Dashboard = () => {
   // const { user } = useClerk();
-  const { removeCookies, user, setIsAuth } = useAuthContext();
+  const { handleLogOut, user } = useAuthContext();
 
-  const handleLogOut = () => {
-    removeCookies();
-    setIsAuth(false);
+  const logOut = () => {
+    handleLogOut();
   };
 
   return (
@@ -43,7 +42,7 @@ const Dashboard = () => {
           </Link>
           <div className="ml-auto mr-2 flex items-center space-x-6">
             <p className="text-white">{user?.email}</p>
-            <button className=" border bg-[#ffcc00] rounded-lg px-2" onClick={handleLogOut}>Log out</button>
+            <button className=" border bg-[#ffcc00] rounded-lg px-2" onClick={logOut}>Log out</button>
           </div>
           <div className="flex gap-2 justify-center">
             <UserButton />

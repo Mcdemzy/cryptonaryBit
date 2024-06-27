@@ -60,6 +60,17 @@ export const login = async (body: signinType): Promise<Response> => {
   return res;
 };
 
+export const logOut = async () => {
+  const res = await fetch(`${BASE_URL}/logout`, {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  return res;
+};
+
 export const deposit = async (body: Transactions): Promise<Response> => {
   const res = await fetch(`${BASE_URL}/deposit`, {
     method: "POST",
