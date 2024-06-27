@@ -49,7 +49,7 @@ export const UseAuthContext = ({ children }: { children: ReactNode }) => {
                 const result = await res.json();
                 setIsAuth(true);
                 setUser(result.newUser);
-                console.log("signup successful", result)
+                console.log("signup successful")
             } else {
                 console.error("Failed to signup");
             }
@@ -68,7 +68,7 @@ export const UseAuthContext = ({ children }: { children: ReactNode }) => {
                 const result = await res.json();
                 setIsAuth(true);
                 setUser(result.user);
-                console.log("login successful", result)
+                console.log("login successful")
             } else {
                 console.error("Failed to login");
             }
