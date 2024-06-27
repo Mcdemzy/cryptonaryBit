@@ -1,4 +1,3 @@
-import { SignInButton } from "@clerk/clerk-react";
 import FAQ from "../landingpage/components/FAQ";
 import Footer from "../landingpage/components/Footer";
 import Navbar from "../landingpage/components/Navbar";
