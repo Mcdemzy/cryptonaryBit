@@ -1,6 +1,6 @@
 "use client";
-import { SignInButton } from "@clerk/clerk-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Subscription: React.FC = () => {
   const [activeTab, setActiveTab] = useState("monthly");
@@ -210,14 +210,14 @@ const Subscription: React.FC = () => {
                 {activeTab === "monthly" ? monthlyDetails : yearlyDetails}
               </div>
             </div>
-            <SignInButton forceRedirectUrl="/deposit">
+            <Link to="/signup">
               <button
                 type="button"
-                className="text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-primary dark:hover:bg-primary dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+                className="text-white bg-primary focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-primary dark:hover:bg-primary dark:focus:ring-blue-900 font-medium rounded-lg px-5 py-4 text-xl inline-flex justify-center w-full text-center"
               >
                 Subscribe
               </button>
-            </SignInButton>
+            </Link>
           </div>
         </aside>
       </section>

@@ -12,14 +12,13 @@ export type Transactions = {
   amount: number;
   status: string;
   currency: string;
-}
+};
 
 const BTCDeposit = () => {
   const [showAddress, setShowAddress] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const [depositAmount, setDepositAmount] = useState<string>("");
   const [loading, setLoading] = useState(false);
-
 
   const handleDepositBTC = async (details: Transactions) => {
     try {
@@ -35,7 +34,7 @@ const BTCDeposit = () => {
       setLoading(false);
       console.log(error);
     }
-  }
+  };
 
   const handleContinue = () => {
     const details = {
@@ -44,7 +43,7 @@ const BTCDeposit = () => {
       amount: parseFloat(depositAmount),
       status: "Pending",
       currency: "BTC",
-    }
+    };
     handleDepositBTC(details);
   };
 
@@ -99,9 +98,9 @@ const BTCDeposit = () => {
             <div className="info-box">
               <p>
                 Deposit processing time depends on the limit you set when making
-                a transfer. Bitcoin deposits will be credited to your Exness BTC
-                wallet and can be easily transferred to any trading account
-                within your Personal Area.
+                a transfer. Bitcoin deposits will be credited to your
+                CryptonaryBit BTC wallet and can be easily transferred to any
+                trading account within your Personal Area.
               </p>
             </div>
             <button

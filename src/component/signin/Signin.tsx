@@ -73,7 +73,7 @@ const Signin = () => {
     <section className="min-h-screen flex flex-col items-center justify-center bg-[#0d141c] text-[#ffffff] p-5 pt-10">
       <div className="text-center mb-20">
         <h1 className="font-serif text-5xl italic font-normal text-[#ffcc00] mt-10 mb-3">
-          Hello!
+          CryptonaryBit
         </h1>
         <p className="text-[#a5a5a5] text-xl">Welcome back</p>
       </div>

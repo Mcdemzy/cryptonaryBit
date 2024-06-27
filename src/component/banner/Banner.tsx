@@ -16,7 +16,7 @@ const Banner = () => {
         </p>
 
         <div className="flex flex-col gap-4 mt-10 mb-10">
-          <Link to="/signin" className="balance__signin">
+          <Link to="/login" className="balance__signin">
             Sign in
           </Link>
           <Link to="/signup" className="balance__signup">

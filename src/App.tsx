@@ -12,7 +12,6 @@ import Etf from "./component/etf/Etf";
 import EtfAbout from "./component/etf/EtfAbout";
 import EtfFinancials from "./component/etf/EtfFinancials";
 import Wallet from "./component/wallet/Wallet";
-// import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react";
 import Coming from "./component/coming/Coming";
 import Stake from "./component/stake/Stake";
 import ContactUs from "./component/contactus/ContactUs";
@@ -42,14 +41,8 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<LandingPage />} />
-      <Route
-        path="/signup"
-        element={<Signup />}
-      />
-      <Route
-        path="/login"
-        element={<Signin />}
-      />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Signin />} />
       <Route
         path="/dashboard"
         element={

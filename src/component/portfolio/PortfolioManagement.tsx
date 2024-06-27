@@ -2,6 +2,7 @@ import { SignInButton } from "@clerk/clerk-react";
 import FAQ from "../landingpage/components/FAQ";
 import Footer from "../landingpage/components/Footer";
 import Navbar from "../landingpage/components/Navbar";
+import { Link } from "react-router-dom";
 
 const PortfolioManagement = () => {
   return (
@@ -27,16 +28,17 @@ const PortfolioManagement = () => {
             features.
           </p>
           <div className="flex flex-wrap gap-y-4 flex-row justify-start items-center gap-x-5">
-            <SignInButton forceRedirectUrl="/dashboard">
+            <Link to="/signup">
               <button className="w-fit sm:w-[180px] h-[60px] rounded-lg p-2 px-4 bg-primary text-white text-xl">
                 Register
               </button>
-            </SignInButton>
-            <SignInButton forceRedirectUrl="/dashboard">
+            </Link>
+
+            <Link to="/login">
               <button className="w-fit sm:w-40 h-[60px] rounded-lg p-2 px-4 bg-gray-200">
                 Try Free Demo
               </button>
-            </SignInButton>
+            </Link>
           </div>
         </div>
       </section>
@@ -247,12 +249,16 @@ const PortfolioManagement = () => {
               </h2>
             </div>
             <div className="w-full md:w-[30%] flex justify-center items-center gap-x-5">
-              <button className="w-36 rounded-lg p-2 px-4 bg-primary">
-                Register
-              </button>
-              <button className="w-36  rounded-lg p-2 px-4 bg-gray-200">
-                Try Free Demo
-              </button>
+              <Link to="/signup">
+                <button className="w-36 rounded-lg p-2 px-4 bg-primary">
+                  Register
+                </button>
+              </Link>
+              <Link to="/login">
+                <button className="w-36  rounded-lg p-2 px-4 bg-gray-200">
+                  Try Free Demo
+                </button>
+              </Link>
             </div>
           </div>
         </section>

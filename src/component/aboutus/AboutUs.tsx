@@ -1,4 +1,4 @@
-import { SignInButton } from "@clerk/clerk-react";
+import { Link } from "react-router-dom";
 import Footer from "../landingpage/components/Footer";
 import Navbar from "../landingpage/components/Navbar";
 
@@ -24,16 +24,16 @@ const AboutUs = () => {
             <br /> conditions.
           </p>
           <div className="flex flex-wrap gap-y-4 flex-row justify-start items-center gap-x-5">
-            <SignInButton forceRedirectUrl="/dashboard">
+            <Link to="/signup">
               <button className="w-fit sm:w-40 rounded-lg p-2 px-4 bg-primary">
                 Register
               </button>
-            </SignInButton>
-            <SignInButton forceRedirectUrl="/dashboard">
+            </Link>
+            <Link to="/login">
               <button className="w-fit sm:w-40  rounded-lg p-2 px-4 bg-gray-200">
                 Try Free Demo
               </button>
-            </SignInButton>
+            </Link>
           </div>
         </div>
       </section>
@@ -119,7 +119,7 @@ const AboutUs = () => {
               <p className="font-bold text-lg">Ultra-fast execution</p>
               <p>
                 Execute trades in milliseconds on both MetaTrader platforms and
-                proprietary Exness Terminals.
+                proprietary CryptonaryBit Terminals.
               </p>
             </div>
           </div>
@@ -274,17 +274,21 @@ const AboutUs = () => {
                 Trade with a trusted broker today
               </h2>
               <h2 className="text-gray-200 text-center md:text-start">
-                See for yourself why Exness is the broker of choice for over
-                800,000 traders and 64,000 partners.
+                See for yourself why CryptonaryBit is the broker of choice for
+                over 800,000 traders and 64,000 partners.
               </h2>
             </div>
             <div className="w-full md:w-[30%] flex justify-center items-center gap-x-5">
-              <button className="w-36 rounded-lg p-2 px-4 bg-primary">
-                Register
-              </button>
-              <button className="w-36  rounded-lg p-2 px-4 bg-gray-200">
-                Try Free Demo
-              </button>
+              <Link to="/signup">
+                <button className="w-36 rounded-lg p-2 px-4 bg-primary">
+                  Register
+                </button>
+              </Link>
+              <Link to="/login">
+                <button className="w-36  rounded-lg p-2 px-4 bg-gray-200">
+                  Try Free Demo
+                </button>
+              </Link>
             </div>
           </div>
         </section>

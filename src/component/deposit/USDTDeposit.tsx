@@ -27,7 +27,7 @@ const USDTDeposit = () => {
       setLoading(false);
       console.log(error);
     }
-  }
+  };
 
   const handleContinue = () => {
     const details = {
@@ -36,7 +36,7 @@ const USDTDeposit = () => {
       amount: parseFloat(depositAmount),
       status: "Pending",
       currency: "USDT",
-    }
+    };
     handleUsdtDeposit(details);
   };
 
@@ -56,7 +56,6 @@ const USDTDeposit = () => {
 
   const isContinueButtonEnabled =
     parseFloat(depositAmount) >= 0.008 && parseFloat(depositAmount) <= 10000;
-
 
   return (
     <article className="bg-[#060d17]">
@@ -92,8 +91,8 @@ const USDTDeposit = () => {
             <div className="info-box">
               <p>
                 Deposit processing time depends on the limit you set when making
-                a transfer. USDT deposits will be credited to your Exness USDT
-                wallet and can be easily transferred to any trading account
+                a transfer. USDT deposits will be credited to your CryptonaryBit
+                USDT wallet and can be easily transferred to any trading account
                 within your Personal Area.
               </p>
             </div>
