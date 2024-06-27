@@ -1,7 +1,5 @@
 import "./dashboard.css";
 
-// import { useClerk } from "@clerk/clerk-react";
-
 import { AiOutlineSwap } from "react-icons/ai";
 import { BsBoxArrowInRight } from "react-icons/bs";
 import { BsBoxArrowInDownLeft } from "react-icons/bs";
@@ -15,41 +13,18 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Link } from "react-router-dom";
-import { UserButton } from "@clerk/clerk-react";
 import MarketChart from "../chart/MarketChart";
 import Navbar from "../navbar/Navbar";
 import AccountBalance from "./components/AccountBalance";
 
-import { useAuthContext } from "../../../context/authContext";
-
+import Header from "../header/Header";
 
 const Dashboard = () => {
-  // const { user } = useClerk();
-  const { handleLogOut, user } = useAuthContext();
-
-  const logOut = () => {
-    handleLogOut();
-  };
-
   return (
     <>
-      <section className="dashboard__container">
-        <div className="flex justify-between pt-[16px] p-[10px] bg-[#121A25]">
-          <Link to="/">
-            <h1 className="text-[1.7rem] font-[700] text-white">
-              CryptonaryBit
-            </h1>
-          </Link>
-          <div className="ml-auto mr-2 flex items-center space-x-6">
-            <p className="text-white">{user?.email}</p>
-            <button className=" border bg-[#ffcc00] rounded-lg px-2" onClick={logOut}>Log out</button>
-          </div>
-          <div className="flex gap-2 justify-center">
-            <UserButton />
-          </div>
-        </div>
-
-        <div className="flex items-center justify-center">
+      <Header />
+      <section className="pt-16 dashboard__container">
+        <div className=" flex items-center justify-center">
           <AccountBalance />
         </div>
 

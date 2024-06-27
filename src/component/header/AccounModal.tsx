@@ -28,12 +28,12 @@ const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
             />
             <div>
               <h3 className="text-xl font-semibold">Adeyemo Ademola</h3>
-              <button className="text-blue-500 hover:text-blue-700">
+              {/* <button className="text-blue-500 hover:text-blue-700">
                 Update profile
-              </button>
+              </button> */}
             </div>
           </div>
-          <div className="mb-6">
+          {/* <div className="mb-6">
             <h4 className="text-lg font-semibold text-gray-700">Username</h4>
             <div className="flex justify-between items-center">
               <p className="text-gray-900">gheist</p>
@@ -41,19 +41,19 @@ const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
                 Update username
               </button>
             </div>
-          </div>
+          </div> */}
           <div className="mb-6">
             <h4 className="text-lg font-semibold text-gray-700">
-              Email addresses
+              Email address
             </h4>
             <div className="flex justify-between items-center">
               <p className="text-gray-900">
                 adeyemoademola12@gmail.com{" "}
                 <span className="text-gray-500">(Primary)</span>
               </p>
-              <button className="text-blue-500 hover:text-blue-700">
+              {/* <button className="text-blue-500 hover:text-blue-700">
                 + Add email address
-              </button>
+              </button> */}
             </div>
           </div>
           <div className="mb-6">
@@ -64,9 +64,9 @@ const AccountModal: React.FC<AccountModalProps> = ({ onClose }) => {
               <p className="text-gray-900">
                 Google - adeyemoademola12@gmail.com
               </p>
-              <button className="text-blue-500 hover:text-blue-700">
+              {/* <button className="text-blue-500 hover:text-blue-700">
                 Connect account
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

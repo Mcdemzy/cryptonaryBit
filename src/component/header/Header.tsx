@@ -1,11 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import User from "../../assets/user.png";
+import User from "../../assets/user1.png";
 import { FiSettings, FiLogOut } from "react-icons/fi";
 import AccountModal from "./AccounModal";
 // import "./header.css";
 
+import { useAuthContext } from "../../../context/authContext";
+
 const Header = () => {
+  const { handleLogOut, user } = useAuthContext();
+
+  const logOut = () => {
+    handleLogOut();
+  };
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -34,26 +42,26 @@ const Header = () => {
               onClick={toggleDropdown}
               className="flex items-center space-x-2 focus:outline-none"
             >
-              <img src={User} alt="User" className="w-8 h-8 rounded-full" />
+              <img src={User} alt="User" className="w-10 h-10 rounded-full" />
             </button>
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg py-2 z-50">
-                <div className="px-4 py-2 border-b">
+              <div className="absolute right-0 mt-2 w-[240px] bg-white text-black rounded-lg shadow-lg py-2 z-50">
+                <div className="px-4 py-2 border-b mb-2">
                   <span className="block text-sm font-semibold">
-                    Adeyemo Ademola
+                    {user?.firstName} {user?.lastName}
                   </span>
-                  <span className="block text-sm">gheist</span>
+                  <span className="block text-sm">{user?.email}</span>
                 </div>
-                <button
+                {/* <button
                   onClick={openModal}
                   className="flex items-center px-4 py-2 w-full hover:bg-gray-200"
                 >
                   <FiSettings className="mr-2" />
                   Manage account
-                </button>
+                </button> */}
                 <button
-                  onClick={() => console.log("Sign out")}
-                  className="flex items-center w-full px-4 py-2 hover:bg-gray-200"
+                  onClick={logOut}
+                  className="flex items-center w-full px-4 py-2 hover:bg-gray-200 p-6"
                 >
                   <FiLogOut className="mr-2" />
                   Sign out
