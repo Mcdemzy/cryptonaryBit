@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import User from "../../assets/user1.png";
-import { FiSettings, FiLogOut } from "react-icons/fi";
+import { FiLogOut } from "react-icons/fi";
 import AccountModal from "./AccounModal";
-// import "./header.css";
-
 import { useAuthContext } from "../../../context/authContext";
 
 const Header = () => {
@@ -19,11 +17,6 @@ const Header = () => {
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
-  };
-
-  const openModal = () => {
-    setIsModalOpen(true);
-    setIsDropdownOpen(false);
   };
 
   const closeModal = () => {
@@ -53,7 +46,10 @@ const Header = () => {
                   <span className="block text-sm">{user?.email}</span>
                 </div>
                 {/* <button
-                  onClick={openModal}
+                  onClick={() => {
+                    setIsModalOpen(true);
+                    setIsDropdownOpen(false);
+                  }}
                   className="flex items-center px-4 py-2 w-full hover:bg-gray-200"
                 >
                   <FiSettings className="mr-2" />
@@ -61,7 +57,7 @@ const Header = () => {
                 </button> */}
                 <button
                   onClick={logOut}
-                  className="flex items-center w-full px-4 py-2 hover:bg-gray-200 p-6"
+                  className="flex items-center w-full px-4 py-2 hover:bg-gray-200"
                 >
                   <FiLogOut className="mr-2" />
                   Sign out
