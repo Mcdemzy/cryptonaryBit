@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import User from "../../assets/user1.png";
 import { FiLogOut } from "react-icons/fi";
