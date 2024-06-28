@@ -209,8 +209,6 @@ const Wallet = () => {
           <div className="wallet__container">
             <p>Crypto</p>
             <p>Fiat</p>
-            <p>{user?.bch}</p>
-            <p>{user?.accountBalance}</p>
           </div>
         </div>
         {wallets.map((wallet) => (
