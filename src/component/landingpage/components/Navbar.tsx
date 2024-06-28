@@ -159,8 +159,9 @@ const Navbar = () => {
 
       {/* Mobile Navbar */}
       <nav
-        className={`fixed top-0 left-0 w-full h-full bg-black text-white transform ${isMobileNavVisible ? "translate-x-0" : "-translate-x-full"
-          } transition-transform duration-300 ease-in-out z-50`}
+        className={`fixed top-0 left-0 w-full h-full bg-black text-white transform ${
+          isMobileNavVisible ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 ease-in-out z-50`}
       >
         <div className="flex justify-between items-center p-4">
           <Link to="/">
