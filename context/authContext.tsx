@@ -14,6 +14,13 @@ type User = {
   firstName: string;
   lastName: string;
   accountBalance: number;
+  bch: number;
+  bnb: number;
+  btc: number;
+  eth: number;
+  sol: number;
+  trx: number;
+  usdt: number;
 };
 
 type SignupType = {

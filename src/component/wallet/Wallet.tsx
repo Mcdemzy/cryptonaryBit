@@ -21,6 +21,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "../footer/Footer";
 
+import { useAuthContext } from "../../../context/authContext";
+
 // Conversion rates for demonstration purposes
 const conversionRates: { [key in "USD" | "EUR" | "GBP"]: number } = {
   USD: 1,
@@ -43,65 +45,6 @@ type Currency = {
   symbol: string;
   flag: string;
 };
-
-const wallets: Wallet[] = [
-  {
-    icon: CryptoIcon1,
-    name: "Bitcoin Cash Wallet",
-    symbol: "BCH",
-    approxValue: 5000,
-    canStake: true,
-    minimum: 0.5,
-  },
-  {
-    icon: CryptoIcon2,
-    name: "BNB Wallet",
-    symbol: "BNB",
-    approxValue: 3000,
-    canStake: true,
-    minimum: 0.3,
-  },
-  {
-    icon: CryptoIcon3,
-    name: "Bitcoin Wallet",
-    symbol: "BTC",
-    approxValue: 15000,
-    canStake: true,
-    minimum: 0.004,
-  },
-  {
-    icon: CryptoIcon4,
-    name: "Ethereum Wallet",
-    symbol: "ETH",
-    approxValue: 10000,
-    canStake: true,
-    minimum: 0.06,
-  },
-  {
-    icon: CryptoIcon5,
-    name: "Solana Wallet",
-    symbol: "SOL",
-    approxValue: 2000,
-    canStake: true,
-    minimum: 1.5,
-  },
-  {
-    icon: CryptoIcon6,
-    name: "Tron Wallet",
-    symbol: "TRX",
-    approxValue: 8000,
-    canStake: true,
-    minimum: 2000,
-  },
-  {
-    icon: CryptoIcon7,
-    name: "USDT (TRC 20)",
-    symbol: "USDT",
-    approxValue: 500,
-    canStake: true,
-    minimum: 250,
-  },
-];
 
 // Currency options
 const currencies: Currency[] = [
@@ -126,7 +69,7 @@ const Wallet = () => {
   const [balanceVisible, setBalanceVisible] = useState(true); // Add state for balance visibility
   const [convertedBalances, setConvertedBalances] = useState<{
     [key: string]: number;
-  }>({}); // State for converted balances
+  }>({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -169,6 +112,66 @@ const Wallet = () => {
     setBalanceVisible(!balanceVisible);
   };
 
+  const { user } = useAuthContext();
+  const wallets: Wallet[] = [
+    {
+      icon: CryptoIcon1,
+      name: "Bitcoin Cash Wallet",
+      symbol: "BCH",
+      approxValue: user?.bch || 0.0,
+      canStake: true,
+      minimum: 0.5,
+    },
+    {
+      icon: CryptoIcon2,
+      name: "BNB Wallet",
+      symbol: "BNB",
+      approxValue: user?.bnb || 0.0,
+      canStake: true,
+      minimum: 0.3,
+    },
+    {
+      icon: CryptoIcon3,
+      name: "Bitcoin Wallet",
+      symbol: "BTC",
+      approxValue: user?.btc || 0.0,
+      canStake: true,
+      minimum: 0.004,
+    },
+    {
+      icon: CryptoIcon4,
+      name: "Ethereum Wallet",
+      symbol: "ETH",
+      approxValue: user?.eth || 0.0,
+      canStake: true,
+      minimum: 0.06,
+    },
+    {
+      icon: CryptoIcon5,
+      name: "Solana Wallet",
+      symbol: "SOL",
+      approxValue: user?.sol || 0.0,
+      canStake: true,
+      minimum: 1.5,
+    },
+    {
+      icon: CryptoIcon6,
+      name: "Tron Wallet",
+      symbol: "TRX",
+      approxValue: user?.trx || 0.0,
+      canStake: true,
+      minimum: 2000,
+    },
+    {
+      icon: CryptoIcon7,
+      name: "USDT (TRC 20)",
+      symbol: "USDT",
+      approxValue: user?.usdt || 0.0,
+      canStake: true,
+      minimum: 250,
+    },
+  ];
+
   return (
     <>
       <section className="wallet__component">
@@ -206,6 +209,8 @@ const Wallet = () => {
           <div className="wallet__container">
             <p>Crypto</p>
             <p>Fiat</p>
+            <p>{user?.bch}</p>
+            <p>{user?.accountBalance}</p>
           </div>
         </div>
         {wallets.map((wallet) => (
