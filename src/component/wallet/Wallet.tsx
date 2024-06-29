@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserButton } from "@clerk/clerk-react";
 import { IoIosArrowDown, IoMdStopwatch } from "react-icons/io";
 import { BiHide, BiShow } from "react-icons/bi";
 import { SiBetterstack } from "react-icons/si";
