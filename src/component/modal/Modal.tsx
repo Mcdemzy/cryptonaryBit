@@ -28,7 +28,7 @@ export default function Modal() {
           <div className="modal-content">
             <h2>Send Bitcoin</h2>
             <div className="modal-container">
-              <img src={CryptoIcon1} width={48} alt="" />
+              <img src={CryptoIcon1} width={48} alt="crypto icon" />
 
               <div className="bitcoin__address-container">
                 <p>

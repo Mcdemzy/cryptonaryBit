@@ -50,7 +50,7 @@ const EtfAbout = () => {
 
       <section className="pb-[140px]">
         <div className="about-etf__purchase">
-          <img src={Bitcoin} alt="" />
+          <img src={Bitcoin} alt="bitcoin image" />
           <div className="flex flex-col">
             <h1>Set a Recurring Purchase</h1>
             <h2>Automate your investing</h2>

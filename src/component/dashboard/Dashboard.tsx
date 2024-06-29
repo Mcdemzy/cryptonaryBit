@@ -81,7 +81,7 @@ const Dashboard = () => {
                 Click here <br /> to view more
               </a>
             </p>
-            <img src={Cup} alt="" width={80} height={80} />
+            <img src={Cup} alt="image of a cup" width={80} height={80} />
           </SwiperSlide>
 
           <SwiperSlide className="dashboard__kyc">

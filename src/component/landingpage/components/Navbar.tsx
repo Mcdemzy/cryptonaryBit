@@ -56,15 +56,11 @@ const Navbar = () => {
       <nav className="bg-[#0d141c] border-gray-200 dark:bg-black dark:border-gray-700 fixed w-full z-50">
         <div className="max-w-screen-xl flex items-center justify-between mx-auto px-6 py-2.5">
           <Link to="/">
-            <div className="flex items-center space-x-3 rtl:space-x-reverse">
-              <img
-                src="https://flowbite.com/docs/images/logo.svg"
-                className="h-8"
-                alt="Flowbite Logo"
-              />
-              <span className="text-white self-center text-[1.25rem] font-medium whitespace-nowrap dark:text-white">
-                CryptonaryBit
-              </span>
+            <div className="flex items-center rtl:space-x-reverse">
+              <img src="/logo.png" className="h-8" alt="Logo" />
+              <h1 className="text-white self-center text-2xl font-medium whitespace-nowrap dark:text-white">
+                ryptonaryBit
+              </h1>
             </div>
           </Link>
           <div className="hidden md:flex items-center space-x-4 relative">
@@ -165,15 +161,11 @@ const Navbar = () => {
       >
         <div className="flex justify-between items-center p-4">
           <Link to="/">
-            <div className="flex items-center space-x-3">
-              <img
-                src="https://flowbite.com/docs/images/logo.svg"
-                className="h-8"
-                alt="Flowbite Logo"
-              />
-              <span className="self-center text-2xl font-semibold">
-                CryptonaryBit
-              </span>
+            <div className="flex items-center">
+              <img src="/logo.png" className="h-8" alt="Logo" />
+              <h1 className="self-center text-2xl font-semibold">
+                ryptonaryBit
+              </h1>
             </div>
           </Link>
           <button onClick={handleCloseClick} aria-label="Close mobile menu">

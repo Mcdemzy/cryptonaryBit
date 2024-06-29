@@ -8,7 +8,7 @@ const Bch = () => {
       {/* Coin Header section */}
       <section className="coin-details__container">
         {/* Image of the coin clicked should be here */}
-        <img src={CryptoIcon} alt="" width={48} />
+        <img src={CryptoIcon} alt="cryptoicon" width={48} />
         {/* Name of the coin clicked should be here */}
         <h1>Bch</h1>
         {/* Current Market Price of the coin clicked should be here */}

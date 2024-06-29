@@ -26,7 +26,7 @@ const EtfFinancials = () => {
 
       {/* Etf Financial Main Container section */}
       <section className="about-etf__container">
-        <img src={EtfImg1} alt="" />
+        <img src={EtfImg1} alt="etf image" />
         <div className="about-etf__container-content">
           <h1>$36.62</h1>
           <h2>~₦55,479.30</h2>
