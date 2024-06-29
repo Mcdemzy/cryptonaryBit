@@ -25,10 +25,10 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-[#121A25] text-white fixed w-full z-50">
-        <div className="max-w-screen-xl mx-auto px-6 py-4 flex items-center justify-between">
+      <header className="bg-[#121A25] top-0 text-white fixed w-full z-50 shadow-xl">
+        <div className=" mx-auto px-6 py-4 flex items-center justify-between">
           <Link to="/" className="text-2xl font-semibold">
-            CryptonaryBit
+            <h1 className="text-3xl">CryptonaryBit</h1>
           </Link>
           <div className="relative">
             <button

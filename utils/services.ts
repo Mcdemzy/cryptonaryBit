@@ -1,6 +1,6 @@
 export const BASE_URL =
   process.env.NODE_ENV == "production"
-    ? "https://crypto-app-backend-kohl.vercel.app"
+    ? "https://crypto-app-backend-sage.vercel.app/"
     : "http://localhost:5000";
 
 import { type Transactions } from "../src/component/deposit/BTCDeposit";
@@ -62,10 +62,10 @@ export const login = async (body: signinType): Promise<Response> => {
 
 export const logOut = async () => {
   const res = await fetch(`${BASE_URL}/logout`, {
-    method: 'POST',
-    credentials: 'include',
+    method: "POST",
+    credentials: "include",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   });
   return res;

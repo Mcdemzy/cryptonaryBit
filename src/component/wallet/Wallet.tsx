@@ -22,6 +22,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Footer from "../footer/Footer";
 
 import { useAuthContext } from "../../../context/authContext";
+import Header from "../header/Header";
 
 // Conversion rates for demonstration purposes
 const conversionRates: { [key in "USD" | "EUR" | "GBP"]: number } = {
@@ -174,13 +175,9 @@ const Wallet = () => {
 
   return (
     <>
-      <section className="wallet__component">
-        <div className="flex justify-between pt-[16px] p-[10px] bg-[#121A25]">
-          <h1 className="text-[1.7rem] font-[700] text-white">Wallet</h1>
-          <div className="flex mt-[10px] gap-2 justify-center">
-            <UserButton />
-          </div>
-        </div>
+      <section className="wallet__component pt-[100px]">
+        <Header />
+
         <div className="wallet__flag" onClick={toggleDropdown}>
           <img
             src={selectedCurrency.flag}

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 import { getTransactions } from "../../../utils/services";
+import Header from "../header/Header";
 
 interface Transaction {
   date: string;
@@ -73,9 +74,10 @@ const Transactions = () => {
 
   return (
     <article>
-      <div className="transaction-history">
-        <div className="header-container">
-          <h1 className="title">Transaction history</h1>
+      <Header />
+      <div className="transaction-history pt-[100px]">
+        <div className="header-container justify-end">
+          {/* <h1 className="title">Transaction history</h1> */}
           <button
             className="btn-clear"
             onClick={handleClearTransactions}

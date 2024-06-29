@@ -4,7 +4,7 @@ import { useAuthContext } from "../../../../context/authContext";
 const AccountBalance = () => {
   const { user } = useAuthContext();
   return (
-    <div className="p-4 w-full max-w-[90vw] mt-8 mx-auto bg-white rounded-lg shadow-md">
+    <div className="p-4 w-full max-w-[90vw] mt-[100px] mx-auto bg-white rounded-lg shadow-md">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
         <div className="flex flex-wrap items-center space-x-2">
           <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded mb-2 sm:mb-0">
@@ -21,7 +21,7 @@ const AccountBalance = () => {
       </div>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
         <div className="text-3xl font-bold text-gray-900 mb-4 sm:mb-0">
-         {user?.accountBalance}{" "}USD
+          {user?.accountBalance} USD
         </div>
         <div className="flex space-x-2 sm:space-x-4">
           <Link to="/deposit">

@@ -19,7 +19,7 @@ const TradingViewTimelineWidget = () => {
       script.async = true;
       script.innerHTML = JSON.stringify({
         feedMode: "all_symbols",
-        isTransparent: false,
+        isTransparent: true,
         displayMode: "regular",
         width: "100%",
         height: 700,
