@@ -1,6 +1,6 @@
 export const BASE_URL =
   process.env.NODE_ENV == "production"
-    ? "https://crypto-app-backend-sage.vercel.app/"
+    ? "https://crypto-app-backend-sage.vercel.app"
     : "http://localhost:5000";
 
 import { type Transactions } from "../src/component/deposit/BTCDeposit";
