@@ -101,7 +101,7 @@ const USDTDeposit = () => {
               onClick={handleContinue}
               disabled={!isContinueButtonEnabled}
             >
-              {loading ? "loading...." : "deposit"}
+              {loading ? "Processing...." : "Deposit"}
             </button>
           </div>
         ) : (
