@@ -5,6 +5,7 @@ import {
   useState,
   useEffect,
 } from "react";
+
 import { useCookies } from "react-cookie";
 import { BASE_URL, signup, login, logOut } from "../utils/services";
 
@@ -117,11 +118,11 @@ export const UseAuthContext = ({ children }: { children: ReactNode }) => {
           setIsAuth(true);
           setUser(result.user);
         } else {
-          console.log("Invalid token or session expired");
+          console.log("result___false =>", res);
           removeCookies();
         }
       } catch (error) {
-        console.error("Error verifying token:", error);
+        console.log("Error verifying token:", error);
         removeCookies();
       }
       setLoading(false);
@@ -150,7 +151,7 @@ export const UseAuthContext = ({ children }: { children: ReactNode }) => {
 export const useAuthContext = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error("useAuthContext must be used within an AuthProvider");
+    throw new Error("error");
   }
   return context;
 };
