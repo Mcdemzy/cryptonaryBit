@@ -9,11 +9,10 @@ const Swap = () => {
   const [toAmount, setToAmount] = useState<string>("");
   const [fromCurrency, setFromCurrency] = useState<string>("BTC");
   const [toCurrency, setToCurrency] = useState<string>("ETH");
-  const [balance] = useState<number>(400); // State for balance
-  const [isPopupVisible, setIsPopupVisible] = useState<boolean>(false); // State for popup visibility
-  const [popupMessage, setPopupMessage] = useState<string>(""); // State for popup message
+  const [balance] = useState<number>(0);
+  const [isPopupVisible, setIsPopupVisible] = useState<boolean>(false);
+  const [popupMessage, setPopupMessage] = useState<string>("");
 
-  // Define the conversion rates with a type
   const conversionRates: Record<string, Record<string, number>> = {
     BTC: {
       ETH: 18.44,
@@ -22,7 +21,7 @@ const Swap = () => {
       BNB: 80,
       BCH: 100,
       TRX: 600000,
-      BTC: 1, // Self-conversion rate can be 1
+      BTC: 1,
     },
     ETH: {
       BTC: 0.0542,
@@ -31,7 +30,7 @@ const Swap = () => {
       BNB: 4.3,
       BCH: 5.6,
       TRX: 32700,
-      ETH: 1, // Self-conversion rate can be 1
+      ETH: 1,
     },
     SOL: {
       BTC: 0.0029,
@@ -40,7 +39,7 @@ const Swap = () => {
       BNB: 0.22,
       BCH: 0.28,
       TRX: 1720,
-      SOL: 1, // Self-conversion rate can be 1
+      SOL: 1,
     },
     USDT: {
       BTC: 0.000032,
@@ -49,7 +48,7 @@ const Swap = () => {
       BNB: 0.0025,
       BCH: 0.0032,
       TRX: 19.2,
-      USDT: 1, // Self-conversion rate can be 1
+      USDT: 1,
     },
     BNB: {
       BTC: 0.0125,
@@ -58,7 +57,7 @@ const Swap = () => {
       USDT: 400,
       BCH: 1.28,
       TRX: 7700,
-      BNB: 1, // Self-conversion rate can be 1
+      BNB: 1,
     },
     BCH: {
       BTC: 0.01,
@@ -67,7 +66,7 @@ const Swap = () => {
       USDT: 312,
       BNB: 0.78,
       TRX: 6000,
-      BCH: 1, // Self-conversion rate can be 1
+      BCH: 1,
     },
     TRX: {
       BTC: 0.0000017,
@@ -76,7 +75,7 @@ const Swap = () => {
       USDT: 0.052,
       BNB: 0.00013,
       BCH: 0.00017,
-      TRX: 1, // Self-conversion rate can be 1
+      TRX: 1,
     },
   };
 
