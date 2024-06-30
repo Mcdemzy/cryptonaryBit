@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import User from "../../assets/user1.png";
+import User from "../../assets/profile.png";
 import { FiLogOut } from "react-icons/fi";
 import AccountModal from "./AccounModal";
 import { useAuthContext } from "../../../context/authContext";
@@ -27,8 +27,12 @@ const Header = () => {
     <>
       <header className="bg-[#121A25] top-0 text-white fixed w-full z-50 shadow-xl">
         <div className=" mx-auto px-6 py-4 flex items-center justify-between">
-          <Link to="/" className="text-2xl font-semibold">
-            <h1 className="text-3xl">CryptonaryBit</h1>
+          <Link
+            to="/"
+            className="text-2xl font-semibold flex items-center justify-center"
+          >
+            <img src="/logo.png" className="h-8" alt="" />
+            <h1 className="text-3xl">ryptonaryBit</h1>
           </Link>
           <div className="relative">
             <button
