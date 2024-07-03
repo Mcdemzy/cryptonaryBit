@@ -106,7 +106,7 @@ const Signin = () => {
           disabled={loading}
           className="w-full h-16 bg-[#ffcc00] text-[#0d141c] flex justify-center items-center rounded-lg text-xl font-medium"
         >
-          {loading ? "Loading ....." : "Signin"}
+          {loading ? "Loading ....." : "Sign In"}
         </button>
         {error && (
           <p className="text-[rgba(255,0,0,0.8)] text-center mt-3">{error}</p>
