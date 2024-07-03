@@ -5,6 +5,7 @@ import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 import "./btcdeposit.css";
 import { deposit } from "../../../utils/services";
+import { useAuthContext } from "../../../context/authContext";
 
 export type Transactions = {
   date: string;
@@ -12,9 +13,11 @@ export type Transactions = {
   amount: number;
   status: string;
   currency: string;
+  userId?: string;
 };
 
 const BTCDeposit = () => {
+  const { user } = useAuthContext();
   const [showAddress, setShowAddress] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const [depositAmount, setDepositAmount] = useState<string>("");
@@ -43,6 +46,7 @@ const BTCDeposit = () => {
       amount: parseFloat(depositAmount),
       status: "Pending",
       currency: "BTC",
+      userId: user?.userId
     };
     handleDepositBTC(details);
   };

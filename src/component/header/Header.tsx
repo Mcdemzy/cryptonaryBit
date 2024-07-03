@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import User from "../../assets/profile.png";
 import { FiLogOut } from "react-icons/fi";
 import AccountModal from "./AccounModal";
@@ -7,9 +7,11 @@ import { useAuthContext } from "../../../context/authContext";
 
 const Header = () => {
   const { handleLogOut, user } = useAuthContext();
+  const navigate = useNavigate();
 
   const logOut = () => {
     handleLogOut();
+    navigate("/login");
   };
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

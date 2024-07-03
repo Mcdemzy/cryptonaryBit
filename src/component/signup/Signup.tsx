@@ -1,15 +1,18 @@
 import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { signup } from "../../../utils/services";
+// import { signup } from "../../../utils/services";
 import { useAuthContext } from "../../../context/authContext";
+// import { useAuthContext } from "../../../context/authContext";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../../firebase/firebase-config";
 
-interface SignupResponse {
-  ok: boolean;
-  error?: string;
-}
+// interface SignupResponse {
+//   ok: boolean;
+//   error?: string;
+// }
 
 const Signup = () => {
-  const { setIsAuth } = useAuthContext();
+  const { handleSignup } = useAuthContext();
   const [email, setEmail] = useState<string>("");
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
@@ -51,21 +54,15 @@ const Signup = () => {
 
     try {
       setLoading(true);
-      const res: SignupResponse = await signup({
+      const { user } = await createUserWithEmailAndPassword(auth, email, password);
+      await handleSignup({
         email,
         firstName,
         lastName,
-        password,
+        userId: user.uid,
       });
       setLoading(false);
-
-      if (res.ok) {
-        setIsAuth(true);
-        navigate("/dashboard");
-      } else {
-        setError(res.error || "Could not sign up");
-        setTimeout(() => setError(""), 2000);
-      }
+      navigate("/dashboard");
     } catch (error) {
       console.error("Error", error);
       setError("An unexpected error occurred. Please try again.");

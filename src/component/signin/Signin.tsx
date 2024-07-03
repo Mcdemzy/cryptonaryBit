@@ -1,15 +1,17 @@
 import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuthContext } from "../../../context/authContext";
-import { login } from "../../../utils/services";
+// import { useAuthContext } from "../../../context/authContext";
+// import { login } from "../../../utils/services";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../../firebase/firebase-config";
 
-interface LoginResponse {
-  ok: boolean;
-  error?: string;
-}
+// interface LoginResponse {
+//   ok: boolean;
+//   error?: string;
+// }
 
 const Signin = () => {
-  const { setIsAuth } = useAuthContext();
+  // const { setIsAuth } = useAuthContext();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
@@ -49,18 +51,10 @@ const Signin = () => {
 
     try {
       setLoading(true);
-      const res: LoginResponse = await login({ email, password });
+      const { user } = await signInWithEmailAndPassword(auth, email, password);
+      localStorage.setItem("token", user.uid);
       setLoading(false);
-
-      if (res.ok) {
-        setIsAuth(true);
-        navigate("/dashboard");
-      } else {
-        setError(
-          res.error || "Email address not found or password is incorrect"
-        );
-        setTimeout(() => setError(""), 1500);
-      }
+      navigate("/dashboard");
     } catch (error) {
       console.error("Error", error);
       setError("An unexpected error occurred. Please try again.");
@@ -104,7 +98,7 @@ const Signin = () => {
             className="w-full h-16 bg-[#060d17] p-3 rounded-lg text-[#ffffff] mb-5 outline-none border border-[#a5a5a5]"
           />
         </div>
-        <a href="/" className="block text-right text-[#ffcc00] mb-5">
+        <a href="/forgotpassword" className="block text-right text-[#ffcc00] mb-5">
           Forgot Password?
         </a>
         <button

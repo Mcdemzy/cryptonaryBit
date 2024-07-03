@@ -6,10 +6,14 @@ import {
   useEffect,
 } from "react";
 
-import { useCookies } from "react-cookie";
-import { BASE_URL, signup, login, logOut } from "../utils/services";
+import { BASE_URL, signup } from "../utils/services";
+import { auth } from "../firebase/firebase-config";
+import { onAuthStateChanged } from "firebase/auth";
+import { signOut } from "firebase/auth";
+import { type User } from "firebase/auth";
 
-type User = {
+type UserType = {
+  userId: string;
   email: string;
   firstName: string;
   lastName: string;
@@ -27,36 +31,66 @@ type SignupType = {
   email: string;
   firstName: string;
   lastName: string;
-  password: string;
+  userId: string;
 };
 
 type AuthContextType = {
-  isAuth: boolean;
-  loading: boolean;
-  setIsAuth: React.Dispatch<React.SetStateAction<boolean>>;
-  removeCookies: () => void;
-  user: User | null;
+  isLoading: boolean;
+  user: UserType | null;
   handleSignup: (body: SignupType) => Promise<void>;
-  handleLogin: (email: string, password: string) => Promise<void>;
   handleLogOut: () => Promise<void>;
+  currentUser: User | null;
 };
 
 export const AuthContext = createContext<AuthContextType | null>(null);
 
 export const UseAuthContext = ({ children }: { children: ReactNode }) => {
-  const [, removeCookie] = useCookies(["token"]);
-  const [isAuth, setIsAuth] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState<UserType | null>(null);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      setCurrentUser(user);
+      setIsLoading(true);
+
+      if (user) {
+        try {
+          const response = await fetch(`${BASE_URL}/user`, {
+            method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${user.uid}`
+            }
+          });
+
+          if (response.ok) {
+            const userData = await response.json();
+            setUser(userData.user);
+          } else {
+            console.error("Failed to fetch user data");
+            setUser(null);
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+          setUser(null);
+        }
+      } else {
+        setUser(null);
+      }
+
+      setIsLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const handleSignup = async (body: SignupType) => {
     try {
       const res = await signup(body);
       if (res.ok) {
         const result = await res.json();
-        setIsAuth(true);
+        localStorage.setItem("token", result.newUser.userId)
         setUser(result.newUser);
-        console.log("signup successful");
       } else {
         console.error("Failed to signup");
       }
@@ -65,81 +99,23 @@ export const UseAuthContext = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const handleLogin = async (email: string, password: string) => {
-    try {
-      const res = await login({
-        email,
-        password,
-      });
-      if (res.ok) {
-        const result = await res.json();
-        setIsAuth(true);
-        setUser(result.user);
-        console.log("login successful");
-      } else {
-        console.error("Failed to login");
-      }
-    } catch (error) {
-      console.error("Error during login:", error);
-    }
-  };
-
   const handleLogOut = async () => {
     try {
-      const res = await logOut();
-      if (res.ok) {
-        removeCookies();
-      } else {
-        console.error("Failed to logout");
-      }
+      await signOut(auth);
+      setUser(null);
+      localStorage.removeItem("token");
     } catch (error) {
       console.error("Error during logout:", error);
     }
   };
 
-  const removeCookies = () => {
-    removeCookie("token", { path: "/" });
-    setIsAuth(false);
-    setUser(null);
-  };
-
-  useEffect(() => {
-    const verifyCookie = async () => {
-      try {
-        const res = await fetch(`${BASE_URL}/confirmToken`, {
-          method: "POST",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        const result = await res.json();
-        if (res.ok && result.status) {
-          setIsAuth(true);
-          setUser(result.user);
-        } else {
-          console.log("result___false =>", res);
-          removeCookies();
-        }
-      } catch (error) {
-        console.log("Error verifying token:", error);
-        removeCookies();
-      }
-      setLoading(false);
-    };
-    verifyCookie();
-  }, []);
-
   return (
     <AuthContext.Provider
       value={{
-        isAuth,
-        setIsAuth,
-        loading,
-        removeCookies,
+        isLoading,
+        currentUser,
         user,
         handleSignup,
-        handleLogin,
         handleLogOut,
       }}
     >

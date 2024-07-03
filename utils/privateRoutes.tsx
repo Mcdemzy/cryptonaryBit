@@ -4,9 +4,9 @@ import { ReactNode } from "react";
 import { Loader } from "lucide-react";
 
 const PrivateRoutes = ({ children }: { children: ReactNode }) => {
-  const { isAuth, loading } = useAuthContext();
+  const { currentUser, isLoading } = useAuthContext();
 
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="flex flex-col items-center">
@@ -17,7 +17,7 @@ const PrivateRoutes = ({ children }: { children: ReactNode }) => {
     );
   }
 
-  if (isAuth) {
+  if (currentUser) {
     return <>{children}</>;
   }
 

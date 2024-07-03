@@ -4,8 +4,10 @@ import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 import "./bitcoinwithdrawal.css";
 import { withdraw } from "../../../utils/services";
+import { useAuthContext } from "../../../context/authContext";
 
 const BitcoinWithdrawal = () => {
+  const { user } = useAuthContext();
   const [amount, setAmount] = useState("");
   const [externalWallet, setExternalWallet] = useState("");
   const [messageSent, setMessageSent] = useState(false);
@@ -27,6 +29,7 @@ const BitcoinWithdrawal = () => {
     status: "Pending",
     currency: "BTC",
     externalWallet,
+    userId: user?.userId
   }
 
   const handleWithdrawal = async () => {

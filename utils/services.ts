@@ -12,6 +12,7 @@ type withdrawal = {
   status: string;
   currency: string;
   externalWallet: string;
+  userId?: string;
 };
 
 type stake = {
@@ -22,18 +23,14 @@ type stake = {
   currency: string;
   externalWallet: string;
   duration: string;
+  userId?: string;
 };
 
 type signupType = {
   email: string;
   firstName: string;
   lastName: string;
-  password: string;
-};
-
-type signinType = {
-  email: string;
-  password: string;
+  userId: string;
 };
 
 export const signup = async (body: signupType): Promise<Response> => {
@@ -44,29 +41,6 @@ export const signup = async (body: signupType): Promise<Response> => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(body),
-  });
-  return res;
-};
-
-export const login = async (body: signinType): Promise<Response> => {
-  const res = await fetch(`${BASE_URL}/login`, {
-    method: "POST",
-    credentials: "include",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-  return res;
-};
-
-export const logOut = async () => {
-  const res = await fetch(`${BASE_URL}/logout`, {
-    method: "POST",
-    credentials: "include",
-    headers: {
-      "Content-Type": "application/json",
-    },
   });
   return res;
 };
@@ -83,10 +57,12 @@ export const deposit = async (body: Transactions): Promise<Response> => {
   return res;
 };
 
-export const getTransactions = async (): Promise<Response> => {
+export const getTransactions = async (body?: string): Promise<Response> => {
   const res = await fetch(`${BASE_URL}/getTransactions`, {
     method: "GET",
-    credentials: "include",
+    headers: {
+      'Authorization': `Bearer ${body}`
+    }
   });
   return res;
 };
