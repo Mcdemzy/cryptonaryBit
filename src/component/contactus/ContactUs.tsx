@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
+// import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
   const form = useRef<HTMLFormElement | null>(null);
@@ -8,25 +8,25 @@ const ContactUs = () => {
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (form.current) {
-      emailjs
-        .sendForm(
-          "service_02kdddd",
-          "template_l6hkpwc",
-          form.current,
-          "tgx-5mWF46g_gCmkw"
-        )
-        .then(
-          (result) => {
-            console.log(result.text);
-            setMessageSent(true);
-          },
-          (error) => {
-            console.log(error.text);
-          }
-        );
-      e.currentTarget.reset();
-    }
+    // if (form.current) {
+    //   emailjs
+    //     .sendForm(
+    //       "service_02kdddd",
+    //       "template_l6hkpwc",
+    //       form.current,
+    //       "tgx-5mWF46g_gCmkw"
+    //     )
+    //     .then(
+    //       (result) => {
+    //         console.log(result.text);
+    //         setMessageSent(true);
+    //       },
+    //       (error) => {
+    //         console.log(error.text);
+    //       }
+    //     );
+    //   e.currentTarget.reset();
+    // }
   };
 
   return (

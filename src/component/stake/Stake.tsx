@@ -4,8 +4,10 @@ import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 import "./stake.css";
 import { stake } from "../../../utils/services";
+import { useAuthContext } from "../../../context/authContext";
 
 const Stake = () => {
+  const { user } = useAuthContext();
   const location = useLocation();
   const { wallet } = location.state || {};
 
@@ -84,6 +86,7 @@ const Stake = () => {
       duration,
       externalWallet: "",
       estimatedAPY,
+      userId: user?.userId
     };
 
     try {

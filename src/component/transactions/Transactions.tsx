@@ -6,6 +6,7 @@ import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 import { getTransactions } from "../../../utils/services";
 import Header from "../header/Header";
+import { useAuthContext } from "../../../context/authContext";
 
 interface Transaction {
   date: string;
@@ -16,6 +17,7 @@ interface Transaction {
 }
 
 const Transactions = () => {
+  const { user } = useAuthContext();
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [filter, setFilter] = useState({
     type: "All transaction types",
@@ -28,7 +30,7 @@ const Transactions = () => {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const res = await getTransactions();
+        const res = await getTransactions(user?.userId);
         if (res.ok) {
           const transactionResponse = await res.json();
           setTransactions(transactionResponse);

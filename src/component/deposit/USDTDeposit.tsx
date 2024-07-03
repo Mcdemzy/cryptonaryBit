@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 import "./usdtdeposit.css";
-import { Transactions } from "./BTCDeposit";
+import { type Transactions } from "./BTCDeposit";
 import { deposit } from "../../../utils/services";
+import { useAuthContext } from "../../../context/authContext";
 
 const USDTDeposit = () => {
+  const { user } = useAuthContext();
   const [showAddress, setShowAddress] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const [depositAmount, setDepositAmount] = useState<string>("");
@@ -36,6 +38,7 @@ const USDTDeposit = () => {
       amount: parseFloat(depositAmount),
       status: "Pending",
       currency: "USDT",
+      userId: user?.userId
     };
     handleUsdtDeposit(details);
   };
