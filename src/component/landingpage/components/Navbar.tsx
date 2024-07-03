@@ -139,7 +139,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Link to="/login">
               <button className="text-[#0d141c] text-[1.125rem] font-[500] rounded-xl flex justify-center items-center p-3 m-[auto] bg-[#ffcc00] hover:bg-[#ffdd00] transition duration-300 ease-in-out">
-                SignIn
+                Sign In
               </button>
             </Link>
           </div>
@@ -260,7 +260,7 @@ const Navbar = () => {
           </Link>
           <Link to="/login">
             <div className="cursor-pointer w-[90%] text-[1.25rem] font-[500] rounded-xl flex justify-center items-center p-3 m-[auto] bg-[#ffcc00] hover:bg-[#ffdd00] transition duration-300 ease-in-out">
-              Sign in
+              Sign In
             </div>
           </Link>
         </div>
