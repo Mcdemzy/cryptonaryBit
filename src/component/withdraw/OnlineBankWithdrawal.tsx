@@ -62,7 +62,7 @@ const OnlineBankWithdrawal = () => {
                 type="text"
                 id="account"
                 className="form-control"
-                value="600154598"
+                value=""
                 readOnly
               />
               <span className="balance">0.00 USD</span>

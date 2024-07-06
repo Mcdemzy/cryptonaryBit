@@ -32,6 +32,7 @@ import USDTDeposit from "./component/deposit/USDTDeposit";
 import FixedEtf from "./component/etf/FixedEtf";
 import Swap from "./component/swap/Swap";
 import Buy from "./component/buy/Buy";
+import Order from "./component/order/Order";
 import ForgotPassword from "./component/forgotpassword/forgotPassword";
 import PrivateRoutes from "../utils/privateRoutes";
 // import Header from "./component/header/Header";
@@ -44,6 +45,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<LandingPage />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Signin />} />
+      <Route path="/order" element={<Order />} />
       <Route path="/forgotpassword" element={<ForgotPassword />} />
       <Route
         path="/dashboard"
