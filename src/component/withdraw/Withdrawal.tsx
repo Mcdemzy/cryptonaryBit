@@ -5,6 +5,7 @@ import CryptoIcon7 from "../../assets/crypto8.png";
 
 import Navbar from "../navbar/Navbar";
 import { Link } from "react-router-dom";
+import IntercomComponent from "../intercom/Intercom";
 
 const Withdrawal = () => {
   const paymentMethods = [
@@ -39,6 +40,7 @@ const Withdrawal = () => {
 
   return (
     <article>
+      <IntercomComponent />
       <section className="withdrawal-section">
         <h1 className="withdrawal-title">Withdrawal</h1>
         <p className="withdrawal-subtitle">All payment methods</p>

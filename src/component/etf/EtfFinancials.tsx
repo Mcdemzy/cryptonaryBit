@@ -3,10 +3,12 @@ import { IoIosInformationCircle } from "react-icons/io";
 import "./etf.css";
 import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
+import IntercomComponent from "../intercom/Intercom";
 
 const EtfFinancials = () => {
   return (
     <article>
+      <IntercomComponent />
       {/* Etf Financial Top Nav section */}
       <section className="about-etf__nav">
         <h1>Bitb</h1>

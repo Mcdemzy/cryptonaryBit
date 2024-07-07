@@ -4,6 +4,7 @@ import { IoIosInformationCircle } from "react-icons/io";
 import Bitcoin from "../../assets/bitcoin-wallet.png";
 import Navbar from "../navbar/Navbar";
 import "./etf.css";
+import IntercomComponent from "../intercom/Intercom";
 
 const EtfAbout = () => {
   const location = useLocation();
@@ -16,6 +17,7 @@ const EtfAbout = () => {
 
   return (
     <article className="">
+      <IntercomComponent />
       <section className="about-etf__nav ">
         <h1>{etf.symbol}</h1>
         <h2>{etf.name}</h2>

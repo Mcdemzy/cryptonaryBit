@@ -13,6 +13,7 @@ import EtfImg10 from "../../assets/EtfImg10.webp";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 import Header from "../header/Header";
+import IntercomComponent from "../intercom/Intercom";
 
 interface Etf {
   img: string;
@@ -92,6 +93,7 @@ const Etf = () => {
 
   return (
     <article className="pb-[40px]">
+      <IntercomComponent />
       <Header />
       <Navbar />
       <section className="etf__page pt-[80px]">

@@ -6,10 +6,12 @@ import Subscription from "./components/Subscription";
 import FAQ from "./components/FAQ";
 import Review from "./components/Review";
 import { Link } from "react-router-dom";
+import IntercomComponent from "../intercom/Intercom";
 
 const LandingPage = () => {
   return (
     <>
+      <IntercomComponent />
       <article className="landing__page">
         <Navbar />
         <section className="banner__section">

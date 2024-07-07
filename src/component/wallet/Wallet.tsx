@@ -22,6 +22,7 @@ import Footer from "../footer/Footer";
 
 import { useAuthContext } from "../../../context/authContext";
 import Header from "../header/Header";
+import IntercomComponent from "../intercom/Intercom";
 
 // Conversion rates for demonstration purposes
 const conversionRates: { [key in "USD" | "EUR" | "GBP"]: number } = {
@@ -174,6 +175,7 @@ const Wallet = () => {
 
   return (
     <>
+      <IntercomComponent />
       <section className="wallet__component pt-[100px]">
         <Header />
 

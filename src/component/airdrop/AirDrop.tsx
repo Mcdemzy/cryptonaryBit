@@ -1,3 +1,4 @@
+import IntercomComponent from "../intercom/Intercom";
 import FAQ from "../landingpage/components/FAQ";
 import Footer from "../landingpage/components/Footer";
 import Navbar from "../landingpage/components/Navbar";
@@ -6,6 +7,7 @@ import Subscription from "../landingpage/components/Subscription";
 const AirDrop = () => {
   return (
     <>
+      <IntercomComponent />
       <Navbar />
       {/* Section hero */}
       <section className="mb-10 lg:mb-0 w-full lg:h-[500px] gap-y-8 border flex flex-col lg:flex-row justify-between items-center md:p-20">

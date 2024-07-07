@@ -5,6 +5,7 @@ import { useAuthContext } from "../../../context/authContext";
 // import { useAuthContext } from "../../../context/authContext";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase/firebase-config";
+import IntercomComponent from "../intercom/Intercom";
 
 // interface SignupResponse {
 //   ok: boolean;
@@ -54,7 +55,11 @@ const Signup = () => {
 
     try {
       setLoading(true);
-      const { user } = await createUserWithEmailAndPassword(auth, email, password);
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       await handleSignup({
         email,
         firstName,
@@ -73,6 +78,7 @@ const Signup = () => {
 
   return (
     <section className="bg-[#0d141c] text-[#ffffff] min-h-screen p-5 pt-10 flex flex-col items-center justify-center">
+      <IntercomComponent />
       <h1 className="font-serif text-5xl italic font-normal text-[#ffcc00] mt-10 mb-3">
         CryptonaryBit
       </h1>

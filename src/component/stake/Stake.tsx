@@ -5,6 +5,7 @@ import Footer from "../footer/Footer";
 import "./stake.css";
 import { stake } from "../../../utils/services";
 import { useAuthContext } from "../../../context/authContext";
+import IntercomComponent from "../intercom/Intercom";
 
 const Stake = () => {
   const { user } = useAuthContext();
@@ -21,20 +22,23 @@ const Stake = () => {
 
   if (!wallet) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
-        <p className="text-lg font-bold mb-4">
-          No wallet selected for staking.
-        </p>
-        <p className="text-gray-400 mb-4 text-center">
-          Go to the wallet page and select a wallet to stake.
-        </p>
-        <Link
-          to="/wallet"
-          className="bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-600 transition-all"
-        >
-          Go to Wallet Page
-        </Link>
-      </div>
+      <>
+        <IntercomComponent />
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+          <p className="text-lg font-bold mb-4">
+            No wallet selected for staking.
+          </p>
+          <p className="text-gray-400 mb-4 text-center">
+            Go to the wallet page and select a wallet to stake.
+          </p>
+          <Link
+            to="/wallet"
+            className="bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-600 transition-all"
+          >
+            Go to Wallet Page
+          </Link>
+        </div>
+      </>
     );
   }
 
@@ -86,7 +90,7 @@ const Stake = () => {
       duration,
       externalWallet: "",
       estimatedAPY,
-      userId: user?.userId
+      userId: user?.userId,
     };
 
     try {
@@ -135,6 +139,7 @@ const Stake = () => {
 
   return (
     <article>
+      <IntercomComponent />
       <div className="staking-page">
         <div className="stake-container">
           <div className="stats-container">

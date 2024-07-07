@@ -17,10 +17,12 @@ import MarketChart from "../chart/MarketChart";
 import Navbar from "../navbar/Navbar";
 import AccountBalance from "./components/AccountBalance";
 import Header from "../header/Header";
+import IntercomComponent from "../intercom/Intercom";
 
 const Dashboard = () => {
   return (
     <>
+      <IntercomComponent />
       <section className="dashboard__container">
         <Header />
 

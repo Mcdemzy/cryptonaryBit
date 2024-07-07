@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import IntercomComponent from "../intercom/Intercom";
 // import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
@@ -31,6 +32,7 @@ const ContactUs = () => {
 
   return (
     <>
+      <IntercomComponent />
       <section className="bg-gray-900 h-full">
         <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-primary">

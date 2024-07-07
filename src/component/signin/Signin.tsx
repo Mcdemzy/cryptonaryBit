@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 // import { login } from "../../../utils/services";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase/firebase-config";
+import IntercomComponent from "../intercom/Intercom";
 
 // interface LoginResponse {
 //   ok: boolean;
@@ -65,6 +66,7 @@ const Signin = () => {
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center bg-[#0d141c] text-[#ffffff] p-5 pt-10">
+      <IntercomComponent />
       <div className="text-center mb-20">
         <h1 className="font-serif text-5xl italic font-normal text-[#ffcc00] mt-10 mb-3">
           CryptonaryBit
@@ -98,7 +100,10 @@ const Signin = () => {
             className="w-full h-16 bg-[#060d17] p-3 rounded-lg text-[#ffffff] mb-5 outline-none border border-[#a5a5a5]"
           />
         </div>
-        <a href="/forgotpassword" className="block text-right text-[#ffcc00] mb-5">
+        <a
+          href="/forgotpassword"
+          className="block text-right text-[#ffcc00] mb-5"
+        >
           Forgot Password?
         </a>
         <button

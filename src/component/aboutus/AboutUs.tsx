@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import Footer from "../landingpage/components/Footer";
 import Navbar from "../landingpage/components/Navbar";
+import IntercomComponent from "../intercom/Intercom";
 
 const AboutUs = () => {
   return (
     <>
+      <IntercomComponent />
       <Navbar />
       {/* Section why choose us */}
       <section
