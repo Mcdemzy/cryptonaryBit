@@ -1,11 +1,15 @@
-import { useState, FormEvent, ChangeEvent } from "react";
+import { useState, useRef } from "react";
 import { useLocation, Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
-import "./stake.css";
 import { stake } from "../../../utils/services";
 import { useAuthContext } from "../../../context/authContext";
 import IntercomComponent from "../intercom/Intercom";
+import { MdClose } from "react-icons/md";
+import QRCode from "../../assets/qr-code.png";
+import { toPng } from "html-to-image";
+import { MdDownloadForOffline } from "react-icons/md";
+import "./stake.css";
 
 const Stake = () => {
   const { user } = useAuthContext();
@@ -18,7 +22,8 @@ const Stake = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
-  const [popupMessage, setPopupMessage] = useState("");
+
+  const popupRef = useRef(null);
 
   if (!wallet) {
     return (
@@ -42,7 +47,16 @@ const Stake = () => {
     );
   }
 
-  const handleStake = async (e: FormEvent<HTMLFormElement>) => {
+  const calculateReturn = () => {
+    if (!amount || !estimatedAPY || !duration) return 0;
+
+    const amountValue = parseFloat(amount);
+    const returnValue = amountValue * estimatedAPY;
+
+    return returnValue.toFixed(2);
+  };
+
+  const handleStake = async (e: any) => {
     e.preventDefault();
 
     const amountValue = parseFloat(amount);
@@ -98,7 +112,6 @@ const Stake = () => {
       if (res.ok) {
         setIsLoading(false);
         setMessageSent(true);
-        setPopupMessage(`Staked ${amount} ${wallet.symbol} for ${duration}`);
       } else {
         setError("Staking failed. Please try again.");
         setIsLoading(false);
@@ -110,7 +123,7 @@ const Stake = () => {
     }
   };
 
-  const handleDurationChange = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleDurationChange = (e: any) => {
     const selectedDuration = e.target.value;
     setDuration(selectedDuration);
 
@@ -135,6 +148,26 @@ const Stake = () => {
         apy = 0;
     }
     setEstimatedAPY(apy);
+  };
+
+  const closePopup = () => {
+    setMessageSent(false);
+  };
+
+  const handleDownloadImage = async () => {
+    if (popupRef.current) {
+      try {
+        const dataUrl = await toPng(popupRef.current);
+        const link = document.createElement("a");
+        link.href = dataUrl;
+        link.download = "stake-details.png";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch (error) {
+        console.error("Failed to generate image", error);
+      }
+    }
   };
 
   return (
@@ -222,7 +255,7 @@ const Stake = () => {
               </div>
               <div className="info-group">
                 <p>Est APY</p>
-                <p className=" text-green-500">{estimatedAPY}%</p>
+                <p className="text-green-500">{estimatedAPY}%</p>
               </div>
               <div className="info-group">
                 <p>Available Balance</p>
@@ -246,11 +279,72 @@ const Stake = () => {
         </div>
         <Footer />
 
-        {/* Display popup when message is sent */}
         {messageSent && (
-          <div className="popup">
-            <p>{popupMessage}</p>
-            <button onClick={() => setMessageSent(false)}>Close</button>
+          <div className="fixed inset-0 flex p-2 justify-center bg-black bg-opacity-50 z-50">
+            <article
+              className="flex flex-col items-center px-4 md:px-0"
+              ref={popupRef}
+            >
+              <section className="bg-gray-800 w-full md:w-[480px] p-4 rounded-lg">
+                <div className="flex justify-between items-center text-white mb-5 pb-3 border-b-2 border-solid border-gray-700">
+                  <p className="text-xl">CBIT Stake</p>
+                  <MdClose
+                    className="text-2xl cursor-pointer"
+                    onClick={closePopup}
+                  />
+                </div>
+                <div>
+                  <h1 className="text-2xl text-yellow-400 mb-8 font-bold">
+                    CryptonaryBit
+                  </h1>
+                  <div className="flex justify-between gap-2 w-full mb-6">
+                    <p className="text-3xl font-bold text-white">
+                      {wallet.name}
+                    </p>
+                    {/* <span className="bg-green-600 p-1 rounded text-xs absolute top-0 right-0">
+                      Stake
+                    </span> */}
+                    <button
+                      onClick={handleDownloadImage}
+                      className="bg-green-700 text-white text-2xl px-4 py-2 rounded-lg hover:bg-green-600 transition-all"
+                    >
+                      <MdDownloadForOffline />
+                    </button>
+                  </div>
+                  <div>
+                    <span className="text-gray-400 font-medium text-lg">
+                      Return
+                    </span>
+                    <h1 className="mt-1 text-4xl font-bold text-green-500">
+                      {calculateReturn()} {wallet.symbol}
+                    </h1>
+                  </div>
+                  <div className="mt-2">
+                    <span className="text-gray-400">Duration</span>
+                    <p className="text-2xl text-white">{duration}</p>
+                  </div>
+                  <div className="mt-4">
+                    <span className="text-gray-400"> Stake Entry</span>
+                    <p className="text-2xl text-white">${amount}</p>
+                  </div>
+                  <div className="mt-2">
+                    <span className="text-gray-400"> Stake Percentage</span>
+                    <p className="text-2xl text-white">{estimatedAPY}%</p>
+                  </div>
+                </div>
+              </section>
+              <div className="bg-white w-full md:w-[480px] rounded-bl-2xl rounded-br-2xl flex justify-between p-4 mt-2 text-black">
+                <div>
+                  <p className="text-lg font-medium">
+                    Join and claim over $5,000 <br /> in bonuses!
+                  </p>
+                  <h1 className="text-xl font-semibold">
+                    Referral Code: 0EWW6N
+                  </h1>
+                </div>
+                <img src={QRCode} className="w-20 h-20" alt="QR Code" />
+              </div>
+            </article>
           </div>
         )}
       </div>
