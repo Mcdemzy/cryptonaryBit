@@ -51,7 +51,31 @@ const Stake = () => {
     if (!amount || !estimatedAPY || !duration) return 0;
 
     const amountValue = parseFloat(amount);
-    const returnValue = amountValue * estimatedAPY;
+    let durationInDays;
+
+    switch (duration) {
+      case "7 days":
+        durationInDays = 7;
+        break;
+      case "2 weeks":
+        durationInDays = 14;
+        break;
+      case "1 month":
+        durationInDays = 30;
+        break;
+      case "3 months":
+        durationInDays = 90;
+        break;
+      case "6 months":
+        durationInDays = 180;
+        break;
+      default:
+        durationInDays = 0;
+    }
+
+    if (durationInDays === 0) return 0;
+
+    const returnValue = (amountValue * estimatedAPY) / durationInDays;
 
     return returnValue.toFixed(2);
   };
