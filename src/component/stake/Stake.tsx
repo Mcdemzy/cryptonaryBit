@@ -96,9 +96,7 @@ const Stake = () => {
     }
 
     if (amountValue < wallet.minimum) {
-      setError(
-        `The amount must be at least ${wallet.minimum} ${wallet.symbol}.`
-      );
+      setError(`The amount must be at least ${wallet.minimum} USD.`);
       return;
     }
 
@@ -273,7 +271,7 @@ const Stake = () => {
               {error && <p className="text-red-500">{error}</p>}
               <div className="info-group">
                 <p>Minimum</p>
-                <p>{wallet.minimum} $</p>
+                <p>{wallet.minimum} USD</p>
               </div>
               <div className="info-group">
                 <p>Est APY</p>
@@ -338,7 +336,7 @@ const Stake = () => {
                       Return
                     </span>
                     <h1 className="mt-1 text-4xl font-bold text-green-500">
-                      {calculateReturn()} $
+                      {calculateReturn()} USD
                     </h1>
                   </div>
                   <div className="mt-2">

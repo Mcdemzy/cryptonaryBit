@@ -121,7 +121,7 @@ const Wallet = () => {
       symbol: "BCH",
       approxValue: user?.bch || 0.0,
       canStake: true,
-      minimum: 0.5,
+      minimum: 100,
     },
     {
       icon: CryptoIcon2,
@@ -129,7 +129,7 @@ const Wallet = () => {
       symbol: "BNB",
       approxValue: user?.bnb || 0.0,
       canStake: true,
-      minimum: 0.3,
+      minimum: 100,
     },
     {
       icon: CryptoIcon3,
@@ -137,7 +137,7 @@ const Wallet = () => {
       symbol: "BTC",
       approxValue: user?.btc || 0.0,
       canStake: true,
-      minimum: 0.004,
+      minimum: 100,
     },
     {
       icon: CryptoIcon4,
@@ -145,7 +145,7 @@ const Wallet = () => {
       symbol: "ETH",
       approxValue: user?.eth || 0.0,
       canStake: true,
-      minimum: 0.06,
+      minimum: 100,
     },
     {
       icon: CryptoIcon5,
@@ -153,7 +153,7 @@ const Wallet = () => {
       symbol: "SOL",
       approxValue: user?.sol || 0.0,
       canStake: true,
-      minimum: 1.5,
+      minimum: 100,
     },
     {
       icon: CryptoIcon6,
@@ -161,7 +161,7 @@ const Wallet = () => {
       symbol: "TRX",
       approxValue: user?.trx || 0.0,
       canStake: true,
-      minimum: 2000,
+      minimum: 100,
     },
     {
       icon: CryptoIcon7,
@@ -169,7 +169,7 @@ const Wallet = () => {
       symbol: "USDT",
       approxValue: user?.usdt || 0.0,
       canStake: true,
-      minimum: 250,
+      minimum: 100,
     },
   ];
 
