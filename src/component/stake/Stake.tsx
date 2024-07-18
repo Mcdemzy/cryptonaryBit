@@ -273,9 +273,7 @@ const Stake = () => {
               {error && <p className="text-red-500">{error}</p>}
               <div className="info-group">
                 <p>Minimum</p>
-                <p>
-                  {wallet.minimum} {wallet.symbol}
-                </p>
+                <p>{wallet.minimum} $</p>
               </div>
               <div className="info-group">
                 <p>Est APY</p>
@@ -340,7 +338,7 @@ const Stake = () => {
                       Return
                     </span>
                     <h1 className="mt-1 text-4xl font-bold text-green-500">
-                      {calculateReturn()} {wallet.symbol}
+                      {calculateReturn()} $
                     </h1>
                   </div>
                   <div className="mt-2">
