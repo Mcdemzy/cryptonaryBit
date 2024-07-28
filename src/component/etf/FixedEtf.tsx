@@ -79,19 +79,19 @@ const FixedEtf = () => {
     let apy;
     switch (selectedDuration) {
       case "7 days":
-        apy = 250;
+        apy = 150;
         break;
       case "2 weeks":
-        apy = 750;
+        apy = 300;
         break;
       case "1 month":
-        apy = 1000;
+        apy = 600;
         break;
       case "3 months":
-        apy = 3000;
+        apy = 1800;
         break;
       case "6 months":
-        apy = 6000;
+        apy = 3600;
         break;
       default:
         apy = 0;
