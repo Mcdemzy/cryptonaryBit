@@ -54,6 +54,9 @@ const Stake = () => {
     let durationInDays;
 
     switch (duration) {
+      case "3 days":
+        durationInDays = 3;
+        break;
       case "7 days":
         durationInDays = 7;
         break;
