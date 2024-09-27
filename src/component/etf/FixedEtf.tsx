@@ -78,6 +78,9 @@ const FixedEtf = () => {
 
     let apy;
     switch (selectedDuration) {
+      case "3 days":
+        apy = 75;
+        break;
       case "7 days":
         apy = 150;
         break;
@@ -150,6 +153,7 @@ const FixedEtf = () => {
                   <option value="" disabled>
                     Select duration
                   </option>
+                  <option value="3 days">3 days</option>
                   <option value="7 days">7 days</option>
                   <option value="2 weeks">2 weeks</option>
                   <option value="1 month">1 month</option>
